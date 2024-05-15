@@ -1,10 +1,15 @@
 <template>
-    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">Final Project</div>
+    <div>
+        <Nav/>
+        <router-view></router-view>
+        <Footer/>
+    </div>
 </template>
 
 
 <script setup>
-
+    import Nav from './components/Nav.vue'
+    import Footer from './components/Footer.vue'
 </script>
 
 

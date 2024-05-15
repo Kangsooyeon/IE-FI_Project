@@ -1,5 +1,5 @@
 <template>
-    <div></div>
+    <div>QuickMenu</div>
 </template>
 
 

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'exchangerate',
+    'news',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',

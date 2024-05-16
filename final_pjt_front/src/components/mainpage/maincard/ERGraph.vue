@@ -1,5 +1,7 @@
 <template>
-    <div>ERGraph</div>
+    <div class="ERG-container">
+
+    </div>
 </template>
 
 
@@ -9,5 +11,10 @@
 
 
 <style scoped>
-
+.ERG-container{
+    border: 2px solid black;
+    border-radius:10px;
+    width: 380px;
+    height: 320px;
+}
 </style>

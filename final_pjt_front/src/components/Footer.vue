@@ -1,6 +1,6 @@
 <template>
     <footer class="footer my-4">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <ul class="footer-nav nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Products</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Exchange</a></li>
@@ -22,13 +22,18 @@
 
 
 <style scoped>
-    footer {
+    /* footer {
         position : absolute;
         top : 100%;
         width: 100%;
-    }
+    } */
     .small-size {
         font-size: 0.8rem;
         
+    }
+    @media (max-width: 650px) {
+        .footer-nav {
+            display: none;
+        }
     }
 </style>

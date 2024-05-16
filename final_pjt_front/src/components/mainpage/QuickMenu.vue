@@ -1,6 +1,6 @@
 <template>
     <div class="quick-menu">
-        <div class="quick-menu-container d-flex flex-row my-5">	
+        <div class="quick-menu-container d-flex flex-row my-5 mb-0">	
             <h4 class="mt-2">빠른메뉴</h4>
             <ul class="quick-menu-list d-flex flex-row">
                 <li class="quick-menu-item"><a href=""><div><img src="https://www.wooribank.com/img/common/etc/bg_btn/icon_set_011.png" alt="예금·적금"><p>예금·적금</p></div></a></li>

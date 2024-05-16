@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <div class="d-flex flex-row my-5">	
-            <h2>빠른 메뉴</h2>
+    <div class="quick-menu">
+        <div class="quick-menu-container d-flex flex-row my-5">	
+            <h4 class="mt-2">빠른메뉴</h4>
             <ul class="quick-menu-list d-flex flex-row">
                 <li class="quick-menu-item"><a href=""><div><img src="https://www.wooribank.com/img/common/etc/bg_btn/icon_set_011.png" alt="예금·적금"><p>예금·적금</p></div></a></li>
                 <li class="quick-menu-item"><a href=""><div><img src="https://www.wooribank.com/img/common/etc/bg_btn/icon_set_022.png" alt="추천상품"><p>추천상품</p></div></a></li>
@@ -11,7 +11,8 @@
                 <li class="quick-menu-item"><a href=""><div><img src="https://www.wooribank.com/img/common/etc/bg_btn/icon_set_088.png" alt="QnA"><p>QnA</p></div></a></li>
             </ul>
         </div>
-    </div> 
+    </div>
+
 </template>
 
 
@@ -30,5 +31,9 @@
     color: rgb(0, 0, 0);
     margin: 0 10px;
 }
-
+@media (max-width: 650px) {
+        .quick-menu {
+            display: none;
+        }
+    }
 </style>

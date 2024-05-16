@@ -8,7 +8,10 @@
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Community</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">QnA</a></li>
         </ul>
-        <p class="text-center text-muted">&copy; 2024 SSAFY Busan&Ulsan Campus class2</p>
+        <p class="text-center text-muted small-size">&copy; 2024 SSAFY Busan&Ulsan Campus class2</p>
+        <p class="text-center text-muted small-size"> 
+            <a href="https://www.flaticon.com/kr/free-icons/-" title="- 아이콘">아이콘 제작자: kerismaker - Flaticon</a>
+        </p>
     </footer>
 </template>
 
@@ -23,5 +26,9 @@
         position : absolute;
         top : 100%;
         width: 100%;
+    }
+    .small-size {
+        font-size: 0.8rem;
+        
     }
 </style>

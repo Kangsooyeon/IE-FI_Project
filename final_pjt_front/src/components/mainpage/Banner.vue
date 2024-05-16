@@ -43,12 +43,14 @@
     max-height: 500px;
     max-width: 980px;
     border-radius: 5px;
+    box-shadow: 3px 3px 3px 3px #E1F8FC;
 }
 .carousel-indicators li {
     list-style: none;
 }
 .carousel-item img {
     border-radius: 5px;
+    
 }
 
 </style>

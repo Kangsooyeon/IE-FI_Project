@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="start">
         <Nav/>
         <router-view></router-view>
         <Footer/>
@@ -14,5 +14,11 @@
 
 
 <style scoped>
-
+/* .start{
+    height: 2000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 580px;
+} */
 </style>

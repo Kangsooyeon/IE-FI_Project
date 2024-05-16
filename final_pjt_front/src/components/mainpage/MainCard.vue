@@ -1,7 +1,7 @@
 <template>
     <div class="main-card-container">
-        <TRProduct class="main-card-item my-5"/>
-        <ERGraph class="main-card-item"/>
+        <TRProduct class="main-card-item my-3"/>
+        <ERGraph class="main-card-item my-3"/>
     </div>
 </template>
 
@@ -17,6 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    min-width: 395px;
 }
 
 @media (max-width: 991px) {

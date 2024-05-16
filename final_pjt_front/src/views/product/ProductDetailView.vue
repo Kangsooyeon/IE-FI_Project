@@ -1,6 +1,6 @@
 <template>
   <div>
-    SavingList
+    Product Detail
   </div>
 </template>
 

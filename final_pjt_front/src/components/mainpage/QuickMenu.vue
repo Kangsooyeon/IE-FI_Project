@@ -3,12 +3,11 @@
         <div class="quick-menu-container d-flex flex-row my-5 mb-0">	
             <h4 class="mt-2">빠른메뉴</h4>
             <ul class="quick-menu-list d-flex flex-row">
-                <li class="quick-menu-item"><a href=""><div><img src="https://www.wooribank.com/img/common/etc/bg_btn/icon_set_011.png" alt="예금·적금"><p>예금·적금</p></div></a></li>
-                <li class="quick-menu-item"><a href=""><div><img src="https://www.wooribank.com/img/common/etc/bg_btn/icon_set_022.png" alt="추천상품"><p>추천상품</p></div></a></li>
-                <li class="quick-menu-item"><a href=""><div><img src="https://www.wooribank.com/img/common/etc/bg_btn/icon_set_033.png" alt="은행찾기"><p>은행찾기</p></div></a></li>	
-                <li class="quick-menu-item"><a href=""><div><img src="https://www.wooribank.com/img/common/etc/bg_btn/icon_set_044.png" alt="환율계산"><p>환율계산</p></div></a></li>
-                <li class="quick-menu-item"><a href=""><div><img src="https://www.wooribank.com/img/common/etc/bg_btn/icon_set_055.png" alt="커뮤니티"><p>커뮤니티</p></div></a></li>
-                <li class="quick-menu-item"><a href=""><div><img src="https://www.wooribank.com/img/common/etc/bg_btn/icon_set_088.png" alt="QnA"><p>QnA</p></div></a></li>
+                <li @click="goProduct" class="quick-menu-item"><div class="d-flex flex-column align-items-center"><img src="@/assets/quickmenu/product1.png" width="50" alt="예금·적금"><p>예금·적금</p></div></li>
+                <li @click="goHome" class="quick-menu-item"><div class="d-flex flex-column align-items-center"><img src="@/assets/quickmenu/rec1.png" width="50" alt="추천상품"><p>추천상품</p></div></li>
+                <li @click="goExchange" class="quick-menu-item"><div class="d-flex flex-column align-items-center"><img src="@/assets/quickmenu/bank1.png" width="50" alt="은행찾기"><p>은행찾기</p></div></li>	
+                <li @click="goFindBank" class="quick-menu-item"><div class="d-flex flex-column align-items-center"><img src="@/assets/quickmenu/ER1.png" width="50" alt="환율계산"><p>환율계산</p></div></li>
+                <li @click="goCommunity" class="quick-menu-item"><div class="d-flex flex-column align-items-center"><img src="@/assets/quickmenu/article1.png" width="50" alt="커뮤니티"><p>커뮤니티</p></div></li>
             </ul>
         </div>
     </div>
@@ -17,7 +16,24 @@
 
 
 <script setup>
+    import { useRouter } from 'vue-router';
+    const router = useRouter();
 
+    const goHome = () => {
+        router.push('/');
+    }
+    const goProduct = () => {
+        router.push('/product');
+    }
+    const goExchange = () => {
+        router.push('/er');
+    }
+    const goFindBank = () => {
+        router.push('/map');
+    }
+    const goCommunity = () => {
+        router.push('/article');
+    }
 </script>
 
 
@@ -26,6 +42,8 @@
     list-style: none;
 }
 .quick-menu-item{
+    width: 78px;
+    height: 100px;
     background: transparent;
     border-radius: 50%;
     color: rgb(0, 0, 0);
@@ -35,5 +53,12 @@
         .quick-menu {
             display: none;
         }
-    }
+}
+.quick-menu-item img {
+    transition: width 0.3s ease-in-out;
+}
+
+.quick-menu-item:hover img {
+    width: 60px;
+}
 </style>

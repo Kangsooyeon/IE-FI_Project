@@ -12,8 +12,8 @@
 
 <style scoped>
 .ERG-container{
-    border: 2px solid black;
-    border-radius:10px;
+    box-shadow: 0 0 2px 2px #9cc5fd;
+    border-radius:2px;
     width: 380px;
     height: 320px;
 }

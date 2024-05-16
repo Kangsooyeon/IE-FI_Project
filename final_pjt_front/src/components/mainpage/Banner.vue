@@ -42,14 +42,14 @@
 .carousel-inner {
     max-height: 500px;
     max-width: 980px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     /* box-shadow: 0 0 3px 3px #E1F8FC; */
 }
 .carousel-indicators li {
     list-style: none;
 }
 .carousel-item img {
-    border-radius: 4px;
+    /* border-radius: 4px; */
     
 }
 

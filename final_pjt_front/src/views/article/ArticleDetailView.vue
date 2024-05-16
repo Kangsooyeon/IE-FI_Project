@@ -1,6 +1,6 @@
 <template>
   <div>
-    SavingList
+    ArticleDetailView 
   </div>
 </template>
 

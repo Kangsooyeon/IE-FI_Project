@@ -1,12 +1,12 @@
 <template>
-    <div></div>
+  <div>
+    ArticleList
+  </div>
 </template>
-
 
 <script setup>
 
 </script>
-
 
 <style scoped>
 

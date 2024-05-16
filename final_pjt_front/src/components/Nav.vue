@@ -1,30 +1,27 @@
 <template>
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container d-flex justify-content-center">
-                <a class="navbar-brand logo" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></a>
+            <div class="container">
+                <a class="navbar-brand logo" @click="goHome" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></a>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <a class="navbar-brand btn custom-btn login-btn mr-3" href="#">로그인</a>
-                    <a class="navbar-brand btn custom-btn register-btn" href="#">회원가입</a>
+                    <a @click="goLogin" class="navbar-brand btn custom-btn login-btn mr-3" href="#">로그인</a>
+                    <a @click="goRegister" class="navbar-brand btn custom-btn register-btn" href="#">회원가입</a>
                 </div>
 
                 <!-- Nav링크 -->
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse ms-auto" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
+                        <li @click="goProduct" class="nav-item">
                             <a class="nav-link text-dark" href="#">상품조회</a>
                         </li>
-                        <li class="nav-item">
+                        <li @click="goExchange" class="nav-item">
                             <a class="nav-link text-dark" href="#">환율계산</a>
                         </li>
-                        <li class="nav-item">
+                        <li @click="goFindBank" class="nav-item">
                             <a class="nav-link text-dark" href="#">은행지도</a>
                         </li>
-                        <li class="nav-item">
+                        <li @click="goCommunity" class="nav-item">
                             <a class="nav-link text-dark" href="#">커뮤니티</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="#">QnA</a>
                         </li>
                     </ul>
                 </div>
@@ -35,29 +32,26 @@
                 </button>
 
                 <!-- 햄버거 메뉴 -->
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <a class="navbar-brand logo" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></a>
+                <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header d-lg-none">
+                        <a @click="goHome" class="navbar-brand logo" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></a>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body d-lg-none">
-                        <a class="navbar-brand btn custom-btn login-btn mr-3 mb-1" href="#">로그인</a>
-                        <a class="navbar-brand btn custom-btn register-btn mb-3" href="#">회원가입</a>
+                        <a @click="goLogin" class="navbar-brand btn custom-btn login-btn mr-3 mb-1" href="#">로그인</a>
+                        <a @click="goRegister" class="navbar-brand btn custom-btn register-btn mb-3" href="#">회원가입</a>
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
+                            <li @click="goProduct" class="nav-item">
                                 <a class="nav-link text-dark" href="#">상품조회</a>
                             </li>
-                            <li class="nav-item">
+                            <li @click="goExchange" class="nav-item">
                                 <a class="nav-link text-dark" href="#">환율계산</a>
                             </li>
-                            <li class="nav-item">
+                            <li @click="goFindBank" class="nav-item">
                                 <a class="nav-link text-dark" href="#">은행지도</a>
                             </li>
-                            <li class="nav-item">
+                            <li @click="goCommunity" class="nav-item">
                                 <a class="nav-link text-dark" href="#">커뮤니티</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">QnA</a>
                             </li>
                         </ul>
                     </div>
@@ -71,7 +65,30 @@
 </template>
 
 <script setup>
+    import { useRouter } from 'vue-router';
+    const router = useRouter();
 
+    const goHome = () => {
+        router.push('/');
+    }
+    const goLogin = () => {
+        router.push('/login');
+    }
+    const goRegister = () => {
+        router.push('/signup');
+    }
+    const goProduct = () => {
+        router.push('/product');
+    }
+    const goExchange = () => {
+        router.push('/er');
+    }
+    const goFindBank = () => {
+        router.push('/map');
+    }
+    const goCommunity = () => {
+        router.push('/article');
+    }
 </script>
 
 <style scoped>
@@ -102,11 +119,11 @@
 .login-btn {
     background-color: white;
     color: black;
-    border: 1px solid #9cc5fd;
+    border: 1px solid #0082cd;
 }
 
 .register-btn {
-    background-color: #9cc5fd;
+    background-color: #0082cd;
     color: white;
 }
 .nav-link {
@@ -115,8 +132,10 @@
 }
 @media (max-width: 992px) {
     .navbar-brand.logo {
-        margin-right: 16rem;
+        margin-right: auto;
     }
 }
-
+.nav-link:hover {
+    text-decoration: underline;
+}
 </style>

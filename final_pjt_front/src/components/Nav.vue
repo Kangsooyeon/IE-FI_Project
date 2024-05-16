@@ -37,16 +37,27 @@
                 <!-- 햄버거 메뉴 -->
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                        <a class="navbar-brand logo" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></a>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body d-lg-none">
+                        <a class="navbar-brand btn custom-btn login-btn mr-3 mb-1" href="#">로그인</a>
+                        <a class="navbar-brand btn custom-btn register-btn mb-3" href="#">회원가입</a>
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link text-dark" href="#">상품조회</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
+                                <a class="nav-link text-dark" href="#">환율계산</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">은행지도</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">커뮤니티</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">QnA</a>
                             </li>
                         </ul>
                     </div>
@@ -81,6 +92,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 74.2px;
 }
 
 .logo {

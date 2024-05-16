@@ -1,5 +1,15 @@
 <template>
-    <div>Footer</div>
+    <footer class="footer my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Products</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Exchange</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FindBank</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Community</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">QnA</a></li>
+        </ul>
+        <p class="text-center text-muted">&copy; 2024 SSAFY Busan&Ulsan Campus class2</p>
+    </footer>
 </template>
 
 
@@ -9,5 +19,9 @@
 
 
 <style scoped>
-
+    footer {
+        position : absolute;
+        top : 100%;
+        width: 100%;
+    }
 </style>

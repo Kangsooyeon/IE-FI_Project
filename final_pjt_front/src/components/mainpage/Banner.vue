@@ -1,5 +1,5 @@
 <template>
-    <div class="carousel-container">
+    <div class="carousel-container mx-5">
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>

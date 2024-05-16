@@ -1,12 +1,17 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import axios from 'axios'
 
 export const useProjectStore = defineStore('project', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+  // TopRateCard
+  const topRateDeposit = ref([])
+  const getTRDeposit = function () {
+    axios({
+      method: 'get',
+      url:'http://127.0.0.1:8000/products/deposit-products/top_rate/',
+    }).then((res) => {
+      console.log(res.data);
+    })
   }
-
-  return { count, doubleCount, increment }
+  return {topRateDeposit, getTRDeposit}
 })

@@ -1,0 +1,232 @@
+[
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 1,
+    "fields": {
+        "cur_unit": "AED",
+        "ttb": 368.99,
+        "tts": 376.44,
+        "cur_nm": "아랍에미리트 디르함"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 2,
+    "fields": {
+        "cur_unit": "AUD",
+        "ttb": 907.58,
+        "tts": 925.91,
+        "cur_nm": "호주 달러"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 3,
+    "fields": {
+        "cur_unit": "BHD",
+        "ttb": 3595.08,
+        "tts": 3667.71,
+        "cur_nm": "바레인 디나르"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 4,
+    "fields": {
+        "cur_unit": "BND",
+        "ttb": 1008.26,
+        "tts": 1028.63,
+        "cur_nm": "브루나이 달러"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 5,
+    "fields": {
+        "cur_unit": "CAD",
+        "ttb": 996.51,
+        "tts": 1016.64,
+        "cur_nm": "캐나다 달러"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 6,
+    "fields": {
+        "cur_unit": "CHF",
+        "ttb": 1503.39,
+        "tts": 1533.76,
+        "cur_nm": "스위스 프랑"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 7,
+    "fields": {
+        "cur_unit": "CNH",
+        "ttb": 187.18,
+        "tts": 190.97,
+        "cur_nm": "위안화"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 8,
+    "fields": {
+        "cur_unit": "DKK",
+        "ttb": 197.79,
+        "tts": 201.78,
+        "cur_nm": "덴마아크 크로네"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 9,
+    "fields": {
+        "cur_unit": "EUR",
+        "ttb": 1475.79,
+        "tts": 1505.6,
+        "cur_nm": "유로"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 10,
+    "fields": {
+        "cur_unit": "GBP",
+        "ttb": 1719.62,
+        "tts": 1754.35,
+        "cur_nm": "영국 파운드"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 11,
+    "fields": {
+        "cur_unit": "HKD",
+        "ttb": 173.56,
+        "tts": 177.07,
+        "cur_nm": "홍콩 달러"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 12,
+    "fields": {
+        "cur_unit": "IDR(100)",
+        "ttb": 8.45,
+        "tts": 8.62,
+        "cur_nm": "인도네시아 루피아"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 13,
+    "fields": {
+        "cur_unit": "JPY(100)",
+        "ttb": 876.51,
+        "tts": 894.22,
+        "cur_nm": "일본 옌"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 14,
+    "fields": {
+        "cur_unit": "KRW",
+        "ttb": 0.0,
+        "tts": 0.0,
+        "cur_nm": "한국 원"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 15,
+    "fields": {
+        "cur_unit": "KWD",
+        "ttb": 4409.8,
+        "tts": 4498.89,
+        "cur_nm": "쿠웨이트 디나르"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 16,
+    "fields": {
+        "cur_unit": "MYR",
+        "ttb": 287.93,
+        "tts": 293.74,
+        "cur_nm": "말레이지아 링기트"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 17,
+    "fields": {
+        "cur_unit": "NOK",
+        "ttb": 127.11,
+        "tts": 129.68,
+        "cur_nm": "노르웨이 크로네"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 18,
+    "fields": {
+        "cur_unit": "NZD",
+        "ttb": 830.05,
+        "tts": 846.82,
+        "cur_nm": "뉴질랜드 달러"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 19,
+    "fields": {
+        "cur_unit": "SAR",
+        "ttb": 361.37,
+        "tts": 368.68,
+        "cur_nm": "사우디 리얄"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 20,
+    "fields": {
+        "cur_unit": "SEK",
+        "ttb": 127.17,
+        "tts": 129.74,
+        "cur_nm": "스웨덴 크로나"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 21,
+    "fields": {
+        "cur_unit": "SGD",
+        "ttb": 1008.26,
+        "tts": 1028.63,
+        "cur_nm": "싱가포르 달러"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 22,
+    "fields": {
+        "cur_unit": "THB",
+        "ttb": 37.31,
+        "tts": 38.06,
+        "cur_nm": "태국 바트"
+    }
+},
+{
+    "model": "exchangerate.exchangerate",
+    "pk": 23,
+    "fields": {
+        "cur_unit": "USD",
+        "ttb": 1355.31,
+        "tts": 1382.69,
+        "cur_nm": "미국 달러"
+    }
+}
+]

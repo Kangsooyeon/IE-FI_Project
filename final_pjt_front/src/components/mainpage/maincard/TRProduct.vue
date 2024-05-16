@@ -19,7 +19,6 @@
         <div>
             <p class="m-0 text-end me-2">전체 상품</p>
         </div>
-
     </div>
 </template>
 

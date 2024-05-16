@@ -1,16 +1,14 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container d-flex justify-content-center">
-                <a class="navbar-brand logo" href="#"><img src="" alt="Logo" height="30"></a>
+                <a class="navbar-brand logo" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <a class="navbar-brand btn custom-btn login-btn mr-3" href="#">로그인</a>
                     <a class="navbar-brand btn custom-btn register-btn" href="#">회원가입</a>
                 </div>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
@@ -30,6 +28,11 @@
                         </li>
                     </ul>
                 </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+
             </div>
         </nav>
     </div>
@@ -41,6 +44,8 @@
 <style scoped>
 .navbar {
     background-color: white !important;
+    max-width: 980px;
+    margin: auto;
 }
 
 .custom-btn {

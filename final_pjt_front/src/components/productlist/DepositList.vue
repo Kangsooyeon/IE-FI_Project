@@ -1,55 +1,49 @@
-<!-- <v-card
-  title="전체 상품 목록"
-  flat
->
-  <template v-slot:text>
-    <v-text-field
-      v-model="search"
-      label="Search"
-      prepend-inner-icon="mdi-magnify"
-      variant="outlined"
-      hide-details
-      single-line
-    ></v-text-field>
-  </template>
-
-  <v-data-table
-    :headers="headers"
-    :items="store.productList"
-    :search="search"
-  ></v-data-table>
-</v-card> -->
 <template>
   <div>
-
->
     <v-data-table
-        v-if="store.productList && store.productList.length > 0"
-        :headers="headers"
-        :items="store.productList"
-        :items-per-page="10"
-        class="elevation-1"
+      :headers="headers"
+      :items="store.productListDR"
+      :search="search"
+      hide-actions
+      class="elevation-1"
     >
+
+      <template v-slot:items="props">
+        <td>{{ props.item.productname }}</td>
+        <td class="text-xs-right">{{ props.item.bankname }}</td>
+        <td class="text-xs-right">{{ props.item['6'] }}</td>
+        <td class="text-xs-right">{{ props.item['12']}}</td>
+        <td class="text-xs-right">{{ props.item['24']}}</td>
+        <td class="text-xs-right">{{ props.item['36']}}</td>
+      </template>
     </v-data-table>
+ 
 
   </div>
 </template>
 
-
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted, computed ,onBeforeMount} from 'vue';
   import {useProjectStore} from '@/stores/project'
   const store=useProjectStore()
   onMounted(()=>{
-      store.getProductList()
-      console.log(1);
+      store.getProductListD()
   })
+  const search = ref('');
+ 
   const headers = [
-      { text: '은행 이름', value: 'deposit_product.kor_co_nm' },
-      { text: '상품 이름', value: 'deposit_product.fin_prdt_nm' },
-      { text: '예치 기간', value: 'options.save_trm' },
-      { text: '최고 우대 금리', value: 'options.intr_rate2' },
-    ];
+          {
+            text: '상품명',
+            align: 'left',
+            sortable: false,
+            value: 'productname'
+          },
+          { text: '금융회사명', value: 'bankname' },
+          { text: '6개월', value: '6' },
+          { text: '12개월', value: '12' },
+          { text: '24개월', value: '24' },
+          { text: '36개월', value: '36' }
+        ]
 </script>
 
 <style scoped>

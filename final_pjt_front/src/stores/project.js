@@ -23,14 +23,27 @@ export const useProjectStore = defineStore('project', () => {
     })}
 
     //ProductList
-    const productList = ref(null)
-    const getProductList = function () {
+    const productListD = ref([])
+    const productListDR = ref([])
+    const getProductListD= function () {
       axios({
         method: 'get',
         url:'http://127.0.0.1:8000/products/deposit-products/',
       }).then((res) => {
-        productList.value=res.data
+        productListD.value=res.data
+        productListDR.value=productListD.value.map((product) => {
+          const result={
+            productname:product.deposit_product.fin_prdt_nm,
+            bankname:product.deposit_product.kor_co_nm,
+          }
+          product.options.forEach(el => {
+            if(el.save_trm%6==0){
+              result[el.save_trm]=el.intr_rate
+            }
+          });
+          return result
+        })
       })}
-
-  return {topRateDeposit, getTRDeposit, topRateSaving, getTRSaving , productList, getProductList}
+    
+  return {topRateDeposit, getTRDeposit, topRateSaving, getTRSaving , productListD, getProductListD,productListDR}
 })

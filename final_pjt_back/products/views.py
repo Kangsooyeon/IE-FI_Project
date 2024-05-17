@@ -217,10 +217,16 @@ def saving_product_options(reqeust, fin_prdt_cd):
 
 @api_view(['GET'])
 def deposit_top_rate(reqeust):
-    max_intr_rates = DepositOptions.objects.order_by('-intr_rate2')[:5]
+    max_intr_rates = DepositOptions.objects.order_by('-intr_rate2')
 
     top_rate_data = []
+    seen_products = set()
+
     for option in max_intr_rates:
+        if option.fin_prdt_cd in seen_products:
+            continue
+        seen_products.add(option.fin_prdt_cd)
+
         product_detail = DepositProducts.objects.get(fin_prdt_cd=option.fin_prdt_cd)
         product_serializer = DepositProductsSerializer(product_detail)
         option_serializer = DepositOptionsSerializer(option)
@@ -228,15 +234,23 @@ def deposit_top_rate(reqeust):
             'deposit_product': product_serializer.data,
             'option': option_serializer.data
         })
+
+        if len(top_rate_data) >= 5:
+            break
     return Response(top_rate_data)
 
 @api_view(['GET'])
 def saving_top_rate(reqeust):
-    max_intr_rates = SavingOptions.objects.order_by('-intr_rate2')
+    max_intr_rates = SavingOptions.objects.order_by('-intr_rate2')[:5]
 
     top_rate_data = []
+    seen_products = set()
     
     for option in max_intr_rates:
+        if option.fin_prdt_cd in seen_products:
+            continue
+        seen_products.add(option.fin_prdt_cd)
+
         product_detail = SavingProducts.objects.get(fin_prdt_cd=option.fin_prdt_cd)
         product_serializer = SavingProductsSerializer(product_detail)
         option_serializer = SavingOptionsSerializer(option)
@@ -244,4 +258,7 @@ def saving_top_rate(reqeust):
             'saving_product': product_serializer.data,
             'option': option_serializer.data
         })
+
+        if len(top_rate_data) >= 5:
+            break
     return Response(top_rate_data)

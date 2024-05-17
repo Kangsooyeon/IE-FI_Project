@@ -11,7 +11,7 @@ import { Tooltip, Toast, Popover } from 'bootstrap';
 const app = createApp(App)
 
 app.use(createPinia())
+app.use(vuetify)
 app.use(router)
 
-app.use(vuetify)
 app.mount('#app')

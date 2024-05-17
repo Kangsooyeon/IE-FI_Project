@@ -191,15 +191,25 @@ def saving_products(reqeust):
 
 @api_view(['GET'])
 def deposit_product(reqeust, id):
-    depositProduct=DepositProducts.objects.filter(id=id)
-    serializer = DepositProductsSerializer(depositProduct, many=True)
-    return Response(serializer.data)
+    depositProduct=DepositProducts.objects.get(id=id)
+    depositOption=DepositOptions.objects.filter(fin_prdt_cd=depositProduct.fin_prdt_cd)
+    serializer_product = DepositProductsSerializer(depositProduct)
+    serializer_options = DepositOptionsSerializer(depositOption, many=True)
+    return Response({
+        'deposit_product': serializer_product.data,
+        'options': serializer_options.data
+    })
 
 @api_view(['GET'])
 def saving_product(reqeust, id):
-    savingProduct=SavingProducts.objects.filter(id=id)
-    serializer = SavingProductsSerializer(savingProduct, many=True)
-    return Response(serializer.data)
+    savingProduct=SavingProducts.objects.get(id=id)
+    savingOption=SavingOptions.objects.filter(fin_prdt_cd=savingProduct.fin_prdt_cd)
+    serializer_product = SavingProductsSerializer(savingProduct)
+    serializer_options = SavingOptionsSerializer(savingOption, many=True)
+    return Response({
+       'saving_product': serializer_product.data,
+        'options': serializer_options.data
+    })
 
 
 @api_view(['GET'])

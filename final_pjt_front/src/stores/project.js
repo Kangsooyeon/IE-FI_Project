@@ -21,5 +21,16 @@ export const useProjectStore = defineStore('project', () => {
     }).then((res) => {
       topRateSaving.value=res.data
     })}
-  return {topRateDeposit, getTRDeposit, topRateSaving, getTRSaving}
+
+    //ProductList
+    const productList = ref(null)
+    const getProductList = function () {
+      axios({
+        method: 'get',
+        url:'http://127.0.0.1:8000/products/deposit-products/',
+      }).then((res) => {
+        productList.value=res.data
+      })}
+
+  return {topRateDeposit, getTRDeposit, topRateSaving, getTRSaving , productList, getProductList}
 })

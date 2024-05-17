@@ -157,17 +157,36 @@ def save_saving_products(reqeust):
     return JsonResponse({'message':'저장완료'})
 
 
+
 @api_view(['GET'])
-def deposit_products(reqeust):
-    depositProducts=DepositProducts.objects.all()
-    serializer = DepositProductsSerializer(depositProducts, many=True)
-    return Response(serializer.data)
+def deposit_products(request):
+    deposit_products = DepositProducts.objects.all()
+    deposit_products_list = []
+
+    for deposit_product in deposit_products:
+        product_options = DepositOptions.objects.filter(fin_prdt_cd=deposit_product.fin_prdt_cd)
+        option_serializer = DepositOptionsSerializer(product_options, many=True)
+        product_serializer = DepositProductsSerializer(deposit_product)
+        deposit_products_list.append({
+            'deposit_product': product_serializer.data,
+            'options': option_serializer.data
+        })
+    return Response(deposit_products_list)
 
 @api_view(['GET'])
 def saving_products(reqeust):
-    savingProducts=SavingProducts.objects.all()
-    serializer = SavingProductsSerializer(savingProducts, many=True)
-    return Response(serializer.data)
+    saving_products = SavingProducts.objects.all()
+    saving_products_list = []
+
+    for saving_product in saving_products:
+        product_options = SavingOptions.objects.filter(fin_prdt_cd=saving_product.fin_prdt_cd)
+        option_serializer = SavingOptionsSerializer(product_options, many=True)
+        product_serializer = SavingProductsSerializer(saving_product)
+        saving_products_list.append({
+            'saving_product': product_serializer.data,
+            'options': option_serializer.data
+        })
+    return Response(saving_products_list)
 
 
 @api_view(['GET'])
@@ -213,9 +232,10 @@ def deposit_top_rate(reqeust):
 
 @api_view(['GET'])
 def saving_top_rate(reqeust):
-    max_intr_rates = SavingOptions.objects.order_by('-intr_rate2')[:5]
+    max_intr_rates = SavingOptions.objects.order_by('-intr_rate2')
 
     top_rate_data = []
+    
     for option in max_intr_rates:
         product_detail = SavingProducts.objects.get(fin_prdt_cd=option.fin_prdt_cd)
         product_serializer = SavingProductsSerializer(product_detail)

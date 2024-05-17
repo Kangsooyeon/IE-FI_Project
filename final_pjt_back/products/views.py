@@ -160,12 +160,12 @@ def save_saving_products(reqeust):
 
 @api_view(['GET'])
 def deposit_products(request):
-    product_options = DepositOptions.objects.all()
+    deposit_products = DepositProducts.objects.all()
     deposit_products_list = []
 
-    for product_option in product_options:
-        deposit_product = DepositProducts.objects.get(fin_prdt_cd=product_option.fin_prdt_cd)
-        option_serializer = DepositOptionsSerializer(product_option)
+    for deposit_product in deposit_products:
+        product_options = DepositOptions.objects.filter(fin_prdt_cd=deposit_product.fin_prdt_cd)
+        option_serializer = DepositOptionsSerializer(product_options, many=True)
         product_serializer = DepositProductsSerializer(deposit_product)
         deposit_products_list.append({
             'deposit_product': product_serializer.data,
@@ -175,12 +175,12 @@ def deposit_products(request):
 
 @api_view(['GET'])
 def saving_products(reqeust):
-    product_options = SavingOptions.objects.all()
+    saving_products = SavingProducts.objects.all()
     saving_products_list = []
 
-    for product_option in product_options:
-        saving_product = SavingProducts.objects.get(fin_prdt_cd=product_option.fin_prdt_cd)
-        option_serializer = SavingOptionsSerializer(product_option)
+    for saving_product in saving_products:
+        product_options = SavingOptions.objects.filter(fin_prdt_cd=saving_product.fin_prdt_cd)
+        option_serializer = SavingOptionsSerializer(product_options, many=True)
         product_serializer = SavingProductsSerializer(saving_product)
         saving_products_list.append({
             'saving_product': product_serializer.data,
@@ -191,15 +191,25 @@ def saving_products(reqeust):
 
 @api_view(['GET'])
 def deposit_product(reqeust, id):
-    depositProduct=DepositProducts.objects.filter(id=id)
-    serializer = DepositProductsSerializer(depositProduct, many=True)
-    return Response(serializer.data)
+    depositProduct=DepositProducts.objects.get(id=id)
+    depositOption=DepositOptions.objects.filter(fin_prdt_cd=depositProduct.fin_prdt_cd)
+    serializer_product = DepositProductsSerializer(depositProduct)
+    serializer_options = DepositOptionsSerializer(depositOption, many=True)
+    return Response({
+        'deposit_product': serializer_product.data,
+        'options': serializer_options.data
+    })
 
 @api_view(['GET'])
 def saving_product(reqeust, id):
-    savingProduct=SavingProducts.objects.filter(id=id)
-    serializer = SavingProductsSerializer(savingProduct, many=True)
-    return Response(serializer.data)
+    savingProduct=SavingProducts.objects.get(id=id)
+    savingOption=SavingOptions.objects.filter(fin_prdt_cd=savingProduct.fin_prdt_cd)
+    serializer_product = SavingProductsSerializer(savingProduct)
+    serializer_options = SavingOptionsSerializer(savingOption, many=True)
+    return Response({
+       'saving_product': serializer_product.data,
+        'options': serializer_options.data
+    })
 
 
 @api_view(['GET'])

@@ -48,6 +48,7 @@
     border-radius: 50%;
     color: rgb(0, 0, 0);
     margin: 0 10px;
+    cursor: pointer;
 }
 @media (max-width: 650px) {
         .quick-menu {

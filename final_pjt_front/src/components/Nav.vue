@@ -2,26 +2,26 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand logo" @click="goHome" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></a>
+                <p class="navbar-brand logo" @click="goHome" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></p>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <a @click="goLogin" class="navbar-brand btn custom-btn login-btn mr-3" href="#">로그인</a>
-                    <a @click="goRegister" class="navbar-brand btn custom-btn register-btn" href="#">회원가입</a>
+                    <p @click="goLogin" class="navbar-brand btn custom-btn login-btn mr-3" href="#">로그인</p>
+                    <p @click="goRegister" class="navbar-brand btn custom-btn register-btn" href="#">회원가입</p>
                 </div>
 
                 <!-- Nav링크 -->
                 <div class="collapse navbar-collapse ms-auto" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li @click="goProduct" class="nav-item">
-                            <a class="nav-link text-dark" href="#">상품조회</a>
+                            <p class="nav-link text-dark" href="#">상품조회</p>
                         </li>
                         <li @click="goExchange" class="nav-item">
-                            <a class="nav-link text-dark" href="#">환율계산</a>
+                            <p class="nav-link text-dark" href="#">환율계산</p>
                         </li>
                         <li @click="goFindBank" class="nav-item">
-                            <a class="nav-link text-dark" href="#">은행지도</a>
+                            <p class="nav-link text-dark" href="#">은행지도</p>
                         </li>
                         <li @click="goCommunity" class="nav-item">
-                            <a class="nav-link text-dark" href="#">커뮤니티</a>
+                            <p class="nav-link text-dark" href="#">커뮤니티</p>
                         </li>
                     </ul>
                 </div>
@@ -34,24 +34,24 @@
                 <!-- 햄버거 메뉴 -->
                 <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header d-lg-none">
-                        <a @click="goHome" class="navbar-brand logo" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></a>
+                        <p @click="goHome" class="navbar-brand logo" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></p>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body d-lg-none">
-                        <a @click="goLogin" class="navbar-brand btn custom-btn login-btn mr-3 mb-1" href="#">로그인</a>
-                        <a @click="goRegister" class="navbar-brand btn custom-btn register-btn mb-3" href="#">회원가입</a>
+                        <p @click="goLogin" class="navbar-brand btn custom-btn login-btn mr-3 mb-1" href="#">로그인</p>
+                        <p @click="goRegister" class="navbar-brand btn custom-btn register-btn mb-3" href="#">회원가입</p>
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li @click="goProduct" class="nav-item">
-                                <a class="nav-link text-dark" href="#">상품조회</a>
+                                <p class="nav-link text-dark" href="#">상품조회</p>
                             </li>
                             <li @click="goExchange" class="nav-item">
-                                <a class="nav-link text-dark" href="#">환율계산</a>
+                                <p class="nav-link text-dark" href="#">환율계산</p>
                             </li>
                             <li @click="goFindBank" class="nav-item">
-                                <a class="nav-link text-dark" href="#">은행지도</a>
+                                <p class="nav-link text-dark" href="#">은행지도</p>
                             </li>
                             <li @click="goCommunity" class="nav-item">
-                                <a class="nav-link text-dark" href="#">커뮤니티</a>
+                                <p class="nav-link text-dark" href="#">커뮤니티</p>
                             </li>
                         </ul>
                     </div>
@@ -114,6 +114,7 @@
 
 .logo {
     margin-right: 1rem;
+    cursor: pointer;
 }
 
 .login-btn {
@@ -129,6 +130,7 @@
 .nav-link {
     font-size: 0.9rem;
     font-weight: 900;
+    cursor: pointer;
 }
 @media (max-width: 992px) {
     .navbar-brand.logo {

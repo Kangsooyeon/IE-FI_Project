@@ -1,11 +1,11 @@
 <template>
     <footer class="footer my-4">
         <ul class="footer-nav nav justify-content-center border-bottom pb-3 mb-3">
-            <li @click="goHome" class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-            <li @click="goProduct" class="nav-item"><a href="#" class="nav-link px-2 text-muted">Products</a></li>
-            <li @click="goExchange" class="nav-item"><a href="#" class="nav-link px-2 text-muted">Exchange</a></li>
-            <li @click="goFindBank" class="nav-item"><a href="#" class="nav-link px-2 text-muted">FindBank</a></li>
-            <li @click="goCommunity" class="nav-item"><a href="#" class="nav-link px-2 text-muted">Community</a></li>
+            <li @click="goHome" class="nav-item"><p href="#" class="nav-link px-2 text-muted">Home</p></li>
+            <li @click="goProduct" class="nav-item"><p href="#" class="nav-link px-2 text-muted">Products</p></li>
+            <li @click="goExchange" class="nav-item"><p href="#" class="nav-link px-2 text-muted">Exchange</p></li>
+            <li @click="goFindBank" class="nav-item"><p href="#" class="nav-link px-2 text-muted">FindBank</p></li>
+            <li @click="goCommunity" class="nav-item"><p href="#" class="nav-link px-2 text-muted">Community</p></li>
         </ul>
         <p class="text-center text-muted small-size">&copy; 2024 SSAFY Busan&Ulsan Campus class2</p>
         <p class="text-center text-muted small-size"> 
@@ -55,5 +55,8 @@
         .footer-nav {
             display: none;
         }
+    }
+    .nav-item {
+        cursor: pointer;
     }
 </style>

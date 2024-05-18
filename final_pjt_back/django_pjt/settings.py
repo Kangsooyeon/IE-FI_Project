@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'products',
     'exchangerate',
     'news',
+    'map',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',

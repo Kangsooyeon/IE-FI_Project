@@ -1,0 +1,16 @@
+#!/bin/bash
+pip install -r requirements.txt
+
+python manage.py migrate
+
+python manage.py loaddata fixtures/depositproducts.json
+
+python manage.py loaddata fixtures/savingproducts.json
+
+python manage.py loaddata fixtures/depositoptions.json
+
+python manage.py loaddata fixtures/savingoptions.json
+
+python manage.py loaddata fixtures/exchangerate.json
+
+python manage.py loaddata fixtures/location.json

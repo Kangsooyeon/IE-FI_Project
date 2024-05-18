@@ -1,6 +1,3 @@
-<script>
-// console.log(productDetail);
-</script>
 <template>
   <div>
     {{ productDetail.product?.fin_prdt_nm }}

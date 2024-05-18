@@ -23,4 +23,5 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('exchangerate/', include('exchangerate.urls')),
     path('news/', include('news.urls')),
+    path('map/', include('map.urls')),
 ]

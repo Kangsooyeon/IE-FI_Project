@@ -11,6 +11,7 @@
   const store=useProjectStore()
   onMounted(()=>{
       store.getProductListD()
+      store.pagenum=0
   })
 
 </script>

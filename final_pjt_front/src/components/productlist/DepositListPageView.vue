@@ -1,27 +1,30 @@
 <template>
-    <div class="container">
-        <div class="d-flex justify-content-start align-items-center my-5">
-            <h2>예금 상품 목록</h2>
-        </div>
-        <div class="d-felx flex-column">
-            <div>
-                <label for="bank">은행 선택:</label>
-                <select id="bank" v-model="tempSelectedBank" class="form-control">
-                    <option value="">모든 은행</option>
-                    <option v-for="bank in store.banks" :key="bank">{{bank}}</option>
-                </select>
+   <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 d-flex my-3">
+                <h2 class="title">예금 상품 목록</h2>
+                <div class="filter d-flex ml-auto">
+                    <div class="my-2 mx-2">
+                        <select id="bank" v-model="tempSelectedBank" class="form-control form-control-sm">
+                            <option value="">모든 은행</option>
+                            <option v-for="bank in store.banks" :key="bank">{{bank}}</option>
+                        </select>
+                    </div>
+        
+                    <div class="my-2 mx-2">
+                        <select id="term" v-model="tempSelectedTerm" class="form-control form-control-sm">
+                            <option value="">모든 기간</option>
+                            <option v-for="term in terms" :key="term">{{term}}</option>
+                        </select>
+                    </div>
+        
+                    <button @click="applyFilter" class="mx-2 btn btn-primary btn-sm my-2">확인</button>
+                </div>
             </div>
-
-            <div>
-                <label for="term">예치기간 선택:</label>
-                <select id="term" v-model="tempSelectedTerm" class="form-control">
-                    <option value="">모든 기간</option>
-                    <option v-for="term in terms" :key="term">{{term}}</option>
-                </select>
-            </div>
-
-            <button @click="applyFilter" class="btn btn-primary">확인</button>
         </div>
+
+       
+
         <div class="d-flex flex-column justify-content-center align-items-center">
 
             <table class="table table-striped mx-5">
@@ -67,7 +70,7 @@
 </template>
 
 <script setup>
-    import { ref,computed,watchEffect } from 'vue';
+    import { ref,computed,watchEffect,onMounted } from 'vue';
     import {useProjectStore} from '@/stores/project'
     const store=useProjectStore()
     const pageDown=()=>{
@@ -100,8 +103,24 @@
     }
 
     const sortProducts = (term, isAscending) => {
-        if (store.productListDRT[store.pagenum]) {
-            store.productListDRT[store.pagenum].sort((a, b) => isAscending ? a[term] - b[term] : b[term] - a[term]);
+        if (store.productListDRC.length > 0) {
+            store.productListDRC.sort((a, b) => {
+                if (a[term] === null) {
+                    return 1;
+                } else if (b[term] === null) {
+                    return -1;
+                } else {
+                    return isAscending ? a[term] - b[term] : b[term] - a[term];
+                }
+            });
+        store.productListDRT=store.productListDRC.reduce((acc, cur, idx) => {
+            if (idx % 10 === 0) {
+                acc.push([cur]);
+            } else {
+                acc[acc.length - 1].push(cur);
+            }
+            return acc;
+        }, []);
         }
     }
 
@@ -113,8 +132,38 @@
     const terms = ['6', '12', '24', '36'];
 
     const applyFilter = () => {
-        console.log(1);
+        store.productListDRC=store.productListDR.filter(product => {
+            if (tempSelectedBank.value!="" && tempSelectedTerm.value!="") {
+                if (product.bankname === tempSelectedBank.value && product[tempSelectedTerm.value]) {
+                    return true;
+                }
+            }
+            else if(tempSelectedBank.value!=""){
+                if (product.bankname === tempSelectedBank.value) {
+                    return true;
+                }
+            }
+            else if(tempSelectedTerm.value!=""){
+                if (product[tempSelectedTerm.value]) {
+                    return true;
+                }
+            }
+            else{
+                return true;
+            }
+
+        });
+        store.productListDRT=store.productListDRC.reduce((acc, cur, idx) => {
+            if (idx % 10 === 0) {
+                acc.push([cur]);
+            } else {
+                acc[acc.length - 1].push(cur);
+            }
+            return acc;
+        }, []);
+
     }
+
 </script>
 
 <style scoped>
@@ -124,5 +173,8 @@
 }
 .page-link{
     cursor: pointer;
+}
+
+.title{
 }
 </style>

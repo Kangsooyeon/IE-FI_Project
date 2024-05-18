@@ -29,6 +29,7 @@ export const useProjectStore = defineStore('project', () => {
     //ProductList
     const productListD = ref([])
     const productListDR = ref([])
+    const productListDRC = ref([])
     const productListDRT = ref([])
     const pagenum=ref(0)
     const getProductListD= function () {
@@ -53,8 +54,8 @@ export const useProjectStore = defineStore('project', () => {
         for(let i=0;i<productListDR.value.length;i=i+10){
           productListDRT.value.push(productListDR.value.slice(i,i+10))
         }}
-
+        productListDRC.value=productListDR.value
       })}
     
-  return {topRateDeposit, getTRDeposit, topRateSaving, getTRSaving , productListD, getProductListD,productListDR,productListDRT,pagenum,banks}
+  return {topRateDeposit, getTRDeposit, topRateSaving, getTRSaving , productListD, getProductListD,productListDR,productListDRT,pagenum,banks,productListDRC}
 })

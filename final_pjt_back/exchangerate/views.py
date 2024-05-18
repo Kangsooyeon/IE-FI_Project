@@ -63,6 +63,13 @@ def save_ER(request):
 
 
 @api_view(['GET'])
+def get_ER(request):
+    ers=ExchangeRate.objects.all()
+    serializer=ExchangeRateSerializer(ers, many=True)
+    return JsonResponse(serializer.data, safe=False)
+
+
+@api_view(['GET'])
 def ER_graph(request):
     codes = ['0000001', '0000002', '0000003', '0000053']
     countries = ['미국 USD', '일본 JPY', '유럽 EUR', '중국 CNY' ]

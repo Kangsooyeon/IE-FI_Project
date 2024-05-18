@@ -23,7 +23,7 @@
         router.push('/');
     }
     const goProduct = () => {
-        router.push('/product');
+        router.push({name: 'productlist'});
     }
     const goExchange = () => {
         router.push('/er');

@@ -91,11 +91,56 @@ export const useProjectStore = defineStore('project', () => {
           productListSRC.value=productListSR.value
         })}
 
-    
+        // 환율
+        const exchangeRateB1 = ref({})
+        const exchangeRateB2 = ref({})
+        const exchangeRateS1 = ref({})
+        const exchangeRateS2 = ref({})
+
+        const exchangeRate = ref([])
+
+        const getExchangeRate = function () {
+          axios({
+            method: 'get',
+            url:'http://127.0.0.1:8000/exchangerate/'
+          }).then((res) => {
+            exchangeRate.value=res.data
+          })}
+
+          // 상품상세
+          // const productAll = ref([])
+          // const productDetail=ref(null)
+          // const detailcd=ref("")
+          // const getProduct = function (fin_cd) {
+          //   axios({
+          //     method: 'get',
+          //     url:'http://127.0.0.1:8000/products/products-all/'
+          //   }).then((res) => {
+          //     productAll.value=res.data
+          //     let dors="deposit_product"
+          //     const productDetailTMP = productAll.value.find((el) => {
+          //       if(el.deposit_product!=-1 && el.deposit_product.fin_prdt_cd === fin_cd){
+          //         return el
+          //       }
+          //       else if(el.saving_product!=-1 && el.saving_product.fin_prdt_cd === fin_cd){
+          //         dors="saving_product"
+          //         return el
+          //       }
+
+          //     })
+          //     productDetail.value={
+          //       product:productDetailTMP[dors],
+          //       options:productDetailTMP.options
+          //     }
+          //     console.log(productDetail.value);
+          //     })}
+
   return {
     banks,
     topRateDeposit, getTRDeposit, topRateSaving, getTRSaving ,
     productListD, getProductListD,productListDR,productListDRT,pagenumD,productListDRC,
-    productListS, getProductListS,productListSR,productListSRT,pagenumS,productListSRC
+    productListS, getProductListS,productListSR,productListSRT,pagenumS,productListSRC,
+    exchangeRateB1, exchangeRateB2, exchangeRateS1, exchangeRateS2, exchangeRate, getExchangeRate,
+    // productAll, getProduct, productDetail,detailcd
   }
 })

@@ -40,7 +40,7 @@
             </thead>
             <tbody>
                 <tr v-for="product in store.productListDRT[store.pagenumD]" :key="product.fin_prdt_cd">
-                    <td>{{product.productname}}</td>
+                    <td @click="goDetail(product.fin_prdt_cd)">{{product.productname}}</td>
                     <td>{{product.bankname}}</td>
                     <td>{{product['6'] ? product['6'] + '%' : '-'}}</td>
                     <td>{{product['12'] ? product['12'] + '%' : '-'}}</td>
@@ -72,6 +72,9 @@
 <script setup>
     import { ref,computed,watchEffect,onMounted } from 'vue';
     import {useProjectStore} from '@/stores/project'
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
     const store=useProjectStore()
     const pageDown=()=>{
         if(store.pagenumD>0){
@@ -162,7 +165,9 @@
         }, []);
 
     }
-
+    const goDetail=function(fin_cd){
+        router.push({name:'productdetail',params:{fin_prdt_cd:fin_cd}})
+    }
 </script>
 
 <style scoped>

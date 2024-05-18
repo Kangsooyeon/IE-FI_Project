@@ -70,7 +70,7 @@ const router = createRouter({
       ]
     },
     {
-      path: '/product',
+      path: '/productlist',
       name: 'productlist',
       component: ProductListView
     },

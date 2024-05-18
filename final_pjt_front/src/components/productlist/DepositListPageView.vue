@@ -39,7 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="product in store.productListDRT[store.pagenum]" :key="product.productname">
+                <tr v-for="product in store.productListDRT[store.pagenumD]" :key="product.fin_prdt_cd">
                     <td>{{product.productname}}</td>
                     <td>{{product.bankname}}</td>
                     <td>{{product['6'] ? product['6'] + '%' : '-'}}</td>
@@ -53,13 +53,13 @@
             <div class="my-4">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                <li class="page-item" :class="{ 'disabled': store.pagenum === 0 }">
+                <li class="page-item" :class="{ 'disabled': store.pagenumD === 0 }">
                     <span class="page-link" @click="pageDown">Previous</span>
                 </li>
-                <li class="page-item" v-for="(arr,idx) in store.productListDRT" :key="idx" :class="{ 'active': store.pagenum === idx }" >
+                <li class="page-item" v-for="(arr,idx) in store.productListDRT" :key="idx" :class="{ 'active': store.pagenumD === idx }" >
                     <span class="page-link" @click="pageSelector(idx)">{{ idx+1 }}</span>
                 </li>
-                <li class="page-item" :class="{ 'disabled': store.pagenum === store.productListDRT.length - 1 }">
+                <li class="page-item" :class="{ 'disabled': store.pagenumD === store.productListDRT.length - 1 }">
                     <span class="page-link" @click="pageUp">Next</span>
                 </li>
                 </ul>
@@ -74,19 +74,18 @@
     import {useProjectStore} from '@/stores/project'
     const store=useProjectStore()
     const pageDown=()=>{
-        if(store.pagenum>0){
-            store.pagenum--
-            console.log(store.pagenum);
+        if(store.pagenumD>0){
+            store.pagenumD--
         }
     }
     const pageUp=()=>{
-        if(store.pagenum<store.productListDRT.length-1){
-            store.pagenum++
-            console.log(store.pagenum);
+        if(store.pagenumD<store.productListDRT.length-1){
+            store.pagenumD++
+            console.log(store.pagenumD);
         }
     }
     const pageSelector=(idx)=>{
-        store.pagenum=idx
+        store.pagenumD=idx
     }
 
     const sortState = ref(true);
@@ -175,6 +174,4 @@
     cursor: pointer;
 }
 
-.title{
-}
 </style>

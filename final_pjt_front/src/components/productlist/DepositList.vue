@@ -11,18 +11,11 @@
   const store=useProjectStore()
   onMounted(()=>{
       store.getProductListD()
-      store.pagenum=0
+      store.pagenumD=0
   })
 
 </script>
 
 <style scoped>
-  .PL-container{
-      width: 960px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      min-width: 395px;
-  }
+
 </style>

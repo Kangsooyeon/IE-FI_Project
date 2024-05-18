@@ -272,3 +272,28 @@ def saving_top_rate(reqeust):
         if len(top_rate_data) >= 5:
             break
     return Response(top_rate_data)
+
+@api_view(['GET'])
+def products_all(reqeust):
+    products_list = []
+
+    deposit_products = DepositProducts.objects.all()
+    for deposit_product in deposit_products:
+        deposit_options = DepositOptions.objects.filter(fin_prdt_cd=deposit_product.fin_prdt_cd)
+        deposit_option_serializer = DepositOptionsSerializer(deposit_options, many=True)
+        deposit_product_serializer = DepositProductsSerializer(deposit_product)
+        products_list.append({
+            'deposit_product': deposit_product_serializer.data,
+            'options': deposit_option_serializer.data
+        })
+
+    saving_products = SavingProducts.objects.all()
+    for saving_product in saving_products:
+        saving_product_options = SavingOptions.objects.filter(fin_prdt_cd=saving_product.fin_prdt_cd)
+        saving_option_serializer = SavingOptionsSerializer(saving_product_options, many=True)
+        saving_product_serializer = SavingProductsSerializer(saving_product)
+        products_list.append({
+            'saving_product': saving_product_serializer.data,
+            'options': saving_option_serializer.data
+        })
+    return Response(products_list)

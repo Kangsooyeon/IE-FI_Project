@@ -16,5 +16,6 @@ urlpatterns = [
     path('saving-product-options/<str:fin_prdt_cd>/', views.saving_product_options, name='saving_product_options'),
     path('deposit-products/top_rate/', views.deposit_top_rate, name='deposit_top_rate'),
     path('saving-products/top_rate/', views.saving_top_rate, name='saving_top_rate'),
+    path('products-all/', views.products_all, name='products_all'),
 
 ]

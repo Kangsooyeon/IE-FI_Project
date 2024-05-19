@@ -85,21 +85,57 @@ const bnakSeleted = function(event) { // 2.은행선택을 위한 함수 선언
   bankValue.value = event.target.value;
 }
 
+var infowindow = ''
+
 const searchBtnClicked = function () {
   if (specificRegion.value.province && specificRegion.value.city && specificRegion.value.region && bankValue.value) {
-    store.regionList.find((el) => {
-    if (
-      el.province === specificRegion.value.province &&
-      el.city === specificRegion.value.city &&
-      el.region === specificRegion.value.region
-    ) {
-      console.log(el.latitude, el.longitude);
-      // 1.여기서 지도에 위치로 이동하는 함수를 작성하시오
-      const map = setLocation(el.latitude, el.longitude);
-      // 2.여기에 마커 관련함수 작성
+    const resultLocation = store.regionList.find((el) => {
+      if (
+        el.province === specificRegion.value.province &&
+        el.city === specificRegion.value.city &&
+        el.region === specificRegion.value.region
+      ) {
+        return el;
+      }
+    });
+    console.log(resultLocation);
+    console.log(resultLocation.latitude, resultLocation.longitude);
+    const map = setLocation(resultLocation.latitude, resultLocation.longitude);
+
+     infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+    var ps = new kakao.maps.services.Places();
+
+    // 키워드로 장소를 검색합니다
+    ps.keywordSearch(`${specificRegion.value.province} ${specificRegion.value.city} ${specificRegion.value.region} ${bankValue.value}`, (data, status, pagination) => {
+      placesSearchCB(data, status, pagination, map);
+    });
+  }
+};
+
+function placesSearchCB(data, status, pagination, map) {
+  if (status === kakao.maps.services.Status.OK) {
+    var bounds = new kakao.maps.LatLngBounds();
+
+    for (var i = 0; i < data.length; i++) {
+      displayMarker(data[i], map);
+      bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
     }
+
+    map.setBounds(bounds);
+  }
+}
+
+function displayMarker(place, map) {
+  var marker = new kakao.maps.Marker({
+    map: map,
+    position: new kakao.maps.LatLng(place.y, place.x),
   });
-    }};
+
+  kakao.maps.event.addListener(marker, 'click', function () {
+    infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+    infowindow.open(map, marker);
+  });
+}
 
 const setLocation = function (latitude = 33.450701, longitude = 126.570667) {
   const container = document.getElementById('map');
@@ -125,7 +161,7 @@ onMounted(() => {
 function loadKakaoMaps(apiKey, callback) {
   const script = document.createElement('script');
   script.onload = () => callback();
-  script.src = `//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=${apiKey}`;
+  script.src = `//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=${apiKey}&libraries=services,clusterer,drawing`;
   document.head.appendChild(script);
 }
 </script>

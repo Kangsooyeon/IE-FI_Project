@@ -186,6 +186,9 @@
         router.push({name:'productdetail',params:{fin_prdt_cd:fin_cd}})
     }
 
+    onMounted(()=>{
+        applyFilter()
+    })
  </script>
  
  <style scoped>

@@ -1,13 +1,79 @@
 <template>
-    <div>Login</div>
-</template>
+    <div class="container mt-5">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">로그인</h2>
+          <form @submit.prevent="login">
+            
+            <div :class="['form-group', { 'has-error': !valid.username && submitted }]">
+              <label for="username">아이디</label>
+              <input type="text" class="form-control" id="username" v-model.trim="username" required>
+            </div>
+  
+            <div :class="['form-group', { 'has-error': !valid.password && submitted }]">
+              <label for="password">비밀번호</label>
+              <input type="password" class="form-control" id="password" v-model.trim="password" required>
+            </div>
+  
+            <button type="submit" class="btn btn-primary btn-block mt-4">로그인</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  <script setup>
+  import axios from 'axios';
+  import { ref, computed } from 'vue';
+  import { useProjectStore } from '@/stores/project';
 
-
-<script setup>
-
-</script>
-
-
-<style scoped>
-
-</style>
+  const store = useProjectStore();
+  
+  const username = ref('');
+  const password = ref('');
+  const submitted = ref(false);
+  
+  const valid = computed(() => {
+    return {
+      username: username.value.length > 0,
+      password: password.value.length > 0,
+    };
+  });
+  
+  function login() {
+    submitted.value = true;
+    if (Object.values(valid.value).every(Boolean)) {
+      axios({
+        method: 'post',
+        url: 'http://127.0.0.1:8000/accounts/login/',
+        data: {
+            id_name: username.value,
+          password: password.value,
+        },
+      })
+        .then((res) => {
+            console.log(res.data,1);
+          store.token = res.data.token;
+          console.log('로그인 성공');
+        })
+        .catch((err) => {
+            console.log(err,2);
+          alert('로그인 정보를 확인해주세요.');
+        });
+    } else {
+      alert('로그인 정보를 확인해주세요.');
+    }
+  }
+  console.log(store.isLogin);console.log(store.token);
+  
+  </script>
+  
+  <style scoped>
+  .container {
+    max-width: 400px;
+  }
+  
+  .has-error input {
+    border-color: red;
+  }
+  </style>

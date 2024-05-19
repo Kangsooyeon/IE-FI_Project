@@ -171,8 +171,6 @@ export const useProjectStore = defineStore('project', () => {
         provinceList.value.push(el.province);
       }
     });
-
-    console.log('지도 데이터를 가져왓습니다.');
   });
 
   const getCityList = function (province) {
@@ -194,6 +192,11 @@ export const useProjectStore = defineStore('project', () => {
     });
     return result;
   };
+
+  // 로그인 관련
+  const token = ref(null);
+  const isLogin = computed(() => token.value !== null);
+
 
   return {
     banks,
@@ -224,5 +227,6 @@ export const useProjectStore = defineStore('project', () => {
     provinceList,
     getCityList,
     getSpecificRegionList,
+    token,isLogin
   };
-});
+},{persist: true});

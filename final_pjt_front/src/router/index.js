@@ -16,8 +16,7 @@ import ArticleListView from '@/views/article/ArticleListView.vue'
 import ArticleDetailView from '@/views/article/ArticleDetailView.vue'
 import ArticleCreateView from '@/views/article/ArticleCreateView.vue'
 import ArticleUpdateView from '@/views/article/ArticleUpdateView.vue'
-
-
+import {useProjectStore} from '@/stores/project.js'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -110,6 +109,13 @@ const router = createRouter({
       component: ArticleUpdateView
     },
 ]
+})
+
+router.beforeEach((to, from, next) => {
+  const store = useProjectStore()
+  console.log('로그인 여부', store.isLogin);
+  console.log(store.token);
+  next()
 })
 
 export default router

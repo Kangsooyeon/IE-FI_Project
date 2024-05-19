@@ -26,6 +26,9 @@
   import axios from 'axios';
   import { ref, computed } from 'vue';
   import { useProjectStore } from '@/stores/project';
+  import { useRouter } from 'vue-router';
+
+    const router = useRouter();
 
   const store = useProjectStore();
   
@@ -54,6 +57,7 @@
         .then((res) => {
             console.log(res.data,1);
           store.token = res.data.token;
+          router.push({name:'mainpage'})
           console.log('로그인 성공');
         })
         .catch((err) => {
@@ -64,7 +68,6 @@
       alert('로그인 정보를 확인해주세요.');
     }
   }
-  console.log(store.isLogin);console.log(store.token);
   
   </script>
   

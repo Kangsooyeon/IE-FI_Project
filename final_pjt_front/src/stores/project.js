@@ -159,6 +159,26 @@ export const useProjectStore = defineStore('project', () => {
   //     })}
 
   //지도
+  const koreanBanks = [
+    "국민은행",
+    "우리은행",
+    "신한은행",
+    "하나은행",
+    "농협은행",
+    "IBK기업은행",
+    "SC제일은행",
+    "한국씨티은행",
+    "카카오뱅크",
+    "케이뱅크",
+    "토스뱅크",
+    "수협은행",
+    "대구은행",
+    "부산은행",
+    "광주은행",
+    "전북은행",
+    "제주은행",
+    "경남은행"
+  ];
   const regionList = ref([]);
   const provinceList = ref([]);
   axios({
@@ -197,6 +217,10 @@ export const useProjectStore = defineStore('project', () => {
   const token = ref(null);
   const isLogin = computed(() => token.value !== null);
 
+  //게시판 리스트
+
+
+
 
   return {
     banks,
@@ -227,6 +251,7 @@ export const useProjectStore = defineStore('project', () => {
     provinceList,
     getCityList,
     getSpecificRegionList,
-    token,isLogin
+    token,isLogin,
+    koreanBanks
   };
 },{persist: true});

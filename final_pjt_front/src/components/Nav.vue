@@ -3,9 +3,13 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <p class="navbar-brand logo" @click="goHome" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></p>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div v-if="!store.isLogin" class="collapse navbar-collapse" id="navbarNav">
                     <p @click="goLogin" class="navbar-brand btn custom-btn login-btn mr-3">로그인</p>
                     <p @click="goRegister" class="navbar-brand btn custom-btn register-btn">회원가입</p>
+                </div>
+                <div v-else class="collapse navbar-collapse" id="navbarNav">
+                    <p @click="goPofile" class="navbar-brand mr-3 profile">프로필</p>
+                    <p @click="Logout" class="navbar-brand btn custom-btn register-btn">로그아웃</p>
                 </div>
 
                 <!-- Nav링크 -->
@@ -66,6 +70,9 @@
 
 <script setup>
     import { useRouter } from 'vue-router';
+    import { useProjectStore } from '@/stores/project';
+
+    const store = useProjectStore();
     const router = useRouter();
 
     const goHome = () => {
@@ -88,6 +95,15 @@
     }
     const goCommunity = () => {
         router.push('/article');
+    }
+
+    const Logout = () => {
+        store.token = null;
+        router.push('/');
+    }
+
+    const goPofile=()=>{
+        router.push('/profile')
     }
 </script>
 
@@ -140,4 +156,14 @@
 .nav-link:hover {
     text-decoration: underline;
 }
+.profile {
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.profile:hover {
+    text-decoration: underline;
+}
+
+
 </style>

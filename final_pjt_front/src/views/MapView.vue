@@ -1,30 +1,52 @@
 <template>
-  <div>
-    <div>
-      <SelectRegion
-        :changed="provinceChanged"
-        :region-list="store.provinceList"
-        title="시/도"
-      />
+  <div class="container mt-4">
+    <h1 class="mb-4 title">가까운 은행 찾기</h1>
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <SelectRegion
+          :changed="provinceChanged"
+          :region-list="store.provinceList"
+          title="시/도"
+          class="form-select"
+        />
+      </div>
 
-      <SelectRegion
-        :changed="cityChanged"
-        :region-list="cityList"
-        title="시/군/구"
-      />
+      <div class="col-md-3">
+        <SelectRegion
+          :changed="cityChanged"
+          :region-list="cityList"
+          title="시/군/구"
+          class="form-select"
+        />
+      </div>
 
-      <SelectRegion
-        :changed="regionChanged"
-        :region-list="regionList"
-        title="읍/면/동"
-      />
+      <div class="col-md-3">
+        <SelectRegion
+          :changed="regionChanged"
+          :region-list="regionList"
+          title="읍/면/동"
+          class="form-select"
+        />
+      </div>
+
+      <div class="col-md-3">
+        <SelectRegion
+          :changed="bnakSeleted"
+          :region-list="store.koreanBanks"
+          title="은행선택"
+          class="form-select"
+        />
+      </div>
     </div>
 
-    <button @click="searchBtnClicked">검색</button>
+    <div class="text-center d-flex">
+      <button @click="searchBtnClicked" class="btn btn-primary">검색</button>
+    </div>
 
-    <div id="map" style="width: 500px; height: 400px"></div>
+    <div id="map" class="mt-4" style="width: 100%; height: 400px"></div>
   </div>
 </template>
+
 
 <script setup>
 import SelectRegion from '@/components/utils/SelectRegion.vue';
@@ -58,8 +80,14 @@ const regionChanged = function (event) {
   specificRegion.value.region = event.target.value;
 };
 
+const bankValue= ref(''); // 1.은행선택을 위한 변수 선언
+const bnakSeleted = function(event) { // 2.은행선택을 위한 함수 선언
+  bankValue.value = event.target.value;
+}
+
 const searchBtnClicked = function () {
-  store.regionList.find((el) => {
+  if (specificRegion.value.province && specificRegion.value.city && specificRegion.value.region && bankValue.value) {
+    store.regionList.find((el) => {
     if (
       el.province === specificRegion.value.province &&
       el.city === specificRegion.value.city &&
@@ -71,7 +99,7 @@ const searchBtnClicked = function () {
       // 2.여기에 마커 관련함수 작성
     }
   });
-};
+    }};
 
 const setLocation = function (latitude = 33.450701, longitude = 126.570667) {
   const container = document.getElementById('map');
@@ -102,4 +130,14 @@ function loadKakaoMaps(apiKey, callback) {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-left: auto;
+}
+.container{
+  width:960px;
+  text-align:left;
+}
+</style>

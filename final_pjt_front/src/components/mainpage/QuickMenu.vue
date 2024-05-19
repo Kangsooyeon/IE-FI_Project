@@ -62,4 +62,8 @@
 .quick-menu-item:hover img {
     width: 60px;
 }
+h4{
+    color:#0082cd;
+    font-weight: bold;
+}
 </style>

@@ -6,13 +6,13 @@
             <li class="under-line" @click="toggleSV" :class="{'item-selector':toogleOption}">적금</li>
         </ul>
         <div v-if="store.topRateDeposit!=null && !toogleOption" class="ms-3 TR-list">
-            <p v-for="(productD,idx) in store.topRateDeposit" :key="productD.deposit_product.fin_prdt_nm" class="TR-item under-line" @click="goDetail(productD.deposit_product.fin_prdt_cd)">
+            <p v-for="(productD,idx) in store.topRateDeposit" :key="productD.deposit_product.fin_prdt_nm" class="TR-item" @click="goDetail(productD.deposit_product.fin_prdt_cd)">
                 {{idx+1}}. {{ productD.deposit_product.fin_prdt_nm }} +{{ productD.option.intr_rate2 }}%
             </p>
         </div>
 
         <div v-if="store.topRateSaving!=null && toogleOption" class="ms-3 TR-list">
-            <p v-for="(productS,idx) in store.topRateSaving" :key="productS.saving_product.fin_prdt_nm" class="TR-item under-line" @click="goDetail(productS.saving_product.fin_prdt_cd)">
+            <p v-for="(productS,idx) in store.topRateSaving" :key="productS.saving_product.fin_prdt_nm" class="TR-item" @click="goDetail(productS.saving_product.fin_prdt_cd)">
                 {{idx+1}}. {{ productS.saving_product.fin_prdt_nm }} +{{ productS.option.intr_rate2 }}%
             </p>
         </div>
@@ -85,5 +85,9 @@
 }
 .item-selector{
     text-decoration: underline;
+}
+.TR-item:hover{
+    cursor: pointer;
+    color:#0082cd;
 }
 </style>

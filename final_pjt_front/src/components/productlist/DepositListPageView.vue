@@ -98,7 +98,7 @@
          if (currentSortTerm.value === term) {
              sortState.value = !sortState.value;
          } else {
-             store.productListDRC=[...store.productListDR]
+            //  store.productListDRC=[...store.productListDR]
              currentSortTerm.value = term;
              sortState.value = true;
          }

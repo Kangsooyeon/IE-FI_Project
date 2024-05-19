@@ -38,12 +38,11 @@ const router = createRouter({
     },
     {
       path: '/profile',
-      name: 'profile',
       component: ProfileView,
       children: [
         {
-          path: 'myinfo',
-          name: 'myinfo',
+          path: '',
+          name: 'profile',
           component: MyInfoView
         },
         {

@@ -25,13 +25,13 @@
 
        
 
-        <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-between align-items-center prtable">
 
             <table class="table table-striped mx-5">
             <thead>
                 <tr>
-                <th>상품명</th>
-                <th>금융회사명</th>
+                <th  class="field titleField">상품명</th>
+                <th  class="field bankField">금융회사명</th>
                 <th @click="toggleSort('6')">6개월 이율 <span>{{ currentSortTerm === '6' && sortState ? '▲' : '▼' }}</span></th>
                 <th @click="toggleSort('12')">12개월 이율 <span>{{ currentSortTerm === '12' && sortState ? '▲' : '▼' }}</span></th>
                 <th @click="toggleSort('24')">24개월 이율 <span>{{ currentSortTerm === '24' && sortState ? '▲' : '▼' }}</span></th>
@@ -40,7 +40,7 @@
             </thead>
             <tbody>
                 <tr v-for="product in store.productListDRT[store.pagenumD]" :key="product.fin_prdt_cd">
-                    <td @click="goDetail(product.fin_prdt_cd)">{{product.productname}}</td>
+                    <td @click="goDetail(product.fin_prdt_cd)" class="onEffect title">{{product.productname}}</td>
                     <td>{{product.bankname}}</td>
                     <td>{{product['6'] ? product['6'] + '%' : '-'}}</td>
                     <td>{{product['12'] ? product['12'] + '%' : '-'}}</td>
@@ -95,27 +95,45 @@
     const currentSortTerm = ref(null);
 
     const toggleSort = (term) => {
-        if (currentSortTerm.value === term) {
-            sortState.value = !sortState.value;
-        } else {
-            currentSortTerm.value = term;
-            sortState.value = true;
-        }
-        sortProducts(term, sortState.value);
-    }
+         if (currentSortTerm.value === term) {
+             sortState.value = !sortState.value;
+         } else {
+             store.productListDRC=[...store.productListDR]
+             currentSortTerm.value = term;
+             sortState.value = true;
+         }
+         sortProducts(term, sortState.value);
+         console.log(sortState.value);
 
-    const sortProducts = (term, isAscending) => {
-        if (store.productListDRC.length > 0) {
-            store.productListDRC.sort((a, b) => {
-                if (a[term] === null) {
-                    return 1;
-                } else if (b[term] === null) {
-                    return -1;
-                } else {
-                    return isAscending ? a[term] - b[term] : b[term] - a[term];
-                }
-            });
-        store.productListDRT=store.productListDRC.reduce((acc, cur, idx) => {
+     }
+ 
+     const sortProducts = (term, isAscending) => {
+    if (store.productListDRC.length > 0) {
+        store.productListDRC.sort((a, b) => {
+            if (a[term] === undefined && b[term] === undefined) {
+                return 0;
+            } else if (a[term] === undefined) {
+                return isAscending ? 1 : -1;
+            } else if (b[term] === undefined) {
+                return isAscending ? -1 : 1;
+            } else {
+                return isAscending ? a[term] - b[term] : b[term] - a[term];
+            }
+        });
+        store.productListDRC=store.productListDRC.reduce((acc,cur,idx,src)=>{
+            if(cur[term]===undefined){
+                acc[1].push(cur)
+            }
+            else{
+                acc[0].push(cur)
+            }
+
+            if(idx===src.length-1)
+                return [...acc[0],...acc[1]]
+            return acc
+            
+        },[[],[]])
+        store.productListDRT = store.productListDRC.reduce((acc, cur, idx) => {
             if (idx % 10 === 0) {
                 acc.push([cur]);
             } else {
@@ -123,8 +141,8 @@
             }
             return acc;
         }, []);
-        }
     }
+}
 
     const tempSelectedBank = ref("");
     const tempSelectedTerm = ref("");
@@ -171,12 +189,29 @@
 </script>
 
 <style scoped>
-.container{
-    max-width: 980px;
-    min-height: 850px;
-}
+ .container{
+     width: 1100px;
+ }
 .page-link{
     cursor: pointer;
 }
-
+.onEffect:hover{
+    cursor: pointer;
+    color: #007bff;
+    }
+.title{
+    font-weight: 600;
+}
+.field{
+    color: #007bff;
+}
+.titleField{
+    width: 350px;
+}
+.bankField{
+    width: 210px;
+}
+.prtable{
+    height: 648px;
+}
 </style>

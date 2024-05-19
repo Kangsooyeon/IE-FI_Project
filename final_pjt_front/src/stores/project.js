@@ -218,6 +218,14 @@ export const useProjectStore = defineStore('project', () => {
   const isLogin = computed(() => token.value !== null);
 
   //게시판 리스트
+  const boardList = ref([]);
+  const getBoardList = function () {
+    axios({
+      method: 'get',
+      url: 'http://127.0.0.1:8000/articles/',
+    }).then((res) => {
+      boardList.value = res.data;
+    });}
 
 
 
@@ -252,6 +260,8 @@ export const useProjectStore = defineStore('project', () => {
     getCityList,
     getSpecificRegionList,
     token,isLogin,
-    koreanBanks
+    koreanBanks,
+    boardList,
+    getBoardList,
   };
 },{persist: true});

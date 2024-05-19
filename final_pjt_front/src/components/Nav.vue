@@ -42,8 +42,14 @@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body d-lg-none">
-                        <p @click="goLogin" class="navbar-brand btn custom-btn login-btn mr-3 mb-1" href="#">로그인</p>
-                        <p @click="goRegister" class="navbar-brand btn custom-btn register-btn mb-3" href="#">회원가입</p>
+                        <div v-if="!store.isLogin">
+                            <p @click="goLogin" class="navbar-brand btn custom-btn login-btn mr-3 mb-1" href="#">로그인</p>
+                            <p @click="goRegister" class="navbar-brand btn custom-btn register-btn mb-3" href="#">회원가입</p>
+                        </div>
+                        <div v-else>
+                            <p @click="goPofile" class="navbar-brand profile mr-3 mb-1" href="#">프로필</p>
+                            <p @click="Logout" class="navbar-brand btn custom-btn register-btn mb-3" href="#">로그아웃</p>
+                        </div>
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li @click="goProduct" class="nav-item">
                                 <p class="nav-link text-dark" href="#">상품조회</p>
@@ -71,6 +77,7 @@
 <script setup>
     import { useRouter } from 'vue-router';
     import { useProjectStore } from '@/stores/project';
+    import axios from 'axios';
 
     const store = useProjectStore();
     const router = useRouter();
@@ -98,8 +105,17 @@
     }
 
     const Logout = () => {
-        store.token = null;
-        router.push('/');
+        axios({
+            method: 'post',
+            url: 'http://127.0.0.1:8000/accounts/logout/',
+            headers: {
+                Authorization: `Token ${store.token}`
+            }
+            }).then((res) => {
+                store.token = null;
+                router.push('/');
+            }).catch((err) => {
+            });
     }
 
     const goPofile=()=>{

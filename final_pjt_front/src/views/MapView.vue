@@ -277,7 +277,5 @@ function loadKakaoMaps(apiKey, callback) {
 .small {
   font-size: 0.875rem; /* 글자 크기 작게 설정 */
 }
-h5{
-  font-size: 0.9rem; /* 글자 크기 크게 설정 */
-}
+
 </style>

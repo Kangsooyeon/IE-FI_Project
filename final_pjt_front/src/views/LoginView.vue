@@ -55,14 +55,25 @@
         },
       })
         .then((res) => {
-            console.log(res.data,1);
+          console.log(res.data);
           store.token = res.data.token;
+          store.userInfo={
+            nickname: res.data.nickname,
+            email: res.data.email,
+            id_name: res.data.id_name,
+            birth: res.data.birth,
+            sex: res.data.sex,
+            main_bank: res.data.main_bank,
+            salary: res.data.salary,
+            asset: res.data.asset,
+            desired_asset: res.data.desired_asset,
+          }
           router.push({name:'mainpage'})
-          console.log('로그인 성공');
+          console.log('로그인 성공!');
         })
         .catch((err) => {
             console.log(err,2);
-          alert('로그인 정보를 확인해주세요.');
+          alert('로그인 실패! 다시 시도해주세요.');
         });
     } else {
       alert('로그인 정보를 확인해주세요.');

@@ -113,6 +113,16 @@
             }
             }).then((res) => {
                 store.token = null;
+                store.userInfo = {nickname: '',
+                                    email: '',
+                                    id_name: '',
+                                    birth: '',
+                                    sex: '',
+                                    main_bank: '',
+                                    salary: '',
+                                    asset: '',
+                                    desired_asset: '',}
+                console.log('로그아웃 성공!');
                 router.push('/');
             }).catch((err) => {
             });

@@ -105,7 +105,7 @@ export const useProjectStore = defineStore('project', () => {
           });
           return result;
         });
-        for (let i = 0; i < productListDR.value.length; i = i + 10) {
+        for (let i = 0; i < productListSR.value.length; i = i + 10) {
           productListSRT.value.push(productListSR.value.slice(i, i + 10));
         }
       }
@@ -216,16 +216,40 @@ export const useProjectStore = defineStore('project', () => {
   // 로그인 관련
   const token = ref(null);
   const isLogin = computed(() => token.value !== null);
-
+  const userInfo = ref({
+    nickname: '',
+    email: '',
+    id_name: '',
+    birth: '',
+    sex: '',
+    main_bank: '',
+    salary: '',
+    asset: '',
+    desired_asset: '',
+  });
   //게시판 리스트
   const boardList = ref([]);
+  const boardListC = ref([]);
+  const boardListT = ref([]);
+  const pagenumL=ref(0)
   const getBoardList = function () {
     axios({
       method: 'get',
       url: 'http://127.0.0.1:8000/articles/',
     }).then((res) => {
       boardList.value = res.data;
+      boardListC.value = [...boardList.value]
+      boardListC.value.reverse()
+      boardListT.value=[]
+      
+      for (let i = 0; i < boardListC.value.length; i = i + 10) {
+        boardListT.value.push(boardListC.value.slice(i, i + 10));
+      }
     });}
+
+    // 게시판 상세
+    const articleAll = ref({}) 
+    
 
 
 
@@ -263,5 +287,9 @@ export const useProjectStore = defineStore('project', () => {
     koreanBanks,
     boardList,
     getBoardList,
+    userInfo,
+    boardListC,
+    boardListT,
+    pagenumL
   };
 },{persist: true});

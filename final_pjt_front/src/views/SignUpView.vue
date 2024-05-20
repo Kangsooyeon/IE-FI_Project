@@ -38,7 +38,7 @@
             <div class="form-group">
               <label for="sex">성별</label>
               <select class="form-control" id="sex" v-model="sex">
-                <option value="">⬇ 성별을 선택해주세요</option>
+                <option value="">▼ 성별을 선택해주세요</option>
                 <option value="1">남자</option>
                 <option value="2">여자</option>
               </select>
@@ -47,7 +47,7 @@
             <div class="form-group">
               <label for="main_bank">주거래계좌</label>
               <select class="form-control" id="main_bank" v-model="main_bank">
-                <option value="">⬇ 은행을 선택해주세요</option>
+                <option value="">▼ 은행을 선택해주세요</option>
                 <option v-for="bank1 in store.banks" :key="bank1">{{ bank1 }}</option>
               </select>
             </div>

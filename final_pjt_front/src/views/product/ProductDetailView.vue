@@ -7,8 +7,9 @@
         <p class="card-text"><strong>가입대상:</strong> {{ productDetail.product?.join_member }}</p>
         <p class="card-text"><strong>우대조건:</strong> {{ productDetail.product?.spcl_cnd }}</p>
         <p class="card-text"><strong>만기 후 이율:</strong> {{ productDetail.product?.mtrt_int || "-" }}</p>
-        <p class="card-text"><strong>최고한도:</strong> {{ productDetail.product?.max_limit || "-" }}</p>
+        <p class="card-text"><strong>최고한도:</strong> {{ productDetail.product?.max_limit? (productDetail.product?.max_limit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원": "-" }}</p>
         <p class="card-text"><strong>가입방식:</strong> {{ productDetail.product?.join_way }}</p>
+        <p class="card-text"><strong>가입방식:</strong> {{ productDetail.product?.etc_note }}</p>
 
         <div class="table-responsive">
           <table class="table table-striped mt-4">

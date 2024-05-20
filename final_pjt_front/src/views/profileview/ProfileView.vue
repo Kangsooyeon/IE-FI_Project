@@ -45,7 +45,7 @@ import { RouterLink,RouterView } from 'vue-router';
     margin: 0 10px;
 }
 .nav-item:hover{
-    background-color: #0082cd;
+    background-color: #5AC0F6;
     border-radius: 5px;
     color:white
 }

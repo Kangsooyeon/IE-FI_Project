@@ -33,7 +33,7 @@
     const router = useRouter();
 
     const goProduct = () => {
-        router.push('/product');
+        router.push('/productlist');
     }
     const toggleDP=()=>{
         toogleOption.value=false

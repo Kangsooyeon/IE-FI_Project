@@ -1,0 +1,46 @@
+[
+{
+    "model": "articles.comment",
+    "pk": 1,
+    "fields": {
+        "article": 1,
+        "user": 1,
+        "content": "내가 쓴 댓글 수정 함",
+        "created_at": "2024-05-20T00:14:08.668Z",
+        "updated_at": "2024-05-20T00:14:27.044Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 2,
+    "fields": {
+        "article": 1,
+        "user": 2,
+        "content": "익명2입니다^^",
+        "created_at": "2024-05-20T00:17:06.651Z",
+        "updated_at": "2024-05-20T00:17:06.651Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 3,
+    "fields": {
+        "article": 2,
+        "user": 2,
+        "content": "무플방지",
+        "created_at": "2024-05-20T00:17:28.510Z",
+        "updated_at": "2024-05-20T00:17:28.510Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 4,
+    "fields": {
+        "article": 3,
+        "user": 2,
+        "content": "댓글 달아죠",
+        "created_at": "2024-05-20T00:18:13.964Z",
+        "updated_at": "2024-05-20T00:18:13.964Z"
+    }
+}
+]

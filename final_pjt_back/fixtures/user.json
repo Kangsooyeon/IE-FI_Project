@@ -1,0 +1,40 @@
+[
+{
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$4Aaxzc3kyWQrV7GhAjHOi9$AZJnzFTAUEfcYT8qgDID3SADpXrPGUCKFRDz8WAMbyk=",
+        "last_login": null,
+        "id_name": "test1",
+        "email": "test1@naver.com",
+        "nickname": "익명1",
+        "birth": null,
+        "sex": null,
+        "main_bank": null,
+        "salary": null,
+        "asset": null,
+        "desired_asset": null,
+        "is_active": true,
+        "is_admin": false   
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$sSSK0cxXLXUwCHt6ZZe02F$eueaC9fXeXKCOAyDFS27ZxCUaMwdCthTojQmGC2JVfw=",
+        "last_login": null,
+        "id_name": "test2",
+        "email": "test2@naver.com",
+        "nickname": "익명2",
+        "birth": null,
+        "sex": null,
+        "main_bank": null,
+        "salary": null,
+        "asset": null,
+        "desired_asset": null,
+        "is_active": true,
+        "is_admin": false
+    }
+}
+]

@@ -19,7 +19,9 @@ def subscribed_deposit(request):
         subscribed_list.append({
             'id': subscribed_product.id,
             'deposit_product': product_serializer.data,
-            'deposit_option': option_serializer.data
+            'deposit_option': option_serializer.data,
+            'sign_money': subscribed_product.sign_money,
+            'mtrt_money': subscribed_product.mtrt_money
         })
     return Response(subscribed_list, status=status.HTTP_200_OK)
 
@@ -35,6 +37,8 @@ def subscribed_saving(request):
         subscribed_list.append({
             'id': subscribed_product.id,
             'saving_product': product_serializer.data,
-            'saving_option': option_serializer.data
+            'saving_option': option_serializer.data,
+            'sign_money': subscribed_product.sign_money,
+            'mtrt_money': subscribed_product.mtrt_money
         })
     return Response(subscribed_list, status=status.HTTP_200_OK)

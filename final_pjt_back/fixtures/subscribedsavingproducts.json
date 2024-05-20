@@ -4,7 +4,9 @@
     "pk": 1,
     "fields": {
         "user": 1,
-        "saving_option": 10
+        "saving_option": 30,
+        "sign_money": 100000,
+        "mtrt_money": 105000
     }
 },
 {
@@ -12,7 +14,9 @@
     "pk": 2,
     "fields": {
         "user": 1,
-        "saving_option": 20
+        "saving_option": 20,
+        "sign_money": 100000,
+        "mtrt_money": 105000
     }
 },
 {
@@ -20,7 +24,9 @@
     "pk": 3,
     "fields": {
         "user": 1,
-        "saving_option": 30
+        "saving_option": 10,
+        "sign_money": 100000,
+        "mtrt_money": 105000
     }
 }
 ]

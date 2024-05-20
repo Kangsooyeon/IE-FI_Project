@@ -314,26 +314,34 @@ def products_all(reqeust):
 @permission_classes([IsAuthenticated])
 def subscribed_deposit(request):
     deposit_option_id = request.data.get('deposit_option')
+    sign_money = request.data.get('sign_money')
+    mtrt_money = request.data.get('mtrt_money')
     deposit_option = get_object_or_404(DepositOptions, id=deposit_option_id)
     
     subscribed_product = SubscribedDepositProducts.objects.create(
         user=request.user,
-        deposit_option_id=deposit_option.id
+        deposit_option_id=deposit_option.id,
+        sign_money=sign_money,
+        mtrt_money=mtrt_money
     )
 
     serializer = SubscribedDepositProductsSerializer(subscribed_product)
     return Response(serializer.data, status=status.HTTP_201_CREATED)
-
+ 
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def subscribed_saving(request):
     saving_option_id = request.data.get('saving_option')
+    sign_money = request.data.get('sign_money')
+    mtrt_money = request.data.get('mtrt_money')
     saving_option = get_object_or_404(SavingOptions, id=saving_option_id)
     
     subscribed_product = SubscribedSavingProducts.objects.create(
         user=request.user,
-        saving_option_id=saving_option.id
+        saving_option_id=saving_option.id,
+        sign_money=sign_money,
+        mtrt_money=mtrt_money
     )
 
     serializer = SubscribedSavingProductsSerializer(subscribed_product)

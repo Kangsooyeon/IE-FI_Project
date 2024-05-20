@@ -49,7 +49,11 @@ class SavingOptions(models.Model):
 class SubscribedDepositProducts(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     deposit_option = models.ForeignKey(DepositOptions, on_delete=models.CASCADE)
+    sign_money = models.IntegerField()
+    mtrt_money = models.IntegerField()
 
 class SubscribedSavingProducts(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     saving_option = models.ForeignKey(SavingOptions, on_delete=models.CASCADE)
+    sign_money = models.IntegerField()
+    mtrt_money = models.IntegerField()

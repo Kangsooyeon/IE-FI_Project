@@ -248,8 +248,15 @@ export const useProjectStore = defineStore('project', () => {
     });}
 
     // 게시판 상세
-    const articleAll = ref({}) 
-    
+    const articleDetail = ref({}) 
+    const getArticle = function (id) {
+      axios({
+        method: 'get',
+        url:`http://127.0.0.1:8000/articles/${id}/`
+      }).then((res) => {
+        articleDetail.value=res.data
+        console.log(articleDetail.value);
+        })}
 
 
 
@@ -290,6 +297,9 @@ export const useProjectStore = defineStore('project', () => {
     userInfo,
     boardListC,
     boardListT,
-    pagenumL
+    pagenumL,
+    articleDetail,
+    getArticle,
+    
   };
 },{persist: true});

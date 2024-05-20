@@ -7,7 +7,6 @@ import MyInfoView from '@/views/profileview/MyInfoView.vue'
 import MyInfoUpdateView from '@/views/profileview/MyInfoUpdateView.vue'
 import SubscriptionProductView from '@/views/profileview/SubscriptionProductView.vue'
 import RecommendProductView from '@/views/profileview/RecommendProductView.vue'
-import MyAnCView from '@/views/profileview/MyAnCView.vue'
 import ProductListView from '@/views/product/ProductListView.vue'
 import ProductDetailView from '@/views/product/ProductDetailView.vue'
 import ERView from '@/views/ERView.vue'
@@ -60,11 +59,6 @@ const router = createRouter({
           name: 'recommendproduct',
           component: RecommendProductView
         },
-        {
-          path: 'myanc',
-          name: 'myanc',
-          component: MyAnCView
-        }
       ]
     },
     {

@@ -16,9 +16,6 @@
                             <li class="nav-item">
                                 <RouterLink class="nav-link" :to="{name:'recommendproduct'}">추천상품</RouterLink>
                             </li>
-                            <li class="nav-item">
-                                <RouterLink class="nav-link" :to="{name:'myanc'}">게시글</RouterLink>
-                            </li>
                         </ul>
                     </div>
                 </div>

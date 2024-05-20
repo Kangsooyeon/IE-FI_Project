@@ -26,6 +26,7 @@ class UserLoginView(generics.GenericAPIView):
         token, created = Token.objects.get_or_create(user=user)
         return Response({
             'token': token.key,
+            'id': user.id,
             'id_name': user.id_name,
             'email': user.email,
             'nickname': user.nickname,

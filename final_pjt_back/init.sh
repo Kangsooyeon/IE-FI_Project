@@ -13,6 +13,8 @@ python manage.py loaddata fixtures/savingoptions.json
 
 python manage.py loaddata fixtures/exchangerate.json
 
+python manage.py loaddata fixtures/countryflag.json
+
 python manage.py loaddata fixtures/location.json
 
 python manage.py loaddata fixtures/user.json

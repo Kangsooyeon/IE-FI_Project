@@ -62,11 +62,30 @@ def save_ER(request):
     return JsonResponse({'message':'저장완료'})
 
 
+
 @api_view(['GET'])
 def get_ER(request):
     ers=ExchangeRate.objects.all()
-    serializer=ExchangeRateSerializer(ers, many=True)
-    return JsonResponse(serializer.data, safe=False)
+    er_list=[]
+    for er in ers:
+        country=er.cur_nm.split()[0]
+        country = country.replace('위안화', '중국')
+        country = country.replace('덴마아크', '덴마크')
+        country = country.replace('유로', '유럽연합')
+        country = country.replace('한국', '대한민국')
+        country = country.replace('말레이지아', '말레이시아')
+        country = country.replace('사우디', '사우디아라비아')
+        country = country.replace('미국', '미합중국')
+        flag = CountryFlag.objects.get(country_nm=country)
+        er_list.append({
+            'cur_unit':er.cur_unit,
+            'ttb':er.ttb,
+            'tts':er.tts,
+            'cur_nm':er.cur_nm,
+            'country':country,
+            'flag':flag.download_url,
+        })
+    return JsonResponse(er_list, safe=False)
 
 
 @api_view(['GET'])
@@ -136,3 +155,28 @@ def ER_graph(request):
         plt.savefig(save_path, format='png', bbox_inches='tight')
 
     return JsonResponse({'message':'그래프 저장 완료'})
+
+@api_view(['GET'])
+def save_flag(request):
+    IMAGE_API_KEY='mEDZDWv9cIkUuWAzQXwe11BJwhJxttQmMROqSTiNnwzYC4IniWopFsqj/q87lS+8mc42kkMfvLlGLqmEhb2pMQ=='
+    url = 'http://apis.data.go.kr/1262000/CountryFlagService2/getCountryFlagList2'
+
+    for pageNo in range(1, 23):
+        params ={'serviceKey' : IMAGE_API_KEY, 'returnType' : 'JSON', 'numOfRows' : '10', 'pageNo' : pageNo}
+
+        response = requests.get(url, params=params).json()
+        for i in range(10):
+            country_nm = response.get('data')[i].get('country_nm')
+            download_url = response.get('data')[i].get('download_url')
+
+            save_data={
+                'country_nm':country_nm,
+                'download_url':download_url,
+            }
+
+            serializer=CountryFlagSerializer(data=save_data)
+            if serializer.is_valid(raise_exception=True):
+                serializer.save()
+
+    return JsonResponse({'message':'저장완료'})
+    

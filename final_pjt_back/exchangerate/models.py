@@ -6,3 +6,7 @@ class ExchangeRate(models.Model):
     ttb = models.FloatField()
     tts = models.FloatField()
     cur_nm = models.TextField()
+
+class CountryFlag(models.Model):
+    country_nm = models.TextField(unique=True)
+    download_url = models.TextField()

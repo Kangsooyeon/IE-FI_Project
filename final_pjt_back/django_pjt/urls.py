@@ -25,4 +25,5 @@ urlpatterns = [
     path('exchangerate/', include('exchangerate.urls')),
     path('news/', include('news.urls')),
     path('map/', include('map.urls')),
+    path('profilepage/', include('profilepage.urls')),
 ]

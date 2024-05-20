@@ -14,3 +14,13 @@ python manage.py loaddata fixtures/savingoptions.json
 python manage.py loaddata fixtures/exchangerate.json
 
 python manage.py loaddata fixtures/location.json
+
+python manage.py loaddata fixtures/user.json
+
+python manage.py loaddata fixtures/article.json
+
+python manage.py loaddata fixtures/comment.json
+
+python manage.py loaddata fixtures/subscribeddepositproducts.json
+
+python manage.py loaddata fixtures/subscribedsavingproducts.json

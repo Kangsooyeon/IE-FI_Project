@@ -24,3 +24,17 @@ class SavingOptionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = SavingOptions
         fields = '__all__'
+
+
+class SubscribedDepositProductsSerializer(serializers.ModelSerializer):
+    deposit_option = DepositOptionsSerializer(read_only=True)
+    class Meta:
+        model = SubscribedDepositProducts
+        fields = '__all__'
+
+class SubscribedSavingProductsSerializer(serializers.ModelSerializer):
+    saving_option = SavingOptionsSerializer(read_only=True)
+    class Meta:
+        model = SubscribedSavingProducts
+        fields = '__all__'
+

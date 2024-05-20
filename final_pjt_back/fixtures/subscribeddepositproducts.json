@@ -1,0 +1,26 @@
+[
+{
+    "model": "products.subscribeddepositproducts",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "deposit_option": 10
+    }
+},
+{
+    "model": "products.subscribeddepositproducts",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "deposit_option": 20
+    }
+},
+{
+    "model": "products.subscribeddepositproducts",
+    "pk": 3,
+    "fields": {
+        "user": 1,
+        "deposit_option": 30
+    }
+}
+]

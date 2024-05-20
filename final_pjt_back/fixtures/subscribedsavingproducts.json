@@ -1,0 +1,26 @@
+[
+{
+    "model": "products.subscribedsavingproducts",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "saving_option": 10
+    }
+},
+{
+    "model": "products.subscribedsavingproducts",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "saving_option": 20
+    }
+},
+{
+    "model": "products.subscribedsavingproducts",
+    "pk": 3,
+    "fields": {
+        "user": 1,
+        "saving_option": 30
+    }
+}
+]

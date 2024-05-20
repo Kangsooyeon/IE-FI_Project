@@ -17,5 +17,7 @@ urlpatterns = [
     path('deposit-products/top_rate/', views.deposit_top_rate, name='deposit_top_rate'),
     path('saving-products/top_rate/', views.saving_top_rate, name='saving_top_rate'),
     path('products-all/', views.products_all, name='products_all'),
+    path('subscribed-deposit/', views.subscribed_deposit, name='subscribed_deposit'),
+    path('subscribed-saving/', views.subscribed_saving, name='subscribed_saving'),
 
 ]

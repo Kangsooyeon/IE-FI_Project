@@ -1,6 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 import requests
@@ -305,3 +307,34 @@ def products_all(reqeust):
             'options': saving_option_serializer.data
         })
     return Response(products_list)
+
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def subscribed_deposit(request):
+    deposit_option_id = request.data.get('deposit_option')
+    deposit_option = get_object_or_404(DepositOptions, id=deposit_option_id)
+    
+    subscribed_product = SubscribedDepositProducts.objects.create(
+        user=request.user,
+        deposit_option_id=deposit_option.id
+    )
+
+    serializer = SubscribedDepositProductsSerializer(subscribed_product)
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def subscribed_saving(request):
+    saving_option_id = request.data.get('saving_option')
+    saving_option = get_object_or_404(SavingOptions, id=saving_option_id)
+    
+    subscribed_product = SubscribedSavingProducts.objects.create(
+        user=request.user,
+        saving_option_id=saving_option.id
+    )
+
+    serializer = SubscribedSavingProductsSerializer(subscribed_product)
+    return Response(serializer.data, status=status.HTTP_201_CREATED)

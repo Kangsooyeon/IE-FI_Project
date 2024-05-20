@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'exchangerate',
     'news',
     'map',
+    'profilepage',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',

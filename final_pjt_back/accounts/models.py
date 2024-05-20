@@ -48,7 +48,7 @@ class User(AbstractBaseUser):
     id_name = models.CharField(default='', max_length=30, null=False, blank=False, unique=True)
     email = models.EmailField(default='', max_length=30, null=False, blank=False, unique=True)
     nickname = models.CharField(default='', max_length=30, null=False, blank=False, unique=True)
-    birth = models.IntegerField(null=True, blank=True)
+    birth = models.CharField(default='', max_length=6, null=True, blank=True)
     sex = models.IntegerField(null=True, blank=True)
     main_bank = models.CharField(max_length=30, null=True, blank=True)
     salary = models.IntegerField(null=True, blank=True)

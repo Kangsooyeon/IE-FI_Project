@@ -11,6 +11,9 @@ class DepositProducts(models.Model):
     join_member = models.TextField()
     join_way = models.TextField()
     spcl_cnd = models.TextField()
+    mtrt_int = models.TextField()
+    max_limit = models.IntegerField(default=0, null=True)
+
 
 class DepositOptions(models.Model):
     product=models.ForeignKey(DepositProducts, on_delete=models.CASCADE)
@@ -29,6 +32,8 @@ class SavingProducts(models.Model):
     join_member = models.TextField()
     join_way = models.TextField()
     spcl_cnd = models.TextField()
+    mtrt_int = models.TextField()
+    max_limit = models.IntegerField(default=0, null=True)
 
 class SavingOptions(models.Model):
     product=models.ForeignKey(SavingProducts, on_delete=models.CASCADE)

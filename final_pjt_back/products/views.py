@@ -55,6 +55,8 @@ def save_deposit_products(reqeust):
         join_member = li.get('join_member')
         join_way = li.get('join_way')
         spcl_cnd = li.get('spcl_cnd')
+        mtrt_int = li.get('mtrt_int')
+        max_limit = li.get('max_limit')
 
         save_data = {
             'fin_prdt_cd':fin_prdt_cd,
@@ -65,6 +67,8 @@ def save_deposit_products(reqeust):
             'join_member':join_member,
             'join_way':join_way,
             'spcl_cnd':spcl_cnd,
+            'mtrt_int':mtrt_int,
+            'max_limit':max_limit,
         }
 
         serializer = DepositProductsSerializer(data=save_data)
@@ -117,6 +121,8 @@ def save_saving_products(reqeust):
         join_member = li.get('join_member')
         join_way = li.get('join_way')
         spcl_cnd = li.get('spcl_cnd')
+        mtrt_int = li.get('mtrt_int')
+        max_limit = li.get('max_limit')
 
         save_data = {
             'fin_prdt_cd':fin_prdt_cd,
@@ -127,6 +133,8 @@ def save_saving_products(reqeust):
             'join_member':join_member,
             'join_way':join_way,
             'spcl_cnd':spcl_cnd,
+            'mtrt_int':mtrt_int,
+            'max_limit':max_limit,
         }
 
         serializer = SavingProductsSerializer(data=save_data)

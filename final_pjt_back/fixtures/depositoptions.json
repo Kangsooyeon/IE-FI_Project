@@ -498,8 +498,8 @@
         "product": 10,
         "fin_prdt_cd": "TD11300031000",
         "intr_rate_type_nm": "단리",
-        "intr_rate": 3.05,
-        "intr_rate2": 3.15,
+        "intr_rate": 3.08,
+        "intr_rate2": 3.18,
         "save_trm": 1
     }
 },
@@ -510,8 +510,8 @@
         "product": 10,
         "fin_prdt_cd": "TD11300031000",
         "intr_rate_type_nm": "단리",
-        "intr_rate": 3.16,
-        "intr_rate2": 3.26,
+        "intr_rate": 3.17,
+        "intr_rate2": 3.27,
         "save_trm": 3
     }
 },
@@ -522,8 +522,8 @@
         "product": 10,
         "fin_prdt_cd": "TD11300031000",
         "intr_rate_type_nm": "단리",
-        "intr_rate": 3.22,
-        "intr_rate2": 3.32,
+        "intr_rate": 3.23,
+        "intr_rate2": 3.33,
         "save_trm": 6
     }
 },
@@ -1578,8 +1578,8 @@
         "product": 32,
         "fin_prdt_cd": "01013000110000000001",
         "intr_rate_type_nm": "단리",
-        "intr_rate": 3.55,
-        "intr_rate2": 3.55,
+        "intr_rate": 3.5,
+        "intr_rate2": 3.5,
         "save_trm": 3
     }
 },
@@ -1590,8 +1590,8 @@
         "product": 32,
         "fin_prdt_cd": "01013000110000000001",
         "intr_rate_type_nm": "단리",
-        "intr_rate": 3.6,
-        "intr_rate2": 3.6,
+        "intr_rate": 3.55,
+        "intr_rate2": 3.55,
         "save_trm": 6
     }
 },
@@ -1614,8 +1614,8 @@
         "product": 32,
         "fin_prdt_cd": "01013000110000000001",
         "intr_rate_type_nm": "단리",
-        "intr_rate": 3.4,
-        "intr_rate2": 3.4,
+        "intr_rate": 3.2,
+        "intr_rate2": 3.2,
         "save_trm": 24
     }
 },
@@ -1626,8 +1626,8 @@
         "product": 32,
         "fin_prdt_cd": "01013000110000000001",
         "intr_rate_type_nm": "단리",
-        "intr_rate": 3.4,
-        "intr_rate2": 3.4,
+        "intr_rate": 3.2,
+        "intr_rate2": 3.2,
         "save_trm": 36
     }
 },

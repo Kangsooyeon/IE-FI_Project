@@ -4,7 +4,6 @@ import LoginView from '@/views/LoginView.vue'
 import SignUpView from '@/views/SignUpView.vue'
 import ProfileView from '@/views/profileview/ProfileView.vue'
 import MyInfoView from '@/views/profileview/MyInfoView.vue'
-import MyInfoUpdateView from '@/views/profileview/MyInfoUpdateView.vue'
 import SubscriptionProductView from '@/views/profileview/SubscriptionProductView.vue'
 import RecommendProductView from '@/views/profileview/RecommendProductView.vue'
 import ProductListView from '@/views/product/ProductListView.vue'
@@ -43,11 +42,6 @@ const router = createRouter({
           path: '',
           name: 'profile',
           component: MyInfoView
-        },
-        {
-          path: 'myinfoupdate',
-          name: 'myinfoupdate',
-          component: MyInfoUpdateView
         },
         {
           path: 'subscriptionproduct',
@@ -108,6 +102,7 @@ router.beforeEach((to, from, next) => {
   const store = useProjectStore()
   console.log('로그인 여부', store.isLogin);
   console.log(store.token);
+  console.log(store.userInfo);
   next()
 })
 

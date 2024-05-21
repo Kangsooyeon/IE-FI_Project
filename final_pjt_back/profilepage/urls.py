@@ -6,4 +6,5 @@ app_name='profilepage'
 urlpatterns = [
     path('subscribed-deposit/', views.subscribed_deposit, name='subscribed_deposit'),
     path('subscribed-saving/', views.subscribed_saving, name='subscribed_saving'),
+    path('recommend-products/', views.recommend_products, name='recommend_products'),
 ]

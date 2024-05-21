@@ -6,7 +6,7 @@
           <th scope="row">아이디</th>
           <td>
             <span v-if="!isEditing">{{ store.userInfo.id_name }}</span>
-            <input v-else v-model="editedUserInfo.id_name" type="text" class="form-control" />
+            <input v-else v-model="editedUserInfo.id_name" type="text" class="form-control" disabled />
           </td>
         </tr>
         <tr>
@@ -14,6 +14,7 @@
           <td>
             <span v-if="!isEditing">{{ store.userInfo.email }}</span>
             <input v-else v-model="editedUserInfo.email" type="email" class="form-control" />
+            <span v-if="errors.email" class="text-danger">{{ errors.email }}</span>
           </td>
         </tr>
         <tr>
@@ -21,6 +22,7 @@
           <td>
             <span v-if="!isEditing">{{ store.userInfo.nickname }}</span>
             <input v-else v-model="editedUserInfo.nickname" type="text" class="form-control" />
+            <span v-if="errors.nickname" class="text-danger">{{ errors.nickname }}</span>
           </td>
         </tr>
         <tr>
@@ -28,6 +30,7 @@
           <td>
             <span v-if="!isEditing">{{ store.userInfo.birth }}</span>
             <input v-else v-model="editedUserInfo.birth" type="text" class="form-control" />
+            <span v-if="errors.birth" class="text-danger">{{ errors.birth }}</span>
           </td>
         </tr>
         <tr>
@@ -37,6 +40,7 @@
             <select v-else v-model="editedUserInfo.main_bank" class="form-select">
               <option v-for="bank in store.banks" :key="bank" :value="bank">{{ bank }}</option>
             </select>
+            <span v-if="errors.main_bank" class="text-danger">{{ errors.main_bank }}</span>
           </td>
         </tr>
         <tr>
@@ -44,6 +48,7 @@
           <td>
             <span v-if="!isEditing">{{ store.userInfo.salary }}</span>
             <input v-else v-model="editedUserInfo.salary" type="text" class="form-control" />
+            <span v-if="errors.salary" class="text-danger">{{ errors.salary }}</span>
           </td>
         </tr>
         <tr>
@@ -51,6 +56,7 @@
           <td>
             <span v-if="!isEditing">{{ store.userInfo.asset }}</span>
             <input v-else v-model="editedUserInfo.asset" type="text" class="form-control" />
+            <span v-if="errors.asset" class="text-danger">{{ errors.asset }}</span>
           </td>
         </tr>
         <tr>
@@ -58,6 +64,7 @@
           <td>
             <span v-if="!isEditing">{{ store.userInfo.desired_asset }}</span>
             <input v-else v-model="editedUserInfo.desired_asset" type="text" class="form-control" />
+            <span v-if="errors.desired_asset" class="text-danger">{{ errors.desired_asset }}</span>
           </td>
         </tr>
       </tbody>
@@ -78,28 +85,83 @@ import axios from 'axios';
 const store = useProjectStore();
 const isEditing = ref(false);
 const editedUserInfo = ref({ ...store.userInfo });
+const errors = ref({});
+
+const validate = () => {
+  errors.value = {};
+  let valid = true;
+
+  if (!editedUserInfo.value.email) {
+    errors.value.email = '이메일을 입력하세요';
+    valid = false;
+  } else if (!/\S+@\S+\.\S+/.test(editedUserInfo.value.email)) {
+    errors.value.email = '유효한 이메일 주소를 입력하세요';
+    valid = false;
+  }
+
+  if (!editedUserInfo.value.nickname) {
+    errors.value.nickname = '닉네임을 입력하세요';
+    valid = false;
+  }
+
+  if (!editedUserInfo.value.birth) {
+    errors.value.birth = '생년월일을 입력하세요';
+    valid = false;
+  } else if (!/^\d{6}$/.test(editedUserInfo.value.birth)) {
+    errors.value.birth = '유효한 생년월일(YYMMDD)을 입력하세요';
+    valid = false;
+  }
+
+  if (editedUserInfo.value.salary && (isNaN(editedUserInfo.value.salary) || editedUserInfo.value.salary < 0)) {
+    errors.value.salary = '유효한 연봉을 입력하세요';
+    valid = false;
+  }
+
+  if (editedUserInfo.value.asset && (isNaN(editedUserInfo.value.asset) || editedUserInfo.value.asset < 0)) {
+    errors.value.asset = '유효한 자산을 입력하세요';
+    valid = false;
+  }
+
+  if (editedUserInfo.value.desired_asset && (isNaN(editedUserInfo.value.desired_asset) || editedUserInfo.value.desired_asset < 0)) {
+    errors.value.desired_asset = '유효한 희망자산을 입력하세요';
+    valid = false;
+  }
+
+  return valid;
+};
 
 const editProfile = () => {
   isEditing.value = true;
 };
 
 const saveProfile = () => {
+  if (!validate()) return;
+
   axios({
-    method: 'put',
+    method: 'patch',
     url: 'http://127.0.0.1:8000/accounts/update/',
-    data: {"nickname": editedUserInfo.nickname,
-  "email": editedUserInfo.email,
-  "birth": editedUserInfo.birth,
-  "main_bank": editedUserInfo.main_bank,
-  "salary": editedUserInfo.salary,
-  "asset": editedUserInfo.asset,
-  "desired_asset": editedUserInfo.desired_asset},
+    data: {
+      nickname: editedUserInfo.value.nickname,
+      email: editedUserInfo.value.email,
+      birth: editedUserInfo.value.birth,
+      main_bank: editedUserInfo.value.main_bank,
+      salary: editedUserInfo.value.salary,
+      asset: editedUserInfo.value.asset,
+      desired_asset: editedUserInfo.value.desired_asset,
+    },
     headers: {
       Authorization: `Token ${store.token}`,
     },
   })
     .then((response) => {
-      store.userInfo = { ...editedUserInfo.value };
+      store.userInfo.nickname = editedUserInfo.value.nickname;
+      store.userInfo.email = editedUserInfo.value.email;
+      store.userInfo.birth = editedUserInfo.value.birth;
+      store.userInfo.main_bank = editedUserInfo.value.main_bank;
+      store.userInfo.salary = editedUserInfo.value.salary;
+      store.userInfo.asset = editedUserInfo.value.asset;
+      store.userInfo.desired_asset = editedUserInfo.value.desired_asset;
+
       isEditing.value = false;
     })
     .catch((error) => {
@@ -159,5 +221,7 @@ table {
 th {
   width: 180px;
 }
-
+.text-danger {
+  font-size: 0.8rem;
+}
 </style>

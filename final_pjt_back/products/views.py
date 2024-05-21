@@ -238,8 +238,7 @@ def deposit_top_rate(reqeust):
 
 @api_view(['GET'])
 def saving_top_rate(reqeust):
-    max_intr_rates = SavingOptions.objects.order_by('-intr_rate2')[:5]
-
+    max_intr_rates = SavingOptions.objects.order_by('-intr_rate2')
     top_rate_data = []
     seen_products = set()
     

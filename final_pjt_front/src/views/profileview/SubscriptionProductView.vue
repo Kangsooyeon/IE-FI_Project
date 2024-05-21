@@ -201,7 +201,7 @@ const currentList = computed(() => {
 
 <style scoped>
 .subscription-container {
-  width: 100%;
+  width: 660px;
   display: flex;
   flex-direction: column;
   justify-content: start;

@@ -284,7 +284,49 @@ export const useProjectStore = defineStore('project', () => {
         console.log(articleDetail.value);
         })}
 
+    // 뉴스 관련
+    const finNews = ref({})
+    const economyNews = ref({})
+    const stockNews = ref({})
+    const coinNews = ref({})
 
+    const getFinNews = function () {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/news/finance/',
+      }).then((res) => {
+        finNews.value = res.data;
+      });
+    }
+    const getEconomyNews = function () {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/news/economy/',
+      }).then((res) => {
+        economyNews.value = res.data;
+      }
+    )}
+    const getStockNews = function () {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/news/stock/',
+      }).then((res) => {
+        stockNews.value = res.data;
+      }
+    )}
+    const getCoinNews = function () {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/news/coin/',
+      }).then((res) => {
+        coinNews.value = res.data;
+      }
+    )}
+        
+
+
+
+    
 
 
   return {
@@ -311,7 +353,6 @@ export const useProjectStore = defineStore('project', () => {
     exchangeRateS2,
     exchangeRate,
     getExchangeRate,
-    // productAll, getProduct, productDetail,detailcd,
     regionList,
     provinceList,
     getCityList,
@@ -330,7 +371,15 @@ export const useProjectStore = defineStore('project', () => {
     sub_prdt_sav,
     getSubPrdtDep,
     getSubPrdtSav,
-    // getSubLogin
+    finNews,
+    getFinNews,
+    economyNews,
+    getEconomyNews,
+    stockNews,
+    getStockNews,
+    coinNews,
+    getCoinNews,
+
 
     
   };

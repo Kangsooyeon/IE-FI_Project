@@ -36,7 +36,7 @@ def saving_list(request):
     return JsonResponse(response)
 
 @api_view(['GET'])
-def save_deposit_products(reqeust):
+def save_deposit_products(request):
     URL = BASE_URL + 'depositProductsSearch.json'
     params = {
         'auth' : API_KEY,
@@ -49,55 +49,42 @@ def save_deposit_products(reqeust):
     optionList=response.get('result').get('optionList')
 
     for li in baseList:
-        fin_prdt_cd = li.get('fin_prdt_cd')
-        kor_co_nm = li.get('kor_co_nm')
-        fin_prdt_nm = li.get('fin_prdt_nm')
-        etc_note = li.get('etc_note')
-        join_deny = li.get('join_deny')
-        join_member = li.get('join_member')
-        join_way = li.get('join_way')
-        spcl_cnd = li.get('spcl_cnd')
-        mtrt_int = li.get('mtrt_int')
-        max_limit = li.get('max_limit')
-
         save_data = {
-            'fin_prdt_cd':fin_prdt_cd,
-            'kor_co_nm':kor_co_nm,
-            'fin_prdt_nm':fin_prdt_nm,
-            'etc_note':etc_note,
-            'join_deny':join_deny,
-            'join_member':join_member,
-            'join_way':join_way,
-            'spcl_cnd':spcl_cnd,
-            'mtrt_int':mtrt_int,
-            'max_limit':max_limit,
+            'fin_prdt_cd':li.get('fin_prdt_cd'),
+            'kor_co_nm':li.get('kor_co_nm'),
+            'fin_prdt_nm':li.get('fin_prdt_nm'),
+            'etc_note':li.get('etc_note'),
+            'join_deny':li.get('join_deny'),
+            'join_member':li.get('join_member'),
+            'join_way':li.get('join_way'),
+            'spcl_cnd':li.get('spcl_cnd'),
+            'mtrt_int':li.get('mtrt_int'),
+            'max_limit':li.get('max_limit'),
         }
 
-        serializer = DepositProductsSerializer(data=save_data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save() 
+        product, created = DepositProducts.objects.update_or_create(fin_prdt_cd=li.get('fin_prdt_cd'), defaults=save_data)
 
     for li in optionList:
-        fin_prdt_cd=li.get('fin_prdt_cd')
-        intr_rate_type_nm=li.get('intr_rate_type_nm')
-        intr_rate=li.get('intr_rate')
-        intr_rate2=li.get('intr_rate2')
-        save_trm=li.get('save_trm')
-
-        product_instance = get_object_or_404(DepositProducts, fin_prdt_cd=fin_prdt_cd)
+        product_instance = get_object_or_404(DepositProducts, fin_prdt_cd=li.get('fin_prdt_cd'))
 
         save_data = {
-            'product': product_instance.pk,
-            'fin_prdt_cd' : fin_prdt_cd,
-            'intr_rate_type_nm' : intr_rate_type_nm,
-            'intr_rate' : intr_rate,
-            'intr_rate2' : intr_rate2,
-            'save_trm' : save_trm,
+            'product': product_instance,
+            'fin_prdt_cd' : li.get('fin_prdt_cd'),
+            'intr_rate_type_nm' : li.get('intr_rate_type_nm'),
+            'intr_rate' : li.get('intr_rate') or 0,
+            'intr_rate2' : li.get('intr_rate2') or 0,
+            'save_trm' : li.get('save_trm'),
         }
 
-        serializer = DepositOptionsSerializer(data=save_data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
+        option, created = DepositOptions.objects.update_or_create(**{
+            'product': product_instance,
+            'fin_prdt_cd':li.get('fin_prdt_cd'),
+            'intr_rate_type_nm':li.get('intr_rate_type_nm'),
+            'intr_rate':li.get('intr_rate') or 0,
+            'intr_rate2':li.get('intr_rate2') or 0,
+            'save_trm':li.get('save_trm'),
+            }, defaults=save_data)
+
     return JsonResponse({'message':'저장완료'})
 
 
@@ -115,56 +102,46 @@ def save_saving_products(reqeust):
     optionList=response.get('result').get('optionList')
 
     for li in baseList:
-        fin_prdt_cd = li.get('fin_prdt_cd')
-        kor_co_nm = li.get('kor_co_nm')
-        fin_prdt_nm = li.get('fin_prdt_nm')
-        etc_note = li.get('etc_note')
-        join_deny = li.get('join_deny')
-        join_member = li.get('join_member')
-        join_way = li.get('join_way')
-        spcl_cnd = li.get('spcl_cnd')
-        mtrt_int = li.get('mtrt_int')
-        max_limit = li.get('max_limit')
-
         save_data = {
-            'fin_prdt_cd':fin_prdt_cd,
-            'kor_co_nm':kor_co_nm,
-            'fin_prdt_nm':fin_prdt_nm,
-            'etc_note':etc_note,
-            'join_deny':join_deny,
-            'join_member':join_member,
-            'join_way':join_way,
-            'spcl_cnd':spcl_cnd,
-            'mtrt_int':mtrt_int,
-            'max_limit':max_limit,
+            'fin_prdt_cd':li.get('fin_prdt_cd'),
+            'kor_co_nm':li.get('kor_co_nm'),
+            'fin_prdt_nm':li.get('fin_prdt_nm'),
+            'etc_note':li.get('etc_note'),
+            'join_deny':li.get('join_deny'),
+            'join_member':li.get('join_member'),
+            'join_way':li.get('join_way'),
+            'spcl_cnd':li.get('spcl_cnd'),
+            'mtrt_int':li.get('mtrt_int'),
+            'max_limit':li.get('max_limit'),
         }
+        
 
-        serializer = SavingProductsSerializer(data=save_data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save() 
-
+        product, created = SavingProducts.objects.update_or_create(fin_prdt_cd=li.get('fin_prdt_cd'), defaults=save_data)
+    
     for li in optionList:
-        fin_prdt_cd=li.get('fin_prdt_cd')
-        intr_rate_type_nm=li.get('intr_rate_type_nm')
-        intr_rate=li.get('intr_rate')
-        intr_rate2=li.get('intr_rate2')
-        save_trm=li.get('save_trm')
-
-        product_instance = get_object_or_404(SavingProducts, fin_prdt_cd=fin_prdt_cd)
+        product_instance = get_object_or_404(SavingProducts, fin_prdt_cd=li.get('fin_prdt_cd'))
 
         save_data = {
-            'product': product_instance.pk,
-            'fin_prdt_cd' : fin_prdt_cd,
-            'intr_rate_type_nm' : intr_rate_type_nm,
-            'intr_rate' : intr_rate,
-            'intr_rate2' : intr_rate2,
-            'save_trm' : save_trm,
+            'product': product_instance,
+            'fin_prdt_cd' : li.get('fin_prdt_cd'),
+            'intr_rate_type_nm' : li.get('intr_rate_type_nm'),
+            'intr_rate' : li.get('intr_rate') or 0,
+            'intr_rate2' : li.get('intr_rate2') or 0,
+            'save_trm' : li.get('save_trm'),
         }
 
-        serializer = SavingOptionsSerializer(data=save_data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
+        option, created = SavingOptions.objects.update_or_create(**{
+            'product': product_instance,
+            'fin_prdt_cd':li.get('fin_prdt_cd'),
+            'intr_rate_type_nm':li.get('intr_rate_type_nm'),
+            'intr_rate':li.get('intr_rate') or 0,
+            'intr_rate2':li.get('intr_rate2') or 0,
+            'save_trm':li.get('save_trm'),
+            }, defaults=save_data)
+    
     return JsonResponse({'message':'저장완료'})
+
+    
 
 
 

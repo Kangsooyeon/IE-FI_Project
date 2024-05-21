@@ -58,7 +58,7 @@
         "join_deny": 1,
         "join_member": "실명의 개인",
         "join_way": "스마트폰",
-        "spcl_cnd": "* 최고우대금리 : 연0.55%p\n -대구은행 인터넷뱅킹,스마트뱅킹을 통하여 최초로 적립식예금 가입 시 : 연0.20%p\n - 상품 가입 전 최근 3개월 이내 대구은행 인터넷,스마트 뱅킹을 통한 이체거래 3회 이상 : 연0.10%p\n- 상품 가입 전 수수료우대 통장 보유 고객 : 연0.20%p\n* 상품을 스마트뱅킹을 통해 가입 시 : 연0.05%p",
+        "spcl_cnd": "* 최고우대금리 : 연0.55%p\n - 대구은행 인터넷뱅킹,스마트뱅킹을 통하여 최초로 적립식예금 가입 시 : 연0.20%p\n - 상품 가입 전 최근 3개월 이내 대구은행 인터넷,스마트 뱅킹을 통한 이체거래 3회 이상 : 연0.10%p\n- 상품 가입 전 수수료우대 통장 보유 고객 : 연0.20%p\n* 상품을 스마트뱅킹을 통해 가입 시 : 연0.05%p",
         "mtrt_int": "만기 후 1개월 미만 경과: 약정이자율 x 50%\n만기 후 3개월 미만 경과: 약정이자율 x 25%\n만기 후 3개월 이상 경과: 약정이자율 x 10%",
         "max_limit": 1000000
     }
@@ -90,7 +90,7 @@
         "join_deny": 1,
         "join_member": "실명의 개인",
         "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "*최고우대금리 : 연0.80%p\n -비대면 채널로 신규 : 연0.20%p\n -상품 가입 전 마케팅활용[개인(신용)정보,수집,이용동의] 전체 동의 : 연0.20%p\n(계약기간 1년인 경우 만기일 기준)\n -대구은행 계좌로 자동이체 8회 이상 입금 : 연0.20%p\n - 원금 합계 100만원이상 : 연0.10%p 또는 원금합계 200만원이상 : 연0.20%p",
+        "spcl_cnd": "*최고우대금리 : 연0.80%p\n-비대면 채널로 신규 : 연0.20%p\n-상품 가입 전 마케팅활용[개인(신용)정보,수집,이용동의] 전체 동의 : 연0.20%p\n(계약기간 1년인 경우 만기일 기준)\n-대구은행 계좌로 자동이체 8회 이상 입금 : 연0.20%p\n -원금 합계 100만원이상 : 연0.10%p 또는 원금합계 200만원이상 : 연0.20%p",
         "mtrt_int": "만기 후 1개월 미만 경과: 약정이자율 x 50%\n만기 후 3개월 미만 경과: 약정이자율 x 25%\n만기 후 3개월 이상 경과: 약정이자율 x 10%",
         "max_limit": 200000
     }
@@ -165,7 +165,7 @@
     "fields": {
         "fin_prdt_cd": "01020400530001",
         "kor_co_nm": "부산은행",
-        "fin_prdt_nm": "내맘대로 \n적금",
+        "fin_prdt_nm": "BNK내맘대로 \n적금",
         "etc_note": "1. 가입금액 :\n   1천원 이상\n2. 가입기간 : \n6개월 이상 60개월 이하(일단위)",
         "join_deny": 1,
         "join_member": "제한없음",
@@ -178,6 +178,22 @@
 {
     "model": "products.savingproducts",
     "pk": 12,
+    "fields": {
+        "fin_prdt_cd": "1020400640001",
+        "kor_co_nm": "부산은행",
+        "fin_prdt_nm": "BNK아기천사적금",
+        "etc_note": "1. 가입한도: 월 1만원 이상 30만원 이하 원단위\n2.자유적립식",
+        "join_deny": 1,
+        "join_member": "실명의 개인고객(1인 1계좌)",
+        "join_way": "스마트폰",
+        "spcl_cnd": "*우대이율 최대 6.00%",
+        "mtrt_int": "- 만기후 1년이내:가입기간별 일반정기적금 기본이율 x 50%\n- 만기후 1년초과:가입기간별 일반정기적금 기본이율 x 20%",
+        "max_limit": 300000
+    }
+},
+{
+    "model": "products.savingproducts",
+    "pk": 13,
     "fields": {
         "fin_prdt_cd": "TD11330029000",
         "kor_co_nm": "광주은행",
@@ -193,7 +209,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 13,
+    "pk": 14,
     "fields": {
         "fin_prdt_cd": "TD11330030000",
         "kor_co_nm": "광주은행",
@@ -209,7 +225,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 14,
+    "pk": 15,
     "fields": {
         "fin_prdt_cd": "TD11330031000",
         "kor_co_nm": "광주은행",
@@ -225,7 +241,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 15,
+    "pk": 16,
     "fields": {
         "fin_prdt_cd": "TD11330032000",
         "kor_co_nm": "광주은행",
@@ -241,7 +257,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 16,
+    "pk": 17,
     "fields": {
         "fin_prdt_cd": "220002101",
         "kor_co_nm": "제주은행",
@@ -257,7 +273,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 17,
+    "pk": 18,
     "fields": {
         "fin_prdt_cd": "220002501",
         "kor_co_nm": "제주은행",
@@ -273,7 +289,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 18,
+    "pk": 19,
     "fields": {
         "fin_prdt_cd": "220002701",
         "kor_co_nm": "제주은행",
@@ -289,7 +305,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 19,
+    "pk": 20,
     "fields": {
         "fin_prdt_cd": "10-01-30-031-0018-0000",
         "kor_co_nm": "전북은행",
@@ -305,7 +321,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 20,
+    "pk": 21,
     "fields": {
         "fin_prdt_cd": "10-01-30-031-0036",
         "kor_co_nm": "전북은행",
@@ -321,7 +337,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 21,
+    "pk": 22,
     "fields": {
         "fin_prdt_cd": "10-01-30-031-0038-0000",
         "kor_co_nm": "전북은행",
@@ -337,7 +353,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 22,
+    "pk": 23,
     "fields": {
         "fin_prdt_cd": "10-01-30-031-0048-0000",
         "kor_co_nm": "전북은행",
@@ -353,7 +369,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 23,
+    "pk": 24,
     "fields": {
         "fin_prdt_cd": "10-01-30-031-0049-0000",
         "kor_co_nm": "전북은행",
@@ -369,7 +385,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 24,
+    "pk": 25,
     "fields": {
         "fin_prdt_cd": "21000111",
         "kor_co_nm": "경남은행",
@@ -385,7 +401,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 25,
+    "pk": 26,
     "fields": {
         "fin_prdt_cd": "21001116",
         "kor_co_nm": "경남은행",
@@ -401,7 +417,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 26,
+    "pk": 27,
     "fields": {
         "fin_prdt_cd": "21001199",
         "kor_co_nm": "경남은행",
@@ -410,14 +426,14 @@
         "join_deny": 1,
         "join_member": "개인 및 개인사업자",
         "join_way": "영업점,인터넷,스마트폰,기타",
-        "spcl_cnd": "①ESG 실천 우대금리 0.50%\n②신규고객 우대금리 0.50%\n- 당행 1년 이내예적금(청약포함)신규해지 이력미보유\n③공동가입우대금리 1.50%",
+        "spcl_cnd": "①ESG 실천 우대금리 0.50%\n②신규고객 우대금리 0.50%\n- 당행 1년 이내예적금(청약포함)신규해지 이력미보유\n③공동가입우대금리 1.50%\n④창립 54주년 이벤트금리(~6.7), 선착순2,000명 한정: 0.50% (가입기간 12개월만 해당)",
         "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
         "max_limit": 1000000
     }
 },
 {
     "model": "products.savingproducts",
-    "pk": 27,
+    "pk": 28,
     "fields": {
         "fin_prdt_cd": "21001236",
         "kor_co_nm": "경남은행",
@@ -433,7 +449,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 28,
+    "pk": 29,
     "fields": {
         "fin_prdt_cd": "21001259",
         "kor_co_nm": "경남은행",
@@ -449,7 +465,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 29,
+    "pk": 30,
     "fields": {
         "fin_prdt_cd": "21001268",
         "kor_co_nm": "경남은행",
@@ -465,7 +481,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 30,
+    "pk": 31,
     "fields": {
         "fin_prdt_cd": "01211210113",
         "kor_co_nm": "중소기업은행",
@@ -481,7 +497,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 31,
+    "pk": 32,
     "fields": {
         "fin_prdt_cd": "01211210121",
         "kor_co_nm": "중소기업은행",
@@ -497,7 +513,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 32,
+    "pk": 33,
     "fields": {
         "fin_prdt_cd": "01211210122",
         "kor_co_nm": "중소기업은행",
@@ -513,7 +529,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 33,
+    "pk": 34,
     "fields": {
         "fin_prdt_cd": "03101",
         "kor_co_nm": "한국산업은행",
@@ -529,7 +545,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 34,
+    "pk": 35,
     "fields": {
         "fin_prdt_cd": "03700",
         "kor_co_nm": "한국산업은행",
@@ -545,7 +561,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 35,
+    "pk": 36,
     "fields": {
         "fin_prdt_cd": "010200100051",
         "kor_co_nm": "국민은행",
@@ -561,7 +577,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 36,
+    "pk": 37,
     "fields": {
         "fin_prdt_cd": "010200100084",
         "kor_co_nm": "국민은행",
@@ -570,14 +586,14 @@
         "join_deny": 1,
         "join_member": "실명의 개인",
         "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "맑은하늘을 위한 미션별 제공조건을 달성하는 경우 각 미션별 우대이율 제공\n -1년제 최고 연 0.8%p, 2년제 최고 연 0.9%p, 3년제 최고 연 1.0%p\n① 종이통장 줄이기 미션: 연 0.1%p\n② 종이서식 줄이기 미션: 연 0.2%p\n③ 대중교통 미션: 1년제 연 0.4%p, 2년제 연 0.5%p, 3년제 연 0.6%p\n④ 퀴즈미션: 연 0.1%p",
+        "spcl_cnd": "맑은하늘을 위한 미션별 제공조건을 달성하는 경우 우대이율 제공\n -1년제 최고 연 0.8%p, 2년제 최고 연 0.9%p, 3년제 최고 연 1.0%p\n① 종이통장 줄이기 미션: 연 0.1%p\n② 종이서식 줄이기 미션: 연 0.2%p\n③ 대중교통 미션: 1년제 연 0.4%p, 2년제 연 0.5%p, 3년제 연 0.6%p\n④ 퀴즈미션: 연 0.1%p",
         "mtrt_int": "- 1개월 이내 : 기본이율 X 50%\n- 1개월 초과  ~ 3개월 이내 : 기본이율 X 30%\n- 3개월 초과 : 0.1%",
         "max_limit": null
     }
 },
 {
     "model": "products.savingproducts",
-    "pk": 37,
+    "pk": 38,
     "fields": {
         "fin_prdt_cd": "010200100092",
         "kor_co_nm": "국민은행",
@@ -593,7 +609,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 38,
+    "pk": 39,
     "fields": {
         "fin_prdt_cd": "010200100104",
         "kor_co_nm": "국민은행",
@@ -609,7 +625,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 39,
+    "pk": 40,
     "fields": {
         "fin_prdt_cd": "010200100109",
         "kor_co_nm": "국민은행",
@@ -625,7 +641,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 40,
+    "pk": 41,
     "fields": {
         "fin_prdt_cd": "230-0118-14",
         "kor_co_nm": "신한은행",
@@ -641,7 +657,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 41,
+    "pk": 42,
     "fields": {
         "fin_prdt_cd": "230-0119-85",
         "kor_co_nm": "신한은행",
@@ -657,7 +673,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 42,
+    "pk": 43,
     "fields": {
         "fin_prdt_cd": "10-047-1360-0002",
         "kor_co_nm": "농협은행주식회사",
@@ -673,7 +689,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 43,
+    "pk": 44,
     "fields": {
         "fin_prdt_cd": "10-047-1365-0001",
         "kor_co_nm": "농협은행주식회사",
@@ -689,7 +705,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 44,
+    "pk": 45,
     "fields": {
         "fin_prdt_cd": "10-047-1381-0001",
         "kor_co_nm": "농협은행주식회사",
@@ -705,7 +721,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 45,
+    "pk": 46,
     "fields": {
         "fin_prdt_cd": "10-047-1387-0001",
         "kor_co_nm": "농협은행주식회사",
@@ -721,7 +737,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 46,
+    "pk": 47,
     "fields": {
         "fin_prdt_cd": "10-059-1264-0001",
         "kor_co_nm": "농협은행주식회사",
@@ -737,7 +753,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 47,
+    "pk": 48,
     "fields": {
         "fin_prdt_cd": "52",
         "kor_co_nm": "하나은행",
@@ -753,7 +769,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 48,
+    "pk": 49,
     "fields": {
         "fin_prdt_cd": "53",
         "kor_co_nm": "하나은행",
@@ -769,7 +785,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 49,
+    "pk": 50,
     "fields": {
         "fin_prdt_cd": "01012000200000000003",
         "kor_co_nm": "주식회사 케이뱅크",
@@ -785,7 +801,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 50,
+    "pk": 51,
     "fields": {
         "fin_prdt_cd": "01012000210000000000",
         "kor_co_nm": "주식회사 케이뱅크",
@@ -801,7 +817,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 51,
+    "pk": 52,
     "fields": {
         "fin_prdt_cd": "10140110400011",
         "kor_co_nm": "수협은행",
@@ -817,7 +833,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 52,
+    "pk": 53,
     "fields": {
         "fin_prdt_cd": "10140114300011",
         "kor_co_nm": "수협은행",
@@ -833,7 +849,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 53,
+    "pk": 54,
     "fields": {
         "fin_prdt_cd": "10140114700031",
         "kor_co_nm": "수협은행",
@@ -849,7 +865,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 54,
+    "pk": 55,
     "fields": {
         "fin_prdt_cd": "10141109800021",
         "kor_co_nm": "수협은행",
@@ -865,7 +881,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 55,
+    "pk": 56,
     "fields": {
         "fin_prdt_cd": "10141114300011",
         "kor_co_nm": "수협은행",
@@ -881,7 +897,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 56,
+    "pk": 57,
     "fields": {
         "fin_prdt_cd": "10141114700031",
         "kor_co_nm": "수협은행",
@@ -897,7 +913,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 57,
+    "pk": 58,
     "fields": {
         "fin_prdt_cd": "10-01-30-355-0002",
         "kor_co_nm": "주식회사 카카오뱅크",
@@ -913,7 +929,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 58,
+    "pk": 59,
     "fields": {
         "fin_prdt_cd": "10-01-30-355-0005",
         "kor_co_nm": "주식회사 카카오뱅크",
@@ -929,7 +945,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 59,
+    "pk": 60,
     "fields": {
         "fin_prdt_cd": "10-01-30-355-0006",
         "kor_co_nm": "주식회사 카카오뱅크",
@@ -945,7 +961,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 60,
+    "pk": 61,
     "fields": {
         "fin_prdt_cd": "1001303001001",
         "kor_co_nm": "토스뱅크 주식회사",
@@ -961,7 +977,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 61,
+    "pk": 62,
     "fields": {
         "fin_prdt_cd": "1001303001003",
         "kor_co_nm": "토스뱅크 주식회사",
@@ -977,7 +993,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 62,
+    "pk": 63,
     "fields": {
         "fin_prdt_cd": "1001303001004",
         "kor_co_nm": "토스뱅크 주식회사",
@@ -993,7 +1009,7 @@
 },
 {
     "model": "products.savingproducts",
-    "pk": 63,
+    "pk": 64,
     "fields": {
         "fin_prdt_cd": "1001303001005",
         "kor_co_nm": "토스뱅크 주식회사",

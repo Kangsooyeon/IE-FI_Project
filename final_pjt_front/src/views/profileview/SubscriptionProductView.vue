@@ -1,157 +1,283 @@
 <template>
   <div class="subscription-container">
-    <div class="d-flex justify-content-center mb-4">
-      <button @click="showDeposit" :class="{'btn-primary': isDeposit, 'btn-secondary': !isDeposit}" class="btn mx-2">예금</button>
-      <button @click="showSaving" :class="{'btn-primary': !isDeposit, 'btn-secondary': isDeposit}" class="btn mx-2">적금</button>
+    <div class="button-container">
+      <button @click="showDeposit" :class="{ active: isDeposit }" :disabled="isDeposit">예금</button>
+      <button @click="showSavings" :class="{ active: !isDeposit }" :disabled="!isDeposit">적금</button>
     </div>
-
-    <div :class="{'display': !isDeposit}">
-      <div class="d-flex flex-column justify-content-between align-items-center">
-        <div class="chart-container">
-          <h3>예금 그래프</h3>
-          <canvas id="depositChart"></canvas>
-        </div>
-        <div class="list-container">
-          <h3>예금 리스트</h3>
-          <ul class="list-group">
-            <li v-for="item in store.sub_prdt_dep" :key="item.id" class="list-group-item">
-              {{ item.deposit_product.fin_prdt_nm }}: {{ item.sign_money }}원 
-            </li>
-          </ul>
-        </div>
+    <div class="content-wrapper">
+      <div class="chart-container">
+        <h3 v-if="isDeposit">예금 그래프( 예상수입 | 금리 )</h3>
+        <h3 v-else>적금 그래프( 예상수입 | 금리 )</h3>
+        <canvas id="chart"></canvas>
       </div>
-    </div>
-
-    <div :class="{'display':isDeposit}">
-      <div class="d-flex flex-column justify-content-between align-items-center">
-        <div class="chart-container">
-          <h3>적금 그래프</h3>
-          <canvas id="savingChart"></canvas>
-        </div>
-        <div class="list-container">
-          <h3>적금 리스트</h3>
-          <ul class="list-group">
-            <li v-for="item in store.sub_prdt_sav" :key="item.id" class="list-group-item">
-              {{ item.saving_product.fin_prdt_nm }}: {{ item.sign_money }}원
-            </li>
-          </ul>
-        </div>
+      <div class="list-container">
+        <h3 v-if="isDeposit">예금 리스트(가입금액)</h3>
+        <h3 v-else>적금 리스트(가입금액)</h3>
+        <ul class="list-group">
+          <li v-for="item in currentList" :key="item.id" class="list-group-item">
+            <input type="checkbox" :value="item" v-model="selectedItems" :disabled="isDisabled(item)">
+            {{ item.id }} - {{ item.deposit_product?.fin_prdt_nm }}{{ item?.saving_product?.fin_prdt_nm }}: {{ item.sign_money }}원 
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, watch, onMounted,computed } from 'vue';
 import { useProjectStore } from '@/stores/project';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
 
 const store = useProjectStore();
+const selectedItems = ref([]);
 const isDeposit = ref(true);
+let chartInstance = null;
+
+const isDisabled = (item) => {
+  return selectedItems.value.length >= 5 && !selectedItems.value.includes(item);
+};
 
 const showDeposit = () => {
   isDeposit.value = true;
-  renderDepositChart();
+  selectedItems.value = [];
+  renderChart();
 };
 
-const showSaving = () => {
+const showSavings = () => {
   isDeposit.value = false;
-  renderSavingChart();
+  selectedItems.value = [];
+  renderChart();
 };
 
-const renderDepositChart = () => {
-  const ctx = document.getElementById('depositChart').getContext('2d');
-  new Chart(ctx, {
+const renderChart = () => {
+  if(isDeposit.value){
+    const ctx1 = document.getElementById('chart').getContext('2d');
+  if (chartInstance) {
+    chartInstance.destroy();
+  }
+  chartInstance = new Chart(ctx1, {
     type: 'bar',
     data: {
-      labels: store.sub_prdt_dep.map(item => item.deposit_product.fin_prdt_nm),
+      labels: selectedItems.value.map(item => item.id),
       datasets: [{
-        label: '예금 금액',
-        data: store.sub_prdt_dep.map(item => item.sign_money),
+        label: '예상 수입금',
+        data: selectedItems.value.map((item) => item.mtrt_money - item.sign_money),
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1
+        yAxisID: 'y',
+      },{
+        label: '금리',
+        data: selectedItems.value.map((item) => {
+          if(isDeposit.value){
+            console.log(11);
+            return item.deposit_option.intr_rate2
+          }else{
+            console.log(22);
+            return item.saving_option.intr_rate2
+          }
+        }),
+        backgroundColor: '#acc236',
+        borderColor: '#acc236',
+        yAxisID: 'y1',
       }]
     },
     options: {
+      responsive: true,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      stacked: false,
+      plugins: {
+        title: {
+          display: true,
+          text: 'IE-FI'
+        }
+      },
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: true,
+          type: 'linear',
+          display: true,
+          position: 'left',
+        },
+        y1: {
+          beginAtZero: true,
+          type: 'linear',
+          display: true,
+          position: 'right',
+          grid: {
+            drawOnChartArea: false, // only want the grid lines for one axis to show up
+          }
         }
       }
     }
   });
-};
-
-const renderSavingChart = () => {
-  const ctx = document.getElementById('savingChart').getContext('2d');
-  new Chart(ctx, {
+  }
+  else{
+    const ctx2 = document.getElementById('chart').getContext('2d');
+  if (chartInstance) {
+    chartInstance.destroy();
+  }
+  chartInstance = new Chart(ctx2, {
     type: 'bar',
     data: {
-      labels: store.sub_prdt_sav.map(item => item.saving_product.fin_prdt_nm),
+      labels: selectedItems.value.map(item => item.id),
       datasets: [{
-        label: '적금 금액',
-        data: store.sub_prdt_sav.map(item => item.sign_money),
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1
+        label: '예상 수입금',
+        data: selectedItems.value.map((item) => item.mtrt_money - item.sign_money),
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        yAxisID: 'y',
+      },{
+        label: '금리',
+        data: selectedItems.value.map((item) => {
+          if(isDeposit.value){
+            console.log(11);
+            return item.deposit_option.intr_rate2
+          }else{
+            console.log(22);
+            return item.saving_option.intr_rate2
+          }
+        }),
+        backgroundColor: '#acc236',
+        borderColor: '#acc236',
+        yAxisID: 'y1',
       }]
     },
     options: {
+      responsive: true,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      stacked: false,
+      plugins: {
+        title: {
+          display: true,
+          text: 'IE-FI'
+        }
+      },
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: true,
+          type: 'linear',
+          display: true,
+          position: 'left',
+        },
+        y1: {
+          beginAtZero: true,
+          type: 'linear',
+          display: true,
+          position: 'right',
+          grid: {
+            drawOnChartArea: false, // only want the grid lines for one axis to show up
+          }
         }
       }
     }
   });
+  }
+  
 };
 
-onMounted(() => {
-  if (isDeposit.value) {
-    renderDepositChart();
-  } else {
-    renderSavingChart();
-  }
+watch(selectedItems, () => {
+  renderChart();
 });
 
-watch(isDeposit, (newValue) => {
-  if (newValue) {
-    renderDepositChart();
-  } else {
-    renderSavingChart();
-  }
+onMounted(() => {
+  renderChart();
+});
+
+const currentList = computed(() => {
+  return isDeposit.value ? store.sub_prdt_dep : store.sub_prdt_sav;
 });
 </script>
+
 <style scoped>
 .subscription-container {
-  width: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container button.active {
+  background-color: #0056b3;
+}
+
+.button-container button:hover:not(.active) {
+  background-color: #0056b3;
+}
+
+.content-wrapper {
+  width: 660px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .chart-container {
   width: 100%;
   height: 400px;
-}
-
-canvas {
-  width: 100% !important;
-  height: 400px !important;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
 }
 
 .list-container {
   width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
 }
 
 .list-group-item {
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
 }
 
-button {
-  width: 100px;
+.list-group-item input[type="checkbox"] {
+  margin-right: 10px;
 }
-.display {
-  display: none;
+
+h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
 }
 </style>

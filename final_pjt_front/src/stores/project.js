@@ -1,8 +1,10 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import axios from 'axios';
+import {useRouter} from 'vue-router'
 
 export const useProjectStore = defineStore('project', () => {
+  const router = useRouter()
   // 은행
   const banks = [
     '우리은행',
@@ -227,18 +229,11 @@ export const useProjectStore = defineStore('project', () => {
     asset: '',
     desired_asset: '',
   });
-  
+    
+  // 상품 가입시
   const sub_prdt_dep=ref([])
   const sub_prdt_sav=ref([])
-  const getSubPrdt = function () {
-    axios({
-      method: 'get',
-      url: 'http://127.0.0.1:8000/profilepage/subscribed-saving/',
-      headers: {
-        Authorization: `Token ${token.value}`,
-      },}).then((res) => {
-        sub_prdt_sav.value = res.data;
-      });
+  const getSubPrdtDep = function () {
     axios({
       method: 'get',
       url: 'http://127.0.0.1:8000/profilepage/subscribed-deposit/',
@@ -246,10 +241,17 @@ export const useProjectStore = defineStore('project', () => {
         Authorization: `Token ${token.value}`,
       },}).then((res) => {
         sub_prdt_dep.value = res.data;
-        console.log(sub_prdt_dep.value);
-        console.log(sub_prdt_sav.value);
-      });
+      })
   }
+  const getSubPrdtSav = function () {
+    axios({
+      method: 'get',
+      url: 'http://127.0.0.1:8000/profilepage/subscribed-saving/',
+      headers: {
+        Authorization: `Token ${token.value}`,
+      },}).then((res) => {
+        sub_prdt_sav.value = res.data;
+      })}
 
   //게시판 리스트
   const boardList = ref([]);
@@ -326,7 +328,9 @@ export const useProjectStore = defineStore('project', () => {
     getArticle,
     sub_prdt_dep,
     sub_prdt_sav,
-    getSubPrdt,
+    getSubPrdtDep,
+    getSubPrdtSav,
+    // getSubLogin
 
     
   };

@@ -5,7 +5,6 @@
         <h1 class="card-title mb-4">{{ productDetail.product?.fin_prdt_nm }}</h1>
         <p v-if="isSub" class="text-success"><strong>이 상품에 이미 가입하셨습니다.</strong></p>
         <p class="card-text"><strong>금융회사명:</strong> {{ productDetail.product?.kor_co_nm }}</p>
-        <p class="card-text"><strong>금융회사명:</strong> {{ productDetail.product?.kor_co_nm }}</p>
         <p class="card-text"><strong>가입대상:</strong> {{ productDetail.product?.join_member }}</p>
         <p class="card-text"><strong>우대조건:</strong> {{ productDetail.product?.spcl_cnd }}</p>
         <p class="card-text"><strong>만기 후 이율:</strong> {{ productDetail.product?.mtrt_int || "-" }}</p>
@@ -19,6 +18,7 @@
               <tr>
                 <th>계약기간(월)</th>
                 <th>최고우대금리</th>
+                <th>이자계산법</th>
                 <th></th>
               </tr>
             </thead>
@@ -26,6 +26,7 @@
               <tr v-for="(option, index) in productDetail.options" :key="index">
                 <td>{{ option.save_trm }}</td>
                 <td>{{ option.intr_rate2 }}</td>
+                <td>{{ option.intr_rate_type_nm }}</td>
                 <td>
                   <button v-if="store.isLogin && !isSub" class="btn btn-primary btn-sm" @click="openModal(option)">가입</button>
                 </td>
@@ -97,24 +98,11 @@ const isConfirmModalOpen = ref(false);
 const modalInputValue = ref(0);
 const selectedOption = ref({});
 
-const DorS= ref('deposit');
+const DorS = ref('deposit');
 const expectedAmount = ref(0);
 const subscribtionId = ref(0);
 
 const isSub = ref(false);
-
-store.sub_prdt_dep.forEach((el) => {
-  if (el.deposit_option.fin_prdt_cd === productId.value) {
-    isSub.value = true;
-  }
-});
-
-store.sub_prdt_sav.forEach((el) => {
-  if (el.saving_option.fin_prdt_cd === productId.value) {
-    isSub.value = true;
-  }
-});
-
 
 onMounted(() => {
   axios({
@@ -141,6 +129,19 @@ onMounted(() => {
       product: productDetailTMP[dors],
       options: productDetailTMP.options,
     };
+  });
+  store.getSubPrdtDep();
+  store.getSubPrdtSav();
+  store.sub_prdt_dep.forEach((el) => {
+    if (el.deposit_option.fin_prdt_cd === productId.value) {
+      isSub.value = true;
+    }
+  });
+
+  store.sub_prdt_sav.forEach((el) => {
+    if (el.saving_option.fin_prdt_cd === productId.value) {
+      isSub.value = true;
+    }
   });
 });
 
@@ -173,24 +174,39 @@ const closeConfirmModal = () => {
 const calculateExpectedAmount = () => {
   const interestRate = parseFloat(selectedOption.value.intr_rate2) / 100;
   const principal = parseFloat(signMoney.value);
-  const period = parseFloat(selectedOption.value.save_trm) / 12; // 계약기간을 연 단위로 변환
+  const periodMonths = parseFloat(selectedOption.value.save_trm); // 계약기간을 월 단위로 유지
+  const periodYears = periodMonths / 12; // 계약기간을 연 단위로 변환
+
   if (productDetail.value.product?.fin_prdt_nm.includes('예금')) {
     // 예금 방식 계산
-    expectedAmount.value = (principal + (principal * interestRate * period)).toFixed(2);
+    if (selectedOption.value.intr_rate_type_nm.includes('단리')) {
+      // 단리 계산
+      expectedAmount.value = (principal + (principal * interestRate * periodYears)).toFixed(2);
+    } else {
+      // 복리 계산
+      expectedAmount.value = (principal * Math.pow((1 + interestRate / 12), periodMonths)).toFixed(2);
+    }
   } else {
     // 적금 방식 계산
     DorS.value = 'saving';
-    expectedAmount.value = ((principal * period) + (principal * interestRate * (period * (period + 1) / 2) / period)).toFixed(2);
+    const monthlyDeposit = principal;
+
+    if (selectedOption.value.intr_rate_type_nm.includes('단리')) {
+      // 단리 계산
+      expectedAmount.value = ((monthlyDeposit * periodMonths) + (monthlyDeposit * interestRate * (periodMonths * (periodMonths + 1) / 2) / 12)).toFixed(2);
+    } else {
+      // 복리 계산
+      let totalAmount = 0;
+      for (let i = 1; i <= periodMonths; i++) {
+        totalAmount += monthlyDeposit * Math.pow((1 + interestRate / 12), (periodMonths - i + 1));
+      }
+      expectedAmount.value = totalAmount.toFixed(2);
+    }
   }
 };
 
 const subscribe = () => {
-  // 가입 처리 로직 추가
-  console.log(productDetail.value.options);
-  console.log(subscribtionId.value);
-  console.log(signMoney.value);
-  console.log( parseInt(expectedAmount.value));
-  if(DorS.value === 'deposit'){
+  if (DorS.value === 'deposit') {
     axios({
       method: 'post',
       url: `http://127.0.0.1:8000/products/subscribed-${DorS.value}/`,
@@ -204,13 +220,9 @@ const subscribe = () => {
       },
     }).then((res) => {
       alert(`가입이 완료되었습니다. 가입 금액: ${signMoney.value}원`);
-    }).then(()=>{
-      store.getSubPrdt()
-    }).then(()=>{
-      router.push('/profile/subscriptionproduct')
+      isSub.value = true;
     });
-  }
-  else{
+  } else {
     axios({
       method: 'post',
       url: `http://127.0.0.1:8000/products/subscribed-${DorS.value}/`,
@@ -224,12 +236,8 @@ const subscribe = () => {
       },
     }).then((res) => {
       alert(`가입이 완료되었습니다. 가입 금액: ${signMoney.value}원`);
-    }).then(()=>{
-      store.getSubPrdt()
-    }).then(()=>{
-      router.push('/profile/subscriptionproduct')
+      isSub.value = true;
     });
-  ;
   }
   isConfirmModalOpen.value = false;
 };

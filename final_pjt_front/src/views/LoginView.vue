@@ -12,7 +12,7 @@
   
             <div :class="['form-group', { 'has-error': !valid.password && submitted }]">
               <label for="password">비밀번호</label>
-              <input type="password" class="form-control" id="password" v-model.trim="password" required>
+              <input type="password" class="form-control" id="password" v-model.trim="password" autoComplete="off" required>
             </div>
   
             <button type="submit" class="btn btn-primary btn-block mt-4">로그인</button>
@@ -68,13 +68,10 @@
             asset: res.data.asset,
             desired_asset: res.data.desired_asset,
           }
-          router.push({name:'mainpage'})
           console.log('로그인 성공!');
-        }).then(()=>{
-          store.getSubPrdt()
+          router.push('/');
         })
         .catch((err) => {
-            console.log(err,2);
           alert('로그인 실패! 다시 시도해주세요.');
         });
     } else {

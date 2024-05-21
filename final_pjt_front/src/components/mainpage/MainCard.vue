@@ -1,15 +1,15 @@
 <template>
     <div class="main-container">
-      <div class="row mb-3">
-        <div class="col">
+      <div class="row mb-3 upcard">
+        <div class="col my-3">
           <TRProduct />
         </div>
-        <div class="col">
+        <div class="col my-3">
           <ERGraph />
         </div>
       </div>
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 d-flex flex-row justify-content-center">
           <News />
         </div>
       </div>
@@ -47,6 +47,23 @@
   
   .col-12 {
     width: 100%;
+  }
+  
+  .upcard {
+    width: 980px;
+  }
+  
+  @media (min-width: 920px) {
+    .upcard {
+      flex-direction: row;
+    }
+  }
+  
+  @media (max-width: 920px) {
+    .upcard {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   </style>
   

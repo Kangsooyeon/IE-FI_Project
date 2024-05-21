@@ -2,6 +2,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from django.shortcuts import get_object_or_404
+from django.templatetags.static import static
 from django.http import JsonResponse
 from django.conf import settings
 import requests
@@ -12,7 +13,7 @@ import pandas as pd
 import requests
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
-from PIL import Image
+from datetime import datetime
 
 font_path = 'C:/Windows/Fonts/malgunbd.ttf'
 font_name = fm.FontProperties(fname=font_path).get_name()
@@ -96,8 +97,11 @@ def ER_graph(request):
  
     API_KEY='HSYHTREWFIJQ9TKHK8ES'
 
+    urls = []
     for c in range(len(codes)):
-        url='https://ecos.bok.or.kr/api/StatisticSearch/'+API_KEY+'/json/kr/1/100/731Y001/D/20240101/20240516/'+codes[c]+'/'
+        
+        enddate=datetime.now().strftime('%Y%m%d')
+        url='https://ecos.bok.or.kr/api/StatisticSearch/'+API_KEY+'/json/kr/1/100/731Y001/D/20240101/'+enddate+'/'+codes[c]+'/'
 
         response = requests.get(url)
         result = response.json()
@@ -109,7 +113,7 @@ def ER_graph(request):
         for i in range(0,list_count):
             start = str(i * 100 + 1)
             end = str((i + 1) * 100)
-            url='https://ecos.bok.or.kr/api/StatisticSearch/'+API_KEY+'/json/kr/'+ start +'/'+ end +'/731Y001/D/20240101/20240501/'+codes[c]+'/'
+            url='https://ecos.bok.or.kr/api/StatisticSearch/'+API_KEY+'/json/kr/'+ start +'/'+ end +'/731Y001/D/20240101/20240524/'+codes[c]+'/'
             response = requests.get(url)
             result = response.json()
             rows = rows + result['StatisticSearch']['row']
@@ -154,7 +158,10 @@ def ER_graph(request):
         save_path = settings.STATICFILES_DIRS[0] / 'ER-graph' / (names[c] + '.png')
         plt.savefig(save_path, format='png', bbox_inches='tight')
 
-    return JsonResponse({'message':'그래프 저장 완료'})
+        image_url = request.build_absolute_uri(static(str(save_path)))
+        urls.append(image_url)
+
+    return JsonResponse({'urls': urls})
 
 @api_view(['GET'])
 def save_flag(request):

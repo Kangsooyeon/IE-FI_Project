@@ -162,11 +162,11 @@
 .login-btn {
     background-color: white;
     color: black;
-    border: 1px solid #0082cd;
+    border: 1px solid #0d6efd;
 }
 
 .register-btn {
-    background-color: #0082cd;
+    background-color: #0d6efd;
     color: white;
 }
 .nav-link {

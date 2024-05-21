@@ -189,6 +189,8 @@ watch(selectedItems, () => {
 });
 
 onMounted(() => {
+  store.getSubPrdtDep();
+  store.getSubPrdtSav();
   renderChart();
 });
 

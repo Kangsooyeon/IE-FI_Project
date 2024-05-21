@@ -4,13 +4,14 @@
       <div class="card-body">
         <h1 class="card-title mb-4">{{ productDetail.product?.fin_prdt_nm }}</h1>
         <p v-if="isSub" class="text-success"><strong>이 상품에 이미 가입하셨습니다.</strong></p>
-        <p class="card-text"><strong>금융회사명:</strong> {{ productDetail.product?.kor_co_nm }}</p>
-        <p class="card-text"><strong>가입대상:</strong> {{ productDetail.product?.join_member }}</p>
-        <p class="card-text"><strong>우대조건:</strong> {{ productDetail.product?.spcl_cnd }}</p>
-        <p class="card-text"><strong>만기 후 이율:</strong> {{ productDetail.product?.mtrt_int || "-" }}</p>
-        <p class="card-text"><strong>최고한도:</strong> {{ productDetail.product?.max_limit ? (productDetail.product?.max_limit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원" : "-" }}</p>
-        <p class="card-text"><strong>가입방식:</strong> {{ productDetail.product?.join_way }}</p>
-        <p class="card-text"><strong>기타 사항:</strong> {{ productDetail.product?.etc_note }}</p>
+        <p class="card-text"><strong class="text-primary">금융회사명:</strong> {{ productDetail.product?.kor_co_nm }}</p>
+        <p class="card-text"><strong class="text-primary">가입대상:</strong> {{ productDetail.product?.join_member }}</p>
+        <p class="card-text"><strong class="text-primary">우대조건:</strong></p>
+        <p v-for="phase in productDetail.product?.spcl_cnd.split('\n')" :key="phase" class="card-text">{{ phase }}</p>
+        <p class="card-text"><strong class="text-primary">만기 후 이율:</strong> {{ productDetail.product?.mtrt_int || "-" }}</p>
+        <p class="card-text"><strong class="text-primary">최고한도:</strong> {{ productDetail.product?.max_limit ? (productDetail.product?.max_limit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원" : "-" }}</p>
+        <p class="card-text"><strong class="text-primary">가입방식:</strong> {{ productDetail.product?.join_way }}</p>
+        <p class="card-text"><strong class="text-primary">기타 사항:</strong> {{ productDetail.product?.etc_note }}</p>
 
         <div class="table-responsive">
           <table class="table table-striped mt-4">
@@ -189,7 +190,7 @@ const calculateExpectedAmount = () => {
   } else {
     // 적금 방식 계산
     DorS.value = 'saving';
-    const monthlyDeposit = principal;
+    const monthlyDeposit = principal/periodMonths;
 
     if (selectedOption.value.intr_rate_type_nm.includes('단리')) {
       // 단리 계산
@@ -259,4 +260,5 @@ const subscribe = () => {
   max-width: 400px;
   margin: auto;
 }
+
 </style>

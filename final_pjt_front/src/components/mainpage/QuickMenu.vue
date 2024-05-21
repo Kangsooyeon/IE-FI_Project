@@ -1,7 +1,7 @@
 <template>
     <div class="quick-menu">
         <div class="quick-menu-container d-flex flex-row my-5 mb-0">	
-            <h4 class="mt-2">빠른메뉴</h4>
+            <h4 class="mt-2">빠른메뉴></h4>
             <ul class="quick-menu-list d-flex flex-row">
                 <li @click="goProduct" class="quick-menu-item"><div class="d-flex flex-column align-items-center"><img src="@/assets/quickmenu/product1.png" width="50" alt="예금·적금"><p>예금·적금</p></div></li>
                 <li @click="goHome" class="quick-menu-item"><div class="d-flex flex-column align-items-center"><img src="@/assets/quickmenu/rec1.png" width="50" alt="추천상품"><p>추천상품</p></div></li>
@@ -63,7 +63,7 @@
     width: 60px;
 }
 h4{
-    color:#0082cd;
+    color:#0d6efd;
     font-weight: bold;
 }
 </style>

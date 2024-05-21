@@ -1,7 +1,7 @@
 <!-- ExchangeRateGraph.vue -->
 <template>
     <div class="ERG-container card">
-      <h2 class="title">오늘의 환율</h2>
+      <p class="ERG-title ms-4 mt-4 mb-0 text-start">오늘의 환율</p>
       <div class="slider">
         <img :src="currentImage" class="graph-image" />
       </div>
@@ -59,11 +59,14 @@
     padding: 10px;
   }
   
-  .title {
+  .ERG-title {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 10px;
     text-align: center;
+    border-bottom: 2px solid #e9ecef;
+    color: #333;
+    height: 38px;
   }
   
   .slider {

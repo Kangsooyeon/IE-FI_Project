@@ -92,7 +92,7 @@
   
   .TR-item:hover {
     cursor: pointer;
-    color: #0082cd;
+    color: #0d6efd;
     background-color: #f8f9fa;
   }
   
@@ -110,7 +110,7 @@
   
   .item-selector {
     text-decoration: underline;
-    color: #007bff;
+    color: #0d6efd;
   }
   
   .text-end {

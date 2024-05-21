@@ -121,8 +121,8 @@ def ER_graph(request):
         dfwon=dfwon.astype({'DATA_VALUE':'float'})
 
         plt.figure(figsize=(6, 6))
-        plt.plot(dfwon['datetime'], dfwon['DATA_VALUE'], color='limegreen', alpha=0.5)
-        plt.fill_between(dfwon['datetime'], dfwon['DATA_VALUE'], color='limegreen', alpha=0.1)
+        plt.plot(dfwon['datetime'], dfwon['DATA_VALUE'], color='royalblue', alpha=1)
+        plt.fill_between(dfwon['datetime'], dfwon['DATA_VALUE'], color='royalblue', alpha=0.1)
         plt.ylim(min(dfwon['DATA_VALUE'])*0.99, max(dfwon['DATA_VALUE'])*1.03)
         plt.xticks(dfwon['datetime'][::len(dfwon)//3])
 

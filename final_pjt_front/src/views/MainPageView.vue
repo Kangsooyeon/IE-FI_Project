@@ -3,7 +3,6 @@
         <Banner/>
         <QuickMenu class="quick-menu"/>
         <MainCard/>
-        <News/>
     </div>
 </template>
 
@@ -12,7 +11,6 @@
     import Banner from '@/components/mainpage/Banner.vue'
     import QuickMenu from '@/components/mainpage/QuickMenu.vue';
     import MainCard from '@/components/mainpage/MainCard.vue';
-    import News from '@/components/mainpage/News.vue';
 </script>
 
 

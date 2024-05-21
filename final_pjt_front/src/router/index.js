@@ -13,7 +13,6 @@ import MapView from '@/views/MapView.vue'
 import ArticleListView from '@/views/article/ArticleListView.vue'
 import ArticleDetailView from '@/views/article/ArticleDetailView.vue'
 import ArticleCreateView from '@/views/article/ArticleCreateView.vue'
-import ArticleUpdateView from '@/views/article/ArticleUpdateView.vue'
 import {useProjectStore} from '@/stores/project.js'
 
 const router = createRouter({
@@ -89,11 +88,6 @@ const router = createRouter({
       path: '/article/:id',
       name: 'articledetail',
       component: ArticleDetailView
-    },
-    {
-      path: '/article/:id/update',
-      name: 'articleupdate',
-      component: ArticleUpdateView
     },
 ]
 })

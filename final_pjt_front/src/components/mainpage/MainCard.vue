@@ -1,31 +1,52 @@
 <template>
-    <div class="main-card-container">
-        <TRProduct class="main-card-item my-3"/>
-        <ERGraph class="main-card-item my-3"/>
+    <div class="main-container">
+      <div class="row mb-3">
+        <div class="col">
+          <TRProduct />
+        </div>
+        <div class="col">
+          <ERGraph />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <News />
+        </div>
+      </div>
     </div>
-</template>
-
-<script setup>
-    import TRProduct from './maincard/TRProduct.vue';
-    import ERGraph from './maincard/ERGraph.vue';
-</script>
-
-
-<style scoped>
-.main-card-container{
-    width: 960px;
+  </template>
+  
+  <script setup>
+  import TRProduct from '@/components/mainpage/maincard/TRProduct.vue';
+  import ERGraph from '@/components/mainpage/maincard/ERGraph.vue';
+  import News from '@/components/mainpage/maincard/News.vue';
+  </script>
+  
+  <style scoped>
+  .main-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+  }
+  
+  .row {
+    display: flex;
+    width: 100%;
     justify-content: space-around;
-    min-width: 395px;
-}
-
-@media (max-width: 991px) {
-    .main-card-container {
-        flex-direction: column;
-    }
-}
-
-.main-card-item{
-}
-</style>
+    margin-bottom: 20px;
+  }
+  
+  .col {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .col-12 {
+    width: 100%;
+  }
+  </style>
+  

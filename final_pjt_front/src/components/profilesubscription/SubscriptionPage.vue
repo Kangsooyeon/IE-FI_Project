@@ -1,12 +1,12 @@
 <template>
-  <div>
-    ArticleUpdate
-  </div>
+    <div></div>
 </template>
+
 
 <script setup>
 
 </script>
+
 
 <style scoped>
 

@@ -70,6 +70,8 @@
           }
           router.push({name:'mainpage'})
           console.log('로그인 성공!');
+        }).then(()=>{
+          store.getSubPrdt()
         })
         .catch((err) => {
             console.log(err,2);

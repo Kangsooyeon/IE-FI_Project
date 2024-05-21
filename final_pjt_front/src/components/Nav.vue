@@ -2,7 +2,7 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <p class="navbar-brand logo" @click="goHome" href="#"><img src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="Logo" height="40"></p>
+                <p class="navbar-brand logo" @click="goHome" href="#"><img src="@/assets/logo/IE-FI.png" width="120" alt="Logo" ></p>
                 <div v-if="!store.isLogin" class="collapse navbar-collapse" id="navbarNav">
                     <p @click="goLogin" class="navbar-brand btn custom-btn login-btn mr-3">로그인</p>
                     <p @click="goRegister" class="navbar-brand btn custom-btn register-btn">회원가입</p>

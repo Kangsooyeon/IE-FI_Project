@@ -3,6 +3,8 @@
     <div class="card shadow-sm">
       <div class="card-body">
         <h1 class="card-title mb-4">{{ productDetail.product?.fin_prdt_nm }}</h1>
+        <p v-if="isSub" class="text-success"><strong>이 상품에 이미 가입하셨습니다.</strong></p>
+        <p class="card-text"><strong>금융회사명:</strong> {{ productDetail.product?.kor_co_nm }}</p>
         <p class="card-text"><strong>금융회사명:</strong> {{ productDetail.product?.kor_co_nm }}</p>
         <p class="card-text"><strong>가입대상:</strong> {{ productDetail.product?.join_member }}</p>
         <p class="card-text"><strong>우대조건:</strong> {{ productDetail.product?.spcl_cnd }}</p>
@@ -25,7 +27,7 @@
                 <td>{{ option.save_trm }}</td>
                 <td>{{ option.intr_rate2 }}</td>
                 <td>
-                  <button v-if="store.isLogin" class="btn btn-primary btn-sm" @click="openModal(option)">가입</button>
+                  <button v-if="store.isLogin && !isSub" class="btn btn-primary btn-sm" @click="openModal(option)">가입</button>
                 </td>
               </tr>
             </tbody>
@@ -79,11 +81,12 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useProjectStore } from '@/stores/project';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
 
 const store = useProjectStore();
 const route = useRoute();
+const router = useRouter();
 
 const productId = ref(route.params.fin_prdt_cd);
 const productAll = ref([]);
@@ -97,6 +100,20 @@ const selectedOption = ref({});
 const DorS= ref('deposit');
 const expectedAmount = ref(0);
 const subscribtionId = ref(0);
+
+const isSub = ref(false);
+
+store.sub_prdt_dep.forEach((el) => {
+  if (el.deposit_option.fin_prdt_cd === productId.value) {
+    isSub.value = true;
+  }
+});
+
+store.sub_prdt_sav.forEach((el) => {
+  if (el.saving_option.fin_prdt_cd === productId.value) {
+    isSub.value = true;
+  }
+});
 
 
 onMounted(() => {
@@ -187,6 +204,10 @@ const subscribe = () => {
       },
     }).then((res) => {
       alert(`가입이 완료되었습니다. 가입 금액: ${signMoney.value}원`);
+    }).then(()=>{
+      store.getSubPrdt()
+    }).then(()=>{
+      router.push('/profile/subscriptionproduct')
     });
   }
   else{
@@ -203,7 +224,12 @@ const subscribe = () => {
       },
     }).then((res) => {
       alert(`가입이 완료되었습니다. 가입 금액: ${signMoney.value}원`);
+    }).then(()=>{
+      store.getSubPrdt()
+    }).then(()=>{
+      router.push('/profile/subscriptionproduct')
     });
+  ;
   }
   isConfirmModalOpen.value = false;
 };

@@ -227,6 +227,30 @@ export const useProjectStore = defineStore('project', () => {
     asset: '',
     desired_asset: '',
   });
+  
+  const sub_prdt_dep=ref([])
+  const sub_prdt_sav=ref([])
+  const getSubPrdt = function () {
+    axios({
+      method: 'get',
+      url: 'http://127.0.0.1:8000/profilepage/subscribed-saving/',
+      headers: {
+        Authorization: `Token ${token.value}`,
+      },}).then((res) => {
+        sub_prdt_sav.value = res.data;
+      });
+    axios({
+      method: 'get',
+      url: 'http://127.0.0.1:8000/profilepage/subscribed-deposit/',
+      headers: {
+        Authorization: `Token ${token.value}`,
+      },}).then((res) => {
+        sub_prdt_dep.value = res.data;
+        console.log(sub_prdt_dep.value);
+        console.log(sub_prdt_sav.value);
+      });
+  }
+
   //게시판 리스트
   const boardList = ref([]);
   const boardListC = ref([]);
@@ -300,6 +324,10 @@ export const useProjectStore = defineStore('project', () => {
     pagenumL,
     articleDetail,
     getArticle,
+    sub_prdt_dep,
+    sub_prdt_sav,
+    getSubPrdt,
+
     
   };
 },{persist: true});

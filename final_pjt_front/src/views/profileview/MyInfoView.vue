@@ -1,6 +1,6 @@
 <template>
   <div class="profile-details p-4">
-    <table class="table table-bordered ms-auto me-auto mt-4">
+    <table class="table  ms-auto me-auto mt-4">
       <tbody>
         <tr>
           <th scope="row">아이디</th>
@@ -215,7 +215,6 @@ const cancelEdit = () => {
 
 table {
   width: 500px;
-  border-radius: 10px;
 }
 
 th {
@@ -223,5 +222,8 @@ th {
 }
 .text-danger {
   font-size: 0.8rem;
+}
+tr{
+  height: 57px;
 }
 </style>

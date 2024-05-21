@@ -113,7 +113,7 @@ def ER_graph(request):
         for i in range(0,list_count):
             start = str(i * 100 + 1)
             end = str((i + 1) * 100)
-            url='https://ecos.bok.or.kr/api/StatisticSearch/'+API_KEY+'/json/kr/'+ start +'/'+ end +'/731Y001/D/20240101/20240524/'+codes[c]+'/'
+            url='https://ecos.bok.or.kr/api/StatisticSearch/'+API_KEY+'/json/kr/'+ start +'/'+ end +'/731Y001/D/20240101/'+enddate+'/'+codes[c]+'/'
             response = requests.get(url)
             result = response.json()
             rows = rows + result['StatisticSearch']['row']

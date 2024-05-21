@@ -124,7 +124,7 @@ export const useProjectStore = defineStore('project', () => {
   const getExchangeRate = function () {
     axios({
       method: 'get',
-      url: 'http://127.0.0.1:8000/exchangerate/',
+      url: 'http://127.0.0.1:8000/exchangerate/get-ER/',
     }).then((res) => {
       exchangeRate.value = res.data;
     });

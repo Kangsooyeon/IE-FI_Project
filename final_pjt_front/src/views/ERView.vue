@@ -34,7 +34,7 @@
   </template>
   
   <script setup>
-  import { ref, watch } from 'vue';
+  import { onMounted, ref, watch } from 'vue';
   import { useProjectStore } from '@/stores/project';
   
   const store = useProjectStore();
@@ -98,8 +98,8 @@
     }
     else{
         if(mode.value==='send'){
-            let startRate=store.exchangeRate.find(el=>el.cur_unit===toRate.value).tts.replace(",","");
-            let endRate=store.exchangeRate.find(el=>el.cur_unit===fromRate.value).tts.replace(",","");
+            let startRate=store.exchangeRate.find(el=>el.cur_unit===toRate.value).tts;
+            let endRate=store.exchangeRate.find(el=>el.cur_unit===fromRate.value).tts;
             if(startRate==0){
                 startRate=1;
             }
@@ -109,8 +109,8 @@
             fromCurrency.value=(toCurrency.value*startRate/endRate).toFixed(2);
         }
         else{
-            let startRate=store.exchangeRate.find(el=>el.cur_unit===toRate.value).ttb.replace(",","");
-            let endRate=store.exchangeRate.find(el=>el.cur_unit===fromRate.value).ttb.replace(",","");
+            let startRate=store.exchangeRate.find(el=>el.cur_unit===toRate.value).ttb;
+            let endRate=store.exchangeRate.find(el=>el.cur_unit===fromRate.value).ttb;
             if(startRate==0){
                 startRate=1;
             }
@@ -121,6 +121,9 @@
         }
     }
     }
+    onMounted(()=>{
+        store.getExchangeRate();
+    });
   </script>
   
   <style scoped>

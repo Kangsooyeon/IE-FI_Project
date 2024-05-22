@@ -14,6 +14,8 @@ import requests
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 from datetime import datetime
+from statsmodels.tsa.arima.model import ARIMA
+import statsmodels.api as sm
 
 font_path = 'C:/Windows/Fonts/malgunbd.ttf'
 font_name = fm.FontProperties(fname=font_path).get_name()
@@ -88,7 +90,6 @@ def get_ER(request):
         })
     return JsonResponse(er_list, safe=False)
 
-
 @api_view(['GET'])
 def ER_graph(request):
     codes = ['0000001', '0000002', '0000003', '0000053']
@@ -156,6 +157,86 @@ def ER_graph(request):
 
 
         save_path = settings.STATICFILES_DIRS[0] / 'ER-graph' / (names[c] + '.png')
+        plt.savefig(save_path, format='png', bbox_inches='tight')
+
+        image_url = request.build_absolute_uri(static(str(save_path)))
+        urls.append(image_url)
+
+    return JsonResponse({'urls': urls})
+
+@api_view(['GET'])
+def ER_graph_predict(request):
+    codes = ['0000001', '0000002', '0000003', '0000053']
+    countries = ['미국 USD', '일본 JPY', '유럽 EUR', '중국 CNY' ]
+    names = ['USD', 'JPY', 'EUR', 'CNY']
+
+    API_KEY='HSYHTREWFIJQ9TKHK8ES'
+
+    urls = []
+    for c in range(len(codes)):
+        
+        enddate=datetime.now().strftime('%Y%m%d')
+        url='https://ecos.bok.or.kr/api/StatisticSearch/'+API_KEY+'/json/kr/1/100/731Y001/D/20240101/'+enddate+'/'+codes[c]+'/'
+
+        response = requests.get(url)
+        result = response.json()
+
+        list_total_count=int(result['StatisticSearch']['list_total_count'])
+        list_count=int(list_total_count/100) + 1
+
+        rows=[]
+        for i in range(0,list_count):
+            start = str(i * 100 + 1)
+            end = str((i + 1) * 100)
+            url='https://ecos.bok.or.kr/api/StatisticSearch/'+API_KEY+'/json/kr/'+ start +'/'+ end +'/731Y001/D/20240101/'+enddate+'/'+codes[c]+'/'
+            response = requests.get(url)
+            result = response.json()
+            rows = rows + result['StatisticSearch']['row']
+            
+        dfwon=pd.DataFrame(rows)
+
+        dfwon['datetime']=pd.to_datetime(dfwon['TIME'].str[:4] + '-' + \
+                        dfwon['TIME'].str[4:6] + '-' + dfwon['TIME'].str[6:8])
+        dfwon=dfwon.astype({'DATA_VALUE':'float'})
+
+        model = ARIMA(dfwon['DATA_VALUE'], order=(5,1,1))
+        model_fit = model.fit()
+
+        forecast = model_fit.forecast(steps=5)
+
+        plt.figure(figsize=(6, 6))
+        plt.plot(dfwon['datetime'], dfwon['DATA_VALUE'], color='royalblue', alpha=1)
+        plt.fill_between(dfwon['datetime'], dfwon['DATA_VALUE'], color='royalblue', alpha=0.1)
+        plt.plot(pd.date_range(start=dfwon['datetime'].iloc[-1] + pd.Timedelta(days=1) , periods=5), forecast, color='red', label='Forecast')
+        plt.fill_between(pd.date_range(start=dfwon['datetime'].iloc[-1] + pd.Timedelta(days=1), periods=5), forecast, color='red', alpha=0.1)
+        plt.ylim(min(dfwon['DATA_VALUE'])*0.99, max(dfwon['DATA_VALUE'])*1.03)
+        plt.xticks(dfwon['datetime'][::len(dfwon)//3])
+
+        plt.gca().spines['bottom'].set_alpha(0)  
+        plt.gca().spines['top'].set_alpha(0)
+        plt.gca().spines['left'].set_alpha(0)
+        plt.gca().spines['right'].set_alpha(0)
+
+        plt.xticks(alpha=0)
+        plt.yticks(alpha=0)
+
+        plt.gca().tick_params(axis='x', colors='white')
+        plt.gca().tick_params(axis='y', colors='white')
+
+
+        final_1 = round(forecast.iloc[-1],2)
+        final_2 = round(forecast.iloc[-2],2)
+        diff = abs(final_1 - final_2)
+
+        plt.text(70, 400, countries[c], fontsize=20, transform=None)
+        plt.text(70, 360, final_1, fontweight='bold', fontsize=18, transform=None)
+
+        if final_1 > final_2:
+                plt.text(70, 320, '▲ '+ str(round(diff,2))+ ' ('+ str(round(diff/final_1*100,2))+'%)', fontsize=12, transform=None, color='red')
+        else:
+                plt.text(70, 320, '▼ '+ str(round(diff,2))+ ' (-'+ str(round(diff/final_1*100,2))+'%)', fontsize=12, transform=None, color='blue')
+        
+        save_path = settings.STATICFILES_DIRS[0] / 'ER-graph' / (names[c] + 'predict.png')
         plt.savefig(save_path, format='png', bbox_inches='tight')
 
         image_url = request.build_absolute_uri(static(str(save_path)))

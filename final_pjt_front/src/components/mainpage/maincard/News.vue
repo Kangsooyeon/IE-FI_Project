@@ -2,17 +2,17 @@
   <div class="news-container">
     <div class="title">오늘의 뉴스</div>
     <div class="tabs">
-      <button @click="setCategory('fin')">금융</button>
-      <button @click="setCategory('economy')">경제</button>
-      <button @click="setCategory('stock')">주식</button>
-      <button @click="setCategory('coin')">코인</button>
+      <span @click="setCategory('fin')" :class="{ active: category === 'fin' }">금융</span>
+      <span @click="setCategory('economy')" :class="{ active: category === 'economy' }">경제</span>
+      <span @click="setCategory('stock')" :class="{ active: category === 'stock' }">주식</span>
+      <span @click="setCategory('coin')" :class="{ active: category === 'coin' }">코인</span>
     </div>
+    <p class="m-0 text-end udate-time">최신 업데이트 - {{ newsUpdate.slice(0,25) }}</p>
     <div class="news-content">
       <div v-for="(news, index) in filteredNews" :key="index" class="news-item">
-        <a href="">{{ news.title }}</a>
+        <a :href="news.link" target='_blank'>{{ news.title }}</a>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -22,6 +22,7 @@ import { useProjectStore } from '@/stores/project';
 
 const store = useProjectStore();
 const category = ref('fin');
+const newsUpdate = ref('');
 
 onMounted(() => {
   store.getFinNews();
@@ -34,21 +35,25 @@ const setCategory = (cat) => {
   category.value = cat;
 };
 
-
 const filteredNews = computed(() => {
-  if(store.finNews["items"] && store.economyNews["items"] && store.stockNews["items"] && store.coinNews["items"])
-  {switch (category.value) {
-    case 'fin':
-      return store.finNews?.items.slice(0, 6);
-    case 'economy':
-      return store.economyNews?.items.slice(0, 6);
-    case 'stock':
-      return store.stockNews?.items.slice(0, 6);
-    case 'coin':
-      return store.coinNews?.items.slice(0, 6);
-    default:
-      return [];
-  }}
+  if (store.finNews["items"] && store.economyNews["items"] && store.stockNews["items"] && store.coinNews["items"]) {
+    switch (category.value) {
+      case 'fin':
+        newsUpdate.value = store.finNews.lastBuildDate;
+        return store.finNews?.items.slice(0, 10);
+      case 'economy':
+        newsUpdate.value = store.economyNews.lastBuildDate;
+        return store.economyNews?.items.slice(0, 10);
+      case 'stock':
+        newsUpdate.value = store.stockNews.lastBuildDate;
+        return store.stockNews?.items.slice(0, 10);
+      case 'coin':
+        newsUpdate.value = store.coinNews.lastBuildDate;
+        return store.coinNews?.items.slice(0, 10);
+      default:
+        return [];
+    }
+  }
 });
 </script>
 
@@ -75,26 +80,25 @@ const filteredNews = computed(() => {
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 20px;
 }
 
-.tabs button {
+.tabs span {
   padding: 10px;
-  border: none;
   border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.tabs span:hover, .tabs span.active {
   background-color: #007bff;
   color: #fff;
-  cursor: pointer;
 }
 
-.tabs button:hover {
-  background-color: #0056b3;
-}
 
 .news-content {
   padding: 10px;
-  height: 300px;
+  height: 200px;
   overflow-y: auto;
 }
 
@@ -102,12 +106,17 @@ const filteredNews = computed(() => {
   margin-bottom: 10px;
   font-size: 1rem;
 }
-a{
+
+a {
   text-decoration: none;
   color: black;
 }
-a:hover{
+
+a:hover {
   color: #007bff;
   text-decoration: underline;
+}
+.udate-time{
+  font-size:0.8em
 }
 </style>

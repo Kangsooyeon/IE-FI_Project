@@ -27,18 +27,19 @@ def search_finance(django_request):
         item['title'] = item['title'].replace('&quot;', '').replace('<b>', '').replace('</b>', '')
         item['description'] = item['description'].replace('&quot;', '').replace('<b>', '').replace('</b>', '')
 
-        okt = Okt()
-        description = ' '.join(word for word, pos in okt.pos(item['description']) if pos in ['Noun'])
+        # okt = Okt()
+        # description = ' '.join(word for word, pos in okt.pos(item['description']) if pos in ['Noun'])
 
-        remove_words = ["금융", "기자"]
-        description = ' '.join(word for word in description.split() if word not in remove_words)
+        # remove_words = ["금융", "기자"]
+        # description = ' '.join(word for word in description.split() if word not in remove_words)
 
-        vectorizer = TfidfVectorizer()
-        tfidf_matrix = vectorizer.fit_transform([description])
-        scores = zip(vectorizer.get_feature_names_out(), np.asarray(tfidf_matrix.sum(axis=0)).ravel())
-        sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
-        keyword = sorted_scores[0]
-        item['keyword'] = keyword
+        # print(description)
+        # vectorizer = TfidfVectorizer()
+        # tfidf_matrix = vectorizer.fit_transform([description])
+        # scores = zip(vectorizer.get_feature_names_out(), np.asarray(tfidf_matrix.sum(axis=0)).ravel())
+        # sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
+        # keyword = sorted_scores[0]
+        # item['keyword'] = keyword
 
     return Response(response_json)
 
@@ -56,18 +57,18 @@ def search_economy(request):
         item['title'] = item['title'].replace('&quot;', '').replace('<b>', '').replace('</b>', '')
         item['description'] = item['description'].replace('&quot;', '').replace('<b>', '').replace('</b>', '')
 
-        okt = Okt()
-        description = ' '.join(word for word, pos in okt.pos(item['description']) if pos in ['Noun'])
+        # okt = Okt()
+        # description = ' '.join(word for word, pos in okt.pos(item['description']) if pos in ['Noun'])
 
-        remove_words = ["경제", "기자"]
-        description = ' '.join(word for word in description.split() if word not in remove_words)
+        # remove_words = ["경제", "기자"]
+        # description = ' '.join(word for word in description.split() if word not in remove_words)
 
-        vectorizer = TfidfVectorizer()
-        tfidf_matrix = vectorizer.fit_transform([description])
-        scores = zip(vectorizer.get_feature_names_out(), np.asarray(tfidf_matrix.sum(axis=0)).ravel())
-        sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
-        keyword = sorted_scores[0]
-        item['keyword'] = keyword
+        # vectorizer = TfidfVectorizer()
+        # tfidf_matrix = vectorizer.fit_transform([description])
+        # scores = zip(vectorizer.get_feature_names_out(), np.asarray(tfidf_matrix.sum(axis=0)).ravel())
+        # sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
+        # keyword = sorted_scores[0]
+        # item['keyword'] = keyword
     return Response(response_json)
 
 @api_view(['GET'])
@@ -84,18 +85,18 @@ def search_stock(request):
         item['title'] = item['title'].replace('&quot;', '').replace('<b>', '').replace('</b>', '')
         item['description'] = item['description'].replace('&quot;', '').replace('<b>', '').replace('</b>', '')
 
-        okt = Okt()
-        description = ' '.join(word for word, pos in okt.pos(item['description']) if pos in ['Noun'])
+        # okt = Okt()
+        # description = ' '.join(word for word, pos in okt.pos(item['description']) if pos in ['Noun'])
 
-        remove_words = ["주식", "기자"]
-        description = ' '.join(word for word in description.split() if word not in remove_words)
+        # remove_words = ["주식", "기자"]
+        # description = ' '.join(word for word in description.split() if word not in remove_words)
 
-        vectorizer = TfidfVectorizer()
-        tfidf_matrix = vectorizer.fit_transform([description])
-        scores = zip(vectorizer.get_feature_names_out(), np.asarray(tfidf_matrix.sum(axis=0)).ravel())
-        sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
-        keyword = sorted_scores[0]
-        item['keyword'] = keyword
+        # vectorizer = TfidfVectorizer()
+        # tfidf_matrix = vectorizer.fit_transform([description])
+        # scores = zip(vectorizer.get_feature_names_out(), np.asarray(tfidf_matrix.sum(axis=0)).ravel())
+        # sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
+        # keyword = sorted_scores[0]
+        # item['keyword'] = keyword
     return Response(response_json)
 
 @api_view(['GET'])
@@ -112,16 +113,16 @@ def search_coin(request):
         item['title'] = item['title'].replace('&quot;', '').replace('<b>', '').replace('</b>', '')
         item['description'] = item['description'].replace('&quot;', '').replace('<b>', '').replace('</b>', '')
 
-        okt = Okt()
-        description = ' '.join(word for word, pos in okt.pos(item['description']) if pos in ['Noun'])
+        # okt = Okt()
+        # description = ' '.join(word for word, pos in okt.pos(item['description']) if pos in ['Noun'])
 
-        remove_words = ["코인", "기자"]
-        description = ' '.join(word for word in description.split() if word not in remove_words)
+        # remove_words = ["코인", "기자"]
+        # description = ' '.join(word for word in description.split() if word not in remove_words)
 
-        vectorizer = TfidfVectorizer()
-        tfidf_matrix = vectorizer.fit_transform([description])
-        scores = zip(vectorizer.get_feature_names_out(), np.asarray(tfidf_matrix.sum(axis=0)).ravel())
-        sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
-        keyword = sorted_scores[0]
-        item['keyword'] = keyword
+        # vectorizer = TfidfVectorizer()
+        # tfidf_matrix = vectorizer.fit_transform([description])
+        # scores = zip(vectorizer.get_feature_names_out(), np.asarray(tfidf_matrix.sum(axis=0)).ravel())
+        # sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
+        # keyword = sorted_scores[0]
+        # item['keyword'] = keyword
     return Response(response_json)

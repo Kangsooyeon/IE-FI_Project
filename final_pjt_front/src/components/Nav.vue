@@ -117,11 +117,12 @@
                                     email: '',
                                     id_name: '',
                                     birth: '',
-                                    sex: '',
-                                    main_bank: '',
-                                    salary: '',
-                                    asset: '',
-                                    desired_asset: '',}
+                                    sex: null,
+                                    main_bank: null,
+                                    salary: null,
+                                    asset: null,
+                                    desired_asset: null,}
+                                    store.recommendProduct = {};
                 console.log('로그아웃 성공!');
                 router.push('/');
             }).catch((err) => {

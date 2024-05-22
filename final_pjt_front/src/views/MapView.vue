@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-4">
-    <h1 class="mb-4 title">가까운 은행 찾기</h1>
+    <h1 class="my-4 title">가까운 은행 찾기</h1>
     <div class="row mb-3">
       <div class="col-md-3">
         <SelectRegion
@@ -39,15 +39,15 @@
       </div>
     </div>
 
-    <div class="text-center d-flex">
+    <div class="text-center d-flex flex-row justify-content-end">
       <button @click="searchBtnClicked" class="btn btn-primary">검색</button>
     </div>
 
     <div class="row mt-4">
-      <div class="col-md-8">
+      <div class="mb-3">
         <div id="map" style="width: 100%; height: 400px"></div>
       </div>
-      <div class="col-md-4 list-container">
+      <div class="list-container" :class="{'visivle-list':isNotList}">
         <ul id="placesList" class="list-group list-scroll"></ul>
       </div>
     </div>
@@ -68,6 +68,7 @@ const cityList = ref([]);
 const regionList = ref([]);
 const specificRegion = ref({});
 const markers = ref([]);
+const isNotList = ref(true);
 
 const provinceChanged = function (event) {
   regionList.value = [];
@@ -95,6 +96,7 @@ const bnakSeleted = function(event) { // 2.은행선택을 위한 함수 선언
 var infowindow = '';
 
 const searchBtnClicked = function () {
+  isNotList.value = false;
   if (specificRegion.value.province && specificRegion.value.city && specificRegion.value.region && bankValue.value) {
     const resultLocation = store.regionList.find((el) => {
       if (
@@ -268,7 +270,9 @@ function loadKakaoMaps(apiKey, callback) {
 }
 .container {
   width: 960px;
+  height: 900px;
   text-align: left;
+
 }
 .list-container {
   height: 400px; /* 지도와 동일한 높이로 설정 */
@@ -277,5 +281,7 @@ function loadKakaoMaps(apiKey, callback) {
 .small {
   font-size: 0.875rem; /* 글자 크기 작게 설정 */
 }
-
+.visivle-list{
+  display: none;
+}
 </style>

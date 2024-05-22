@@ -1,38 +1,47 @@
 <template>
-<div class="rec_prdt-container mt-5 d-flex flex-column justify-content-start align-items-center">
-    <div class="maincontainer">
-      <div class="thecard">
-        <div class="thefront d-flex flex-column justify-content-center align-items-center">
-          <h1 >{{ selectedProduct?.product?.fin_prdt_nm || store.userInfo.nickname+"님을 위한" }}<br><h1 v-if="!selectedProduct?.product?.fin_prdt_nm">추천상품 리스트</h1></h1>
-          <img v-if="!selectedProduct?.product?.fin_prdt_nm" src="@/assets/recprdt/1.png" width="250" alt="">
-          <img v-if="selectedProduct?.product?.fin_prdt_nm" :src="imgUrl" width="100" height="100" alt="">
+  <div>
+    <div v-if="isSub" class="rec_prdt-container mt-5 d-flex flex-column justify-content-start align-items-center">
+        <div class="maincontainer">
+          <div class="thecard">
+            <div class="thefront d-flex flex-column justify-content-center align-items-center">
+              <h1 >{{ selectedProduct?.product?.fin_prdt_nm || store.userInfo.nickname+"님을 위한" }}<br><h1 v-if="!selectedProduct?.product?.fin_prdt_nm">추천상품 리스트</h1></h1>
+              <img v-if="!selectedProduct?.product?.fin_prdt_nm" src="@/assets/recprdt/1.png" width="250" alt="">
+              <img v-else :src="imgUrl" width="100" height="100" alt="">
+            </div>
+            <div class="theback d-flex flex-column justify-content-center align-items-center">
+              <h1 v-if="selectedProduct?.product?.fin_prdt_nm">{{ selectedProduct?.product?.fin_prdt_nm }}</h1>
+              <p v-if="!selectedProduct?.product?.fin_prdt_nm">추천 상품을 선택해 주세요</p>
+              <p v-if="selectedProduct?.product?.fin_prdt_nm">가입대상 : {{ selectedProduct?.product?.join_member}}</p>
+              <p v-if="selectedProduct?.product?.fin_prdt_nm">최고한도 : {{ selectedProduct.product?.max_limit ? (selectedProduct.product?.max_limit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원" : "-"}}</p>
+              <button v-if="selectedProduct?.product?.fin_prdt_nm" @click="goDetail(selectedProduct?.product)">가입하러 가기</button>
+            </div>
+          </div>
         </div>
-        <div class="theback d-flex flex-column justify-content-center align-items-center">
-          <h1 v-if="selectedProduct?.product?.fin_prdt_nm">{{ selectedProduct?.product?.fin_prdt_nm || '' }}</h1>
-          <p>{{ selectedProduct?.product?.spcl_cnd || '추천 상품을 선택해 주세요' }}</p>
-          <button v-if="selectedProduct?.product?.fin_prdt_nm">가입하러 가기</button>
+        <div>
+          <table class="table mt-4">
+            <thead>
+              <tr>
+                <th>상품명</th>
+                <th>금융회사명</th>
+                <th>이율</th>
+                <th>계약기간</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in store.recommendProduct.product_list" :key="item.id" @click="selectProduct(item)" :class="{ active: selectedProduct?.id === item.id }">
+                <td>{{ item.product.fin_prdt_nm }}</td>
+                <td>{{ item.product.kor_co_nm }}</td>
+                <td>{{ item.intr_rate2 }}%</td>
+                <td>{{ item.save_trm }}개월</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
-    <div>
-      <table class="table mt-4">
-        <thead>
-          <tr>
-            <th>상품명</th>
-            <th>금융회사명</th>
-            <th>이율</th>
-            <th>계약기간</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in store.recommendProduct.product_list" :key="item.id" @click="selectProduct(item)" :class="{ active: selectedProduct?.id === item.id }">
-            <td>{{ item.product.fin_prdt_nm }}</td>
-            <td>{{ item.product.kor_co_nm }}</td>
-            <td>{{ item.intr_rate2 }}%</td>
-            <td>{{ item.save_trm }}개월</td>
-          </tr>
-        </tbody>
-      </table>
+    <div v-else class="d-flex flex-column justify-content-center align-items-center mt-5">
+      <h4 class="text-primary">상품추천 서비스를 위해 추가 정보를 입력해 주세요!</h4>
+      <br>
+      <p>*상품 추천 알고리즘은 본인의 희망자산을 제외한 모든 추가정보가 입력 되어야 합니다*</p>
     </div>
   </div>
 </template>
@@ -44,6 +53,12 @@ import { useRouter } from 'vue-router';
 
 const store = useProjectStore();
 const router = useRouter();
+const isSub = ref(false);
+
+
+if(store.userInfo.salary!==null && store.userInfo.asset!==null && store.userInfo.birth!==null && store.userInfo.main_bank!==null &&(store.userInfo.salary!==0 && store.userInfo.asset!==0)){
+  isSub.value = true;
+}
 
 const selectedProduct = ref({});
 const imgUrl= ref('');
@@ -55,8 +70,15 @@ const selectProduct = (product) => {
   console.log(imgUrl.value);
 };
 
+const goDetail = (option) => {
+  console.log(option);
+  router.push({ name: 'productdetail', params: { fin_prdt_cd: option.fin_prdt_cd } });
+};
+
 onMounted(() => {
-  store.getRecommendProduct();
+  if(isSub.value){
+    store.getRecommendProduct();
+  }
 });
 </script>
 

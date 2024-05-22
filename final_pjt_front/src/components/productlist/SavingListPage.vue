@@ -189,7 +189,9 @@
     }
 
     onMounted(()=>{
-        applyFilter()
+        // applyFilter()
+        store.getProductListS()
+      store.pagenumS=0
     })
  </script>
  

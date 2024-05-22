@@ -222,12 +222,12 @@ export const useProjectStore = defineStore('project', () => {
     nickname: '',
     email: '',
     id_name: '',
-    birth: '',
-    sex: '',
-    main_bank: '',
-    salary: '',
-    asset: '',
-    desired_asset: '',
+    birth: null,
+    sex:null,
+    main_bank: null,
+    salary: null,
+    asset: null,
+    desired_asset: null,
   });
     
   // 상품 가입시

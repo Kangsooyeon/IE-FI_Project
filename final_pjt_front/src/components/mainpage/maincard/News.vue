@@ -2,15 +2,15 @@
   <div class="news-container">
     <div class="title">오늘의 뉴스</div>
     <div class="tabs">
-      <span @click="setCategory('fin')" :class="{ active: category === 'fin' }">금융</span>
-      <span @click="setCategory('economy')" :class="{ active: category === 'economy' }">경제</span>
-      <span @click="setCategory('stock')" :class="{ active: category === 'stock' }">주식</span>
-      <span @click="setCategory('coin')" :class="{ active: category === 'coin' }">코인</span>
+      <span @click="setCategory('fin')" :class="{ active: category === 'fin' }" class="tab-btn">금융</span>
+      <span @click="setCategory('economy')" :class="{ active: category === 'economy' }" class="tab-btn">경제</span>
+      <span @click="setCategory('stock')" :class="{ active: category === 'stock' }" class="tab-btn">주식</span>
+      <span @click="setCategory('coin')" :class="{ active: category === 'coin' }" class="tab-btn">코인</span>
     </div>
-    <p class="m-0 text-end udate-time">최신 업데이트 - {{ newsUpdate.slice(0,25) }}</p>
+    <p class="m-0 text-end update-time">최신 업데이트 - {{ newsUpdate.slice(0, 25) }}</p>
     <div class="news-content">
       <div v-for="(news, index) in filteredNews" :key="index" class="news-item">
-        <a :href="news.link" target='_blank'>{{ news.title }}</a>
+        <a :href="news.link" target="_blank">{{ news.title }}</a>
       </div>
     </div>
   </div>
@@ -62,32 +62,36 @@ const filteredNews = computed(() => {
   border: 1px solid #e9ecef;
   border-radius: 8px;
   width: 880px;
-  height: 350px;
+  height: 400px;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: relative;
-  padding: 10px;
+  padding: 20px;
+  margin: auto;
+  font-family: 'Arial', sans-serif;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 10px;
   text-align: center;
+  color: #333;
 }
 
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
+  margin-bottom: 5px;
 }
 
 .tabs span {
-  padding: 10px;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 20px;
   cursor: pointer;
   font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .tabs span:hover, .tabs span.active {
@@ -95,11 +99,17 @@ const filteredNews = computed(() => {
   color: #fff;
 }
 
+.update-time {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 20px;
+}
 
 .news-content {
   padding: 10px;
-  height: 200px;
+  height: 250px;
   overflow-y: auto;
+  border-top: 1px solid #e9ecef;
 }
 
 .news-item {
@@ -109,14 +119,16 @@ const filteredNews = computed(() => {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #333;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 a:hover {
   color: #007bff;
   text-decoration: underline;
 }
-.udate-time{
-  font-size:0.8em
+.tab-btn{
+  width: 72px;
+  height: 38px;
 }
 </style>

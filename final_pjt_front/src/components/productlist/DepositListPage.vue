@@ -186,6 +186,10 @@
     const goDetail=function(fin_cd){
         router.push({name:'productdetail',params:{fin_prdt_cd:fin_cd}})
     }
+    onMounted(()=>{
+      store.getProductListD()
+      store.pagenumD=0
+  })
 </script>
 
 <style scoped>

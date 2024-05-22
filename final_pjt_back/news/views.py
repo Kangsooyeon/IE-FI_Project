@@ -11,7 +11,7 @@ client_secret = "0dJKbcrtfz"
 @api_view(['GET'])
 def search_finance(request):
     encText = urllib.parse.quote("금융")
-    url = "https://openapi.naver.com/v1/search/news?query="+encText+"&display=100"
+    url = "https://openapi.naver.com/v1/search/news?query="+encText+"&display=10"
     request = urllib.request.Request(url)
     request.add_header("X-Naver-Client-Id",client_id)
     request.add_header("X-Naver-Client-Secret",client_secret)
@@ -25,7 +25,7 @@ def search_finance(request):
 @api_view(['GET'])
 def search_economy(request):
     encText = urllib.parse.quote("경제")
-    url = "https://openapi.naver.com/v1/search/news?query="+encText+"&display=100"
+    url = "https://openapi.naver.com/v1/search/news?query="+encText+"&display=10"
     request = urllib.request.Request(url)
     request.add_header("X-Naver-Client-Id",client_id)
     request.add_header("X-Naver-Client-Secret",client_secret)
@@ -39,7 +39,7 @@ def search_economy(request):
 @api_view(['GET'])
 def search_stock(request):
     encText = urllib.parse.quote("주식")
-    url = "https://openapi.naver.com/v1/search/news?query="+encText+"&display=100"
+    url = "https://openapi.naver.com/v1/search/news?query="+encText+"&display=10"
     request = urllib.request.Request(url)
     request.add_header("X-Naver-Client-Id",client_id)
     request.add_header("X-Naver-Client-Secret",client_secret)
@@ -53,7 +53,7 @@ def search_stock(request):
 @api_view(['GET'])
 def search_coin(request):
     encText = urllib.parse.quote("코인")
-    url = "https://openapi.naver.com/v1/search/news?query="+encText+"&display=100"
+    url = "https://openapi.naver.com/v1/search/news?query="+encText+"&display=10"
     request = urllib.request.Request(url)
     request.add_header("X-Naver-Client-Id",client_id)
     request.add_header("X-Naver-Client-Secret",client_secret)

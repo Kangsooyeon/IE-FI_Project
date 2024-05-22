@@ -34,19 +34,21 @@ const setCategory = (cat) => {
   category.value = cat;
 };
 
+
 const filteredNews = computed(() => {
-  switch (category.value) {
+  if(store.finNews["items"] && store.economyNews["items"] && store.stockNews["items"] && store.coinNews["items"])
+  {switch (category.value) {
     case 'fin':
-      return store.finNews.items.slice(0, 6);
+      return store.finNews?.items.slice(0, 6);
     case 'economy':
-      return store.economyNews.items.slice(0, 6);
+      return store.economyNews?.items.slice(0, 6);
     case 'stock':
-      return store.stockNews.items.slice(0, 6);
+      return store.stockNews?.items.slice(0, 6);
     case 'coin':
-      return store.coinNews.items.slice(0, 6);
+      return store.coinNews?.items.slice(0, 6);
     default:
       return [];
-  }
+  }}
 });
 </script>
 

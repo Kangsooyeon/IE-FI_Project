@@ -107,8 +107,6 @@ const searchBtnClicked = function () {
         return el;
       }
     });
-    console.log(resultLocation);
-    console.log(resultLocation.latitude, resultLocation.longitude);
     const map = setLocation(resultLocation.latitude, resultLocation.longitude);
 
     infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });

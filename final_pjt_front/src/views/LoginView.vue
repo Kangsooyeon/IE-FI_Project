@@ -68,7 +68,6 @@
             asset: res.data.asset,
             desired_asset: res.data.desired_asset,
           }
-          console.log('로그인 성공!');
           router.push('/');
         })
         .catch((err) => {

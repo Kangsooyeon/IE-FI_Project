@@ -133,19 +133,21 @@ onMounted(() => {
       options: productDetailTMP.options,
     };
   });
-  store.getSubPrdtDep();
-  store.getSubPrdtSav();
-  store.sub_prdt_dep.forEach((el) => {
-    if (el.deposit_option.fin_prdt_cd === productId.value) {
-      isSub.value = true;
-    }
-  });
-
-  store.sub_prdt_sav.forEach((el) => {
-    if (el.saving_option.fin_prdt_cd === productId.value) {
-      isSub.value = true;
-    }
-  });
+  if(store.isLogin){
+    store.getSubPrdtDep();
+    store.getSubPrdtSav();
+    store.sub_prdt_dep.forEach((el) => {
+      if (el.deposit_option.fin_prdt_cd === productId.value) {
+        isSub.value = true;
+      }
+    });
+  
+    store.sub_prdt_sav.forEach((el) => {
+      if (el.saving_option.fin_prdt_cd === productId.value) {
+        isSub.value = true;
+      }
+    });
+  }
 });
 
 const openModal = (option) => {

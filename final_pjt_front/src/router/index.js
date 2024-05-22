@@ -94,9 +94,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const store = useProjectStore()
-  console.log('로그인 여부', store.isLogin);
-  console.log(store.token);
-  console.log(store.userInfo);
+
   next()
 })
 

@@ -94,10 +94,6 @@
   const salary = ref('');
   const asset = ref('');
   const desired_asset = ref('');
-  
-  const asd=function(){
-    console.log(main_bank.value);
-  }
 
   const submitted = ref(false);
   
@@ -131,11 +127,9 @@
                 desired_asset: parseInt(desired_asset.value)
             }
         }).then((response) => {
-            console.log(response);
             alert('회원가입이 완료되었습니다.');
             router.push({ name: 'login' });
         }).catch((error) => {
-            console.error(error);
             alert('회원정보를 올바르게 입력해주세요.');
         });
 

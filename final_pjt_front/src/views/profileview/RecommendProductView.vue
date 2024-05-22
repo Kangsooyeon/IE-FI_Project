@@ -67,11 +67,9 @@ const isFlipped = ref(false);
 const selectProduct = (product) => {
   selectedProduct.value = product;
   imgUrl.value = `/assets/bankimg/${product.product.kor_co_nm}.png`
-  console.log(imgUrl.value);
 };
 
 const goDetail = (option) => {
-  console.log(option);
   router.push({ name: 'productdetail', params: { fin_prdt_cd: option.fin_prdt_cd } });
 };
 

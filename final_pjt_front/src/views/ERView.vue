@@ -32,6 +32,16 @@
           <span>{{fromCurrency}} {{fromUnit}}</span>
         </div>
       </div>
+      <div>
+        <div>
+          <img src="@/assets/erg/USD.png" width="400" class="graph-image" />
+          <img src="@/assets/erg/JPY.png" width="400" class="graph-image" />
+        </div>
+        <div>
+          <img src="@/assets/erg/EUR.png" width="400" class="graph-image" />
+          <img src="@/assets/erg/CNY.png" width="400" class="graph-image" />
+        </div>
+      </div>
     </div>
   </template>
   
@@ -93,7 +103,6 @@
   };
 
   const goExchange=function(){
-    console.log(parseFloat("1,123.12"));
     if(toRate.value==='없음'){
       alert('환전할 국가를 선택해주세요');
       return;
@@ -144,7 +153,7 @@
     margin: auto;
     padding: 20px;
     text-align: center;
-    height: 800px;
+    height: 1200px;
   }
   
   h1 {
@@ -217,6 +226,16 @@
     font-size: 2rem;
     font-weight: 600;
     width: 950px;
+  }
+  .graph-image {
+    border-radius: 5px;
+    border:1px solid #e9ecef;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .graph-image:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
   }
   </style>
   

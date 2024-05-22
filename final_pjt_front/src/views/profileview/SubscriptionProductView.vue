@@ -72,10 +72,8 @@ const renderChart = () => {
         label: '금리',
         data: selectedItems.value.map((item) => {
           if(isDeposit.value){
-            console.log(11);
             return item.deposit_option.intr_rate2
           }else{
-            console.log(22);
             return item.saving_option.intr_rate2
           }
         }),
@@ -136,10 +134,8 @@ const renderChart = () => {
         label: '금리',
         data: selectedItems.value.map((item) => {
           if(isDeposit.value){
-            console.log(11);
             return item.deposit_option.intr_rate2
           }else{
-            console.log(22);
             return item.saving_option.intr_rate2
           }
         }),

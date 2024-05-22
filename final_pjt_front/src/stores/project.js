@@ -132,34 +132,6 @@ export const useProjectStore = defineStore('project', () => {
     });
   };
 
-  // 상품상세
-  // const productAll = ref([])
-  // const productDetail=ref(null)
-  // const detailcd=ref("")
-  // const getProduct = function (fin_cd) {
-  //   axios({
-  //     method: 'get',
-  //     url:'http://127.0.0.1:8000/products/products-all/'
-  //   }).then((res) => {
-  //     productAll.value=res.data
-  //     let dors="deposit_product"
-  //     const productDetailTMP = productAll.value.find((el) => {
-  //       if(el.deposit_product!=-1 && el.deposit_product.fin_prdt_cd === fin_cd){
-  //         return el
-  //       }
-  //       else if(el.saving_product!=-1 && el.saving_product.fin_prdt_cd === fin_cd){
-  //         dors="saving_product"
-  //         return el
-  //       }
-
-  //     })
-  //     productDetail.value={
-  //       product:productDetailTMP[dors],
-  //       options:productDetailTMP.options
-  //     }
-  //     console.log(productDetail.value);
-  //     })}
-
   //지도
   const koreanBanks = [
     "국민은행",
@@ -281,7 +253,6 @@ export const useProjectStore = defineStore('project', () => {
         url:`http://127.0.0.1:8000/articles/${id}/`
       }).then((res) => {
         articleDetail.value=res.data
-        console.log(articleDetail.value);
         })}
 
     // 뉴스 관련

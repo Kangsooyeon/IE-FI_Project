@@ -10,10 +10,11 @@
       </div>
       <div class="exchange-rate-box">
         <div class="currency-row">
+          <img v-if="toFlag" :src="toFlag" alt="" width="30px" height="20px">
           <select v-model="toRate" class="form-select">
             <option value="없음" selected>국가선택</option>
             <option v-for="currency in store.exchangeRate" :key="currency.cur_unit" :value="currency.cur_unit">
-              {{ currency.cur_nm.split(' ')[0] }}
+              {{ currency.country }}
             </option>
           </select>
           <input type="number" v-model.number="toCurrency" class="form-control" />
@@ -21,10 +22,11 @@
         </div>
         <button @click="swapCurrencies" class="swap-button">⇄</button>
         <div class="currency-row">
+          <img v-if="fromFlag" :src="fromFlag" alt=" " width="30px" height="20px">
           <select v-model="fromRate" class="form-select">
             <option value="없음" selected>국가선택</option>
             <option v-for="currency in store.exchangeRate" :key="currency.cur_unit" :value="currency.cur_unit">
-              {{ currency.cur_nm.split(' ')[0] }}
+              {{ currency.country }}
             </option>
           </select>
           <span>{{fromCurrency}} {{fromUnit}}</span>
@@ -46,23 +48,29 @@
   const fromCurrency = ref(0);
   const toUnit = ref("단위");
   const fromUnit = ref("단위");
+  const toFlag=ref('');
+  const fromFlag=ref('');
   
   watch([toRate, fromRate], () => {
     if (toRate.value === "없음") {
       toUnit.value = "단위";
+      toFlag.value='';
     } else {
         store.exchangeRate.forEach(el => {
           if (el.cur_unit === toRate.value) {
-            toUnit.value = el.cur_nm.split(' ')[1];
+            toUnit.value = el.cur_nm;
+            toFlag.value=el.flag;
           }
         });
     }
     if (fromRate.value === "없음") {
       fromUnit.value = "단위";
+      fromFlag.value='';
     } else {
         store.exchangeRate.forEach(el => {
           if (el.cur_unit === fromRate.value) {
-            fromUnit.value = el.cur_nm.split(' ')[1];
+            fromUnit.value = el.cur_nm;
+            fromFlag.value=el.flag;
           }
         });
     }
@@ -77,7 +85,11 @@
     const temp = toRate.value;
     toRate.value = fromRate.value;
     fromRate.value = temp;
-    goExchange()
+    if(toCurrency.value==0 &&  fromCurrency.value==0){
+    }
+    else{
+      goExchange()
+    }
   };
 
   const goExchange=function(){

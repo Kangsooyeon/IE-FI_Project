@@ -235,7 +235,7 @@ onMounted(() => {
 }
 
 .comment-content {
-  max-width: 400px;
+  max-width: 600px;
 }
 
 .comments-section {

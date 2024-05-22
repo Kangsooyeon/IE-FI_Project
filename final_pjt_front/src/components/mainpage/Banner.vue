@@ -8,13 +8,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="@/assets/bannerexample/ex1.png" class="d-block w-100" alt="...">
+                    <img @click="goprdtlist" src="@/assets/bannerexample/ex1.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="@/assets/bannerexample/ex2.png" class="d-block w-100" alt="...">
+                    <img @click="gorecprdt" src="@/assets/bannerexample/ex2.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="@/assets/bannerexample/ex3.png" class="d-block w-100" alt="...">
+                    <img @click="gomap" src="@/assets/bannerexample/ex3.png" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -31,6 +31,18 @@
 
 
 <script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const goprdtlist=()=>{
+    router.push({name:'productlist'});
+}
+const gorecprdt=()=>{
+    router.push({name:'recommendproduct'});
+}
+const gomap=()=>{
+    router.push({name:'map'});
+}
 
 </script>
 

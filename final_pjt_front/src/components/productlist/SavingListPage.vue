@@ -105,6 +105,7 @@
      }
  
      const sortProducts = (term, isAscending) => {
+        store.pagenumS=0
     if (store.productListSRC.length > 0) {
         store.productListSRC.sort((a, b) => {
             if (a[term] === undefined && b[term] === undefined) {
@@ -150,6 +151,7 @@
      const terms = ['6', '12', '24', '36'];
  
      const applyFilter = () => {
+            store.pagenumS=0
          store.productListSRC=store.productListSR.filter(product => {
              if (tempSelectedBank.value!="" && tempSelectedTerm.value!="") {
                  if (product.bankname === tempSelectedBank.value && product[tempSelectedTerm.value]) {

@@ -103,11 +103,10 @@
              sortState.value = true;
          }
          sortProducts(term, sortState.value);
-         console.log(sortState.value);
-
      }
  
      const sortProducts = (term, isAscending) => {
+        store.pagenumD=0
     if (store.productListDRC.length > 0) {
         store.productListDRC.sort((a, b) => {
             if (a[term] === undefined && b[term] === undefined) {
@@ -152,6 +151,7 @@
     const terms = ['6', '12', '24', '36'];
 
     const applyFilter = () => {
+        store.pagenumD=0
         store.productListDRC=store.productListDR.filter(product => {
             if (tempSelectedBank.value!="" && tempSelectedTerm.value!="") {
                 if (product.bankname === tempSelectedBank.value && product[tempSelectedTerm.value]) {

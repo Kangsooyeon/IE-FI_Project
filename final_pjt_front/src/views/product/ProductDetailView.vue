@@ -192,7 +192,7 @@ const calculateExpectedAmount = () => {
   } else {
     // 적금 방식 계산
     DorS.value = 'saving';
-    const monthlyDeposit = principal/periodMonths;
+    const monthlyDeposit = principal;
 
     if (selectedOption.value.intr_rate_type_nm.includes('단리')) {
       // 단리 계산
@@ -231,7 +231,7 @@ const subscribe = () => {
       url: `http://127.0.0.1:8000/products/subscribed-${DorS.value}/`,
       data: {
         saving_option: subscribtionId.value,
-        sign_money: signMoney.value,
+        sign_money: parseInt(signMoney.value*selectedOption.value.save_trm),
         mtrt_money: parseInt(expectedAmount.value),
       },
       headers: {

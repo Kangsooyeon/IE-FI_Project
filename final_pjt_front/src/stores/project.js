@@ -323,7 +323,18 @@ export const useProjectStore = defineStore('project', () => {
       }
     )}
         
-
+    //추천 상품
+    const recommendProduct = ref({})
+    const getRecommendProduct = function () {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/profilepage/recommend-products/',
+        headers: {
+          Authorization: `Token ${token.value}`,
+        },}).then((res) => {
+          recommendProduct.value = res.data;
+        })
+    }
 
 
     
@@ -379,7 +390,9 @@ export const useProjectStore = defineStore('project', () => {
     getStockNews,
     coinNews,
     getCoinNews,
-
+    recommendProduct,
+    getRecommendProduct
+    
 
     
   };

@@ -15,7 +15,7 @@
         "asset": null,
         "desired_asset": null,
         "is_active": true,
-        "is_admin": false   
+        "is_admin": false
     }
 },
 {
@@ -33,6 +33,1906 @@
         "salary": null,
         "asset": null,
         "desired_asset": null,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$hhTpymIww1Rk3UaTyTLy3W$HpOevDUJbcDqHJtRHpaAGyI7BrQnnCGtOE8imFm0xnU=",
+        "last_login": null,
+        "id_name": "josejones",
+        "email": "christopher12@example.com",
+        "nickname": "Daniel",
+        "birth": "880130",
+        "sex": 2,
+        "main_bank": "토스뱅크 주식회사",
+        "salary": 54000000,
+        "asset": 850700000,
+        "desired_asset": 4580000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$SQtpgHgNfKsl1L3bHAtK79$36V8DIsdJizwKu1IncLrwNxe7t1H8qBJWuofppUqQvg=",
+        "last_login": null,
+        "id_name": "amorrison",
+        "email": "adrianramirez@example.net",
+        "nickname": "Robin",
+        "birth": "831108",
+        "sex": 1,
+        "main_bank": "신한은행",
+        "salary": 32000000,
+        "asset": 31600000,
+        "desired_asset": 460000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$bFnACupJDyNisXfXF98Ua9$ceFGIU400khM2PiLCfXjfIAfmeiD0Lb44GK+NJRfC2M=",
+        "last_login": null,
+        "id_name": "justin18",
+        "email": "marshalljulia@example.com",
+        "nickname": "Justin",
+        "birth": "070127",
+        "sex": 2,
+        "main_bank": "한국산업은행",
+        "salary": 51000000,
+        "asset": 509800000,
+        "desired_asset": 8280000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$VWChgR6ZkirW9D9uxnNsWX$ru/q6hYa7nkFVIzf2lSJIcS8IsQjy9PxjYMQXOOhK4I=",
+        "last_login": null,
+        "id_name": "amber80",
+        "email": "kevinhoward@example.org",
+        "nickname": "Sarah",
+        "birth": "491115",
+        "sex": 2,
+        "main_bank": "부산은행",
+        "salary": 22000000,
+        "asset": 120200000,
+        "desired_asset": 2420000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$D4dPgeR6JtNVrZTpS6rNUo$ZxAClWtqxJ7taAXxPgpU5eSt+mFiOR+tk6HBguJo6Jo=",
+        "last_login": null,
+        "id_name": "william69",
+        "email": "mark37@example.com",
+        "nickname": "Amy",
+        "birth": "050517",
+        "sex": 2,
+        "main_bank": "대구은행",
+        "salary": 46000000,
+        "asset": 714800000,
+        "desired_asset": 3920000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$xvxergXSN848Ec6Aqa83jh$TKJOsm+nrOSeSAHCYBP384yA49E9HNnJlPXE057+c+g=",
+        "last_login": null,
+        "id_name": "watsonspencer",
+        "email": "lance10@example.net",
+        "nickname": "Marcus",
+        "birth": "681218",
+        "sex": 1,
+        "main_bank": "우리은행",
+        "salary": 109000000,
+        "asset": 259400000,
+        "desired_asset": 3610000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$yGOSG3Gd7BSsJ3CviZbW0o$e2gx7lpH9GfsrZf0q48cTtIFiIZ2MwtRdv0sh4P1epA=",
+        "last_login": null,
+        "id_name": "michelle33",
+        "email": "jeremy25@example.org",
+        "nickname": "Eric",
+        "birth": "560311",
+        "sex": 2,
+        "main_bank": "대구은행",
+        "salary": 98000000,
+        "asset": 266500000,
+        "desired_asset": 2190000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$E2dydyV1GqodBAlKF0uhbZ$XQZlrlHJqLmZpGsyufKLtZfNMj/MRcbdcCOeWN7vc5c=",
+        "last_login": null,
+        "id_name": "keithjohn",
+        "email": "rmcfarland@example.com",
+        "nickname": "Theresa",
+        "birth": "490423",
+        "sex": 2,
+        "main_bank": "한국산업은행",
+        "salary": 52000000,
+        "asset": 695500000,
+        "desired_asset": 1870000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 11,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$6kb59G61cFBnpoOcaXPx84$OGnuATApRatIMJ7cn87dCir8rw151TmuwQGdjLtgquQ=",
+        "last_login": null,
+        "id_name": "grossdavid",
+        "email": "shannon52@example.com",
+        "nickname": "Krista",
+        "birth": "980112",
+        "sex": 1,
+        "main_bank": "중소기업은행",
+        "salary": 6000000,
+        "asset": 83900000,
+        "desired_asset": 7510000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 12,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$5DH87r6ie5BDZhnapFlCI1$EbJNt/jdT6cte9eN9b5ZMfaVJlaD1SpTsSdbU7+g4Gc=",
+        "last_login": null,
+        "id_name": "kcarpenter",
+        "email": "jonesjacqueline@example.com",
+        "nickname": "Craig",
+        "birth": "810608",
+        "sex": 2,
+        "main_bank": "경남은행",
+        "salary": 149000000,
+        "asset": 611900000,
+        "desired_asset": 4410000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 13,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$JWffx4Xz1rtdfw1HZo2Suk$2HDaTccuUmNv+eNAKlS/RFWBq832pGUpv496YeWH61Q=",
+        "last_login": null,
+        "id_name": "jmclean",
+        "email": "hansensabrina@example.org",
+        "nickname": "Michelle",
+        "birth": "640306",
+        "sex": 2,
+        "main_bank": "농협은행주식회사",
+        "salary": 79000000,
+        "asset": 320400000,
+        "desired_asset": 7810000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 14,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$MK4vCrIeMzIxQquHCn77pD$hJlji5yXKLqbtEYBjmT8RCFTXY5XkWoPA5QzGdofY1A=",
+        "last_login": null,
+        "id_name": "melissaperez",
+        "email": "williamherrera@example.com",
+        "nickname": "John",
+        "birth": "590620",
+        "sex": 2,
+        "main_bank": "신한은행",
+        "salary": 117000000,
+        "asset": 612100000,
+        "desired_asset": 3600000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 15,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$knr7ui3JO6hJ54HXg5a6Pp$JbnyhMw+8AFdJ4z3gp7XGhBqojh6RiA/obv7KM+yRPQ=",
+        "last_login": null,
+        "id_name": "gwilliams",
+        "email": "martineztracey@example.net",
+        "nickname": "Robert",
+        "birth": "430604",
+        "sex": 1,
+        "main_bank": "국민은행",
+        "salary": 43000000,
+        "asset": 488700000,
+        "desired_asset": 1260000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 16,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$f3alJ0JxNBIZAI6E0UPnfh$ad+my7fu93hYz/JneUgyf8RMsIDNMMQ8iHaKP7asVmg=",
+        "last_login": null,
+        "id_name": "nicolemartinez",
+        "email": "wanderson@example.org",
+        "nickname": "Debra",
+        "birth": "890827",
+        "sex": 2,
+        "main_bank": "중소기업은행",
+        "salary": 75000000,
+        "asset": 959600000,
+        "desired_asset": 8010000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 17,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$qyRjCTDHBGdl86ilzx4M8O$xZWaCRdNwGPoLaz+5IlYrsY6iX9LFuL9zvGfl2qqgRY=",
+        "last_login": null,
+        "id_name": "kathleenwatson",
+        "email": "brandon61@example.com",
+        "nickname": "James",
+        "birth": "990929",
+        "sex": 1,
+        "main_bank": "제주은행",
+        "salary": 8000000,
+        "asset": 379700000,
+        "desired_asset": 3660000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 18,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$stFla8n5tx9BQZougYZ9mt$BeLcpLi2YG0LQn6wfv9BWWvOppFBvfdFNRSjp6+Ujl8=",
+        "last_login": null,
+        "id_name": "cnorman",
+        "email": "kristen67@example.net",
+        "nickname": "Maria",
+        "birth": "530505",
+        "sex": 1,
+        "main_bank": "전북은행",
+        "salary": 27000000,
+        "asset": 708200000,
+        "desired_asset": 5670000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 19,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$Mi1py69uhm3wOIU784VegX$YyW6HtUT5VELaykfkVXm3NWSt2UlhXjg6nA+O4zb4hM=",
+        "last_login": null,
+        "id_name": "nicole89",
+        "email": "seanbrown@example.com",
+        "nickname": "Kendra",
+        "birth": "070117",
+        "sex": 1,
+        "main_bank": "부산은행",
+        "salary": 182000000,
+        "asset": 894000000,
+        "desired_asset": 3380000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 20,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$0aBQ6UYdBniCryLKbwXeH8$pmNjqK067xMHQNfp7olaW1+xvBHpwTm4Whq5cBY7Ako=",
+        "last_login": null,
+        "id_name": "hicksderek",
+        "email": "john86@example.net",
+        "nickname": "Karen",
+        "birth": "970904",
+        "sex": 1,
+        "main_bank": "농협은행주식회사",
+        "salary": 71000000,
+        "asset": 380400000,
+        "desired_asset": 8170000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 21,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$QK9fIzDYWq429exL4uq05Y$ViFz5dVNnGCSHJnFyIiVaAEG5+kYl7heWFB8gxVH7vg=",
+        "last_login": null,
+        "id_name": "derrick80",
+        "email": "gwhite@example.com",
+        "nickname": "Michael",
+        "birth": "051012",
+        "sex": 1,
+        "main_bank": "대구은행",
+        "salary": 22000000,
+        "asset": 159300000,
+        "desired_asset": 1580000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 22,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$vx9nf7405YFcd4hlqO9ol9$8j1TiHmjMZol9HqItZ1EFb9HgSlmyBHmzZeX2g3qNqQ=",
+        "last_login": null,
+        "id_name": "darrell32",
+        "email": "ubrowning@example.org",
+        "nickname": "Ashley",
+        "birth": "900115",
+        "sex": 1,
+        "main_bank": "한국산업은행",
+        "salary": 134000000,
+        "asset": 584000000,
+        "desired_asset": 2330000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 23,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$7SoXsIG31VMpzv9IARDmMl$Dm9oNOCGLvfbU92RHPFupaOy1XG3hvGnzSD0QgyujXg=",
+        "last_login": null,
+        "id_name": "bridgetstanley",
+        "email": "april17@example.com",
+        "nickname": "Matthew",
+        "birth": "680401",
+        "sex": 1,
+        "main_bank": "신한은행",
+        "salary": 48000000,
+        "asset": 51100000,
+        "desired_asset": 850000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 24,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$kDSLtqNmc8HzCCfi8myWTS$l/z0/ZlmG7kMIguDD1Czjx9tHEwAFZnX1xpfVZzjols=",
+        "last_login": null,
+        "id_name": "kmcknight",
+        "email": "melvinsanchez@example.org",
+        "nickname": "Patricia",
+        "birth": "470701",
+        "sex": 2,
+        "main_bank": "전북은행",
+        "salary": 168000000,
+        "asset": 717900000,
+        "desired_asset": 5760000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 25,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$C9EKnz05LOXyTMA1ENGFF0$Pr+hdWmzBwUx+AnozJNt/0jyytU89FzmnUD2NqETs7Q=",
+        "last_login": null,
+        "id_name": "jerome50",
+        "email": "dhaynes@example.com",
+        "nickname": "Lisa",
+        "birth": "780206",
+        "sex": 1,
+        "main_bank": "토스뱅크 주식회사",
+        "salary": 85000000,
+        "asset": 138900000,
+        "desired_asset": 3280000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 26,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$siHYNiEhbKK9E7evdapkqo$N/rnSQILGi+TsPjOwFtNMZKQr8fqhkuRtUI2OVD0uBo=",
+        "last_login": null,
+        "id_name": "riverajoe",
+        "email": "rmurray@example.net",
+        "nickname": "Lauren",
+        "birth": "640713",
+        "sex": 2,
+        "main_bank": "국민은행",
+        "salary": 62000000,
+        "asset": 295200000,
+        "desired_asset": 8890000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 27,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$aeJH5qT0iMbKdEdfWNlO2X$203OHGmJG1RPM/H8MIjf5t/KdEH3JJk31QGzBCcA7TY=",
+        "last_login": null,
+        "id_name": "traciehuang",
+        "email": "ocuevas@example.com",
+        "nickname": "Laura",
+        "birth": "540416",
+        "sex": 2,
+        "main_bank": "제주은행",
+        "salary": 174000000,
+        "asset": 594400000,
+        "desired_asset": 7750000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 28,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$YlJygWqoSAchJFEYEYzHXw$+R2ji/OIEjy87QNE1JftZgMNaKY2VGkU8/IITh30M9A=",
+        "last_login": null,
+        "id_name": "jason20",
+        "email": "lesterphillip@example.net",
+        "nickname": "Scott",
+        "birth": "490429",
+        "sex": 1,
+        "main_bank": "부산은행",
+        "salary": 47000000,
+        "asset": 751200000,
+        "desired_asset": 6170000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 29,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$Yl38CEZvWEwaTy6OI0OL8p$qYn0y1a2j4ooysLc8+3fkMOyhADUDWkH8bPTpZbsb+k=",
+        "last_login": null,
+        "id_name": "antonioharrison",
+        "email": "jespinoza@example.com",
+        "nickname": "David",
+        "birth": "041016",
+        "sex": 1,
+        "main_bank": "수협은행",
+        "salary": 62000000,
+        "asset": 689500000,
+        "desired_asset": 9080000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 30,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$ryXL3lBx0TmCKmsAiqkaEQ$sb8zTZz9y7Jr3JhaRFg+Y9I+sM8Ay3Eaa5hUsB2A878=",
+        "last_login": null,
+        "id_name": "louisramirez",
+        "email": "david91@example.net",
+        "nickname": "Connie",
+        "birth": "561205",
+        "sex": 2,
+        "main_bank": "신한은행",
+        "salary": 90000000,
+        "asset": 836900000,
+        "desired_asset": 4360000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 31,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$WXf2zuTIi5UR7HeABur4Bc$tBieuokrFPVRsPSNGYd5au2KyrH7ze/FqKMCnK8z0Oc=",
+        "last_login": null,
+        "id_name": "calebhudson",
+        "email": "reyesanthony@example.net",
+        "nickname": "Crystal",
+        "birth": "861012",
+        "sex": 1,
+        "main_bank": "한국산업은행",
+        "salary": 150000000,
+        "asset": 584100000,
+        "desired_asset": 4900000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 32,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$GIB6Dv8cVbiJMY9V1zj7f5$NiY/vw5blr+6SOtkVIjqbpuVbBO9onWNhx9kxBPIYnE=",
+        "last_login": null,
+        "id_name": "marcus26",
+        "email": "garretttimothy@example.com",
+        "nickname": "Aaron",
+        "birth": "870330",
+        "sex": 1,
+        "main_bank": "국민은행",
+        "salary": 166000000,
+        "asset": 115500000,
+        "desired_asset": 6630000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 33,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$unPF0kq3oQEZ7lv5FUuC14$XPdxJ4gM8Q2ifjLIDVTgPgBMnOT0Bz+b5rCTT8aw/i8=",
+        "last_login": null,
+        "id_name": "xporter",
+        "email": "camerondavidson@example.org",
+        "nickname": "William",
+        "birth": "040813",
+        "sex": 2,
+        "main_bank": "제주은행",
+        "salary": 180000000,
+        "asset": 689000000,
+        "desired_asset": 8500000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 34,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$H9hdrq6AwCep8OQ8PEmmWa$P3tO5aYn+wzGIYvsGZNNxBnVcwWcKOMETS9nkWJ2zx8=",
+        "last_login": null,
+        "id_name": "jane60",
+        "email": "vkelly@example.net",
+        "nickname": "Brandon",
+        "birth": "911214",
+        "sex": 1,
+        "main_bank": "대구은행",
+        "salary": 8000000,
+        "asset": 31300000,
+        "desired_asset": 3670000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 35,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$h6b1Tqwzc7iowRfuA2m6gH$zvzDvfBMxYf2fFjyhiL6T2Pc+OJ49M/N0s5jBUqS3Tk=",
+        "last_login": null,
+        "id_name": "milesjonathan",
+        "email": "jrobinson@example.net",
+        "nickname": "Johnny",
+        "birth": "600613",
+        "sex": 1,
+        "main_bank": "한국스탠다드차타드은행",
+        "salary": 42000000,
+        "asset": 325900000,
+        "desired_asset": 8920000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 36,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$qF669g7NowR4A4NvdhaFFF$IVHyqgppu6JreY2iI8/g50CCjQuudxEjNRYtxzWgtsM=",
+        "last_login": null,
+        "id_name": "hshelton",
+        "email": "nicolewallace@example.org",
+        "nickname": "Brent",
+        "birth": "750829",
+        "sex": 1,
+        "main_bank": "한국산업은행",
+        "salary": 192000000,
+        "asset": 688000000,
+        "desired_asset": 4820000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 37,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$B6kfTbMTP4jpRoEH8VN5tf$Nok8fM7Hhwm0/wZGV28ZTp2L/5mkXm57TGehG0f30HQ=",
+        "last_login": null,
+        "id_name": "michael85",
+        "email": "jeffrey17@example.org",
+        "nickname": "Brenda",
+        "birth": "520906",
+        "sex": 2,
+        "main_bank": "주식회사 케이뱅크",
+        "salary": 36000000,
+        "asset": 961900000,
+        "desired_asset": 8170000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 38,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$qTJD7e4HMmEb8m1mIEtLPM$Pr2Vw9BYyVf5JmBYMJl2/eUkEWaAaJfjBtU6kPeTJpc=",
+        "last_login": null,
+        "id_name": "sylviaphillips",
+        "email": "christian04@example.org",
+        "nickname": "Roberto",
+        "birth": "880707",
+        "sex": 1,
+        "main_bank": "중소기업은행",
+        "salary": 27000000,
+        "asset": 688000000,
+        "desired_asset": 4370000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 39,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$TxBcupWxQgP17h2erhxdti$sWW1lpJMd6GKcpIp5qPF8nSNv0I9X/Aaxnwu4/YU2yk=",
+        "last_login": null,
+        "id_name": "zrivera",
+        "email": "kylebuck@example.com",
+        "nickname": "Jack",
+        "birth": "920516",
+        "sex": 1,
+        "main_bank": "부산은행",
+        "salary": 68000000,
+        "asset": 394200000,
+        "desired_asset": 4260000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 40,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$FASIaduRd3JuJVUALPtYMn$iFsSdSmhOPCpjDEgICCq6tPUNvp1p781PK0WA+9GXz8=",
+        "last_login": null,
+        "id_name": "caitlyncain",
+        "email": "savannah03@example.net",
+        "nickname": "Sharon",
+        "birth": "740825",
+        "sex": 1,
+        "main_bank": "경남은행",
+        "salary": 18000000,
+        "asset": 692900000,
+        "desired_asset": 5250000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 41,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$3tMbZamzw9Q8wEbbgxONAo$tQi5zre/4n1L7U0xaDPFDGMOnjWJEy4qt8pGBFZIOTo=",
+        "last_login": null,
+        "id_name": "uhamilton",
+        "email": "andrewellis@example.com",
+        "nickname": "Jillian",
+        "birth": "900615",
+        "sex": 1,
+        "main_bank": "토스뱅크 주식회사",
+        "salary": 41000000,
+        "asset": 788900000,
+        "desired_asset": 9540000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 42,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$GVz2mHPrLfYi4897gr7Smx$OuJtgxgxr8A3Rs/CGolWsxqruD7PknquglxhwW0sB3Y=",
+        "last_login": null,
+        "id_name": "davidcook",
+        "email": "dhoward@example.com",
+        "nickname": "Tracy",
+        "birth": "670214",
+        "sex": 1,
+        "main_bank": "신한은행",
+        "salary": 20000000,
+        "asset": 444700000,
+        "desired_asset": 1630000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 43,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$QegZro5h2sKV3M9u1HqRMx$FB4aRpudBVQeOLhg3NPMU1gTg50e/J4BZ26obcftAvg=",
+        "last_login": null,
+        "id_name": "kristiearias",
+        "email": "iking@example.com",
+        "nickname": "Ronald",
+        "birth": "440613",
+        "sex": 1,
+        "main_bank": "국민은행",
+        "salary": 6000000,
+        "asset": 276800000,
+        "desired_asset": 9400000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 44,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$qBhvXMRSyI8MUNXNwPEMrq$YZO9//gOxZEGQa+677+HBmr2B8zYQ5Uf80Lb4mtvYqE=",
+        "last_login": null,
+        "id_name": "brandi85",
+        "email": "dawn40@example.org",
+        "nickname": "Corey",
+        "birth": "591115",
+        "sex": 1,
+        "main_bank": "대구은행",
+        "salary": 15000000,
+        "asset": 961800000,
+        "desired_asset": 4900000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 45,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$9DAZxnD67CAj9aR1FYDijx$V0P7gVpkhW6FSGQEWXvbOtOXsWsa57tvu4bIo71g9Kc=",
+        "last_login": null,
+        "id_name": "jbrooks",
+        "email": "steven55@example.com",
+        "nickname": "Leslie",
+        "birth": "810617",
+        "sex": 2,
+        "main_bank": "한국산업은행",
+        "salary": 81000000,
+        "asset": 528600000,
+        "desired_asset": 4320000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 46,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$p0yJ0vCutZD9MOIiNTq2jw$nQb98IhRjTxsZBrEZzyCrKXFDO6CZmjor/mdayi8/3I=",
+        "last_login": null,
+        "id_name": "martinelizabeth",
+        "email": "michelleharris@example.net",
+        "nickname": "Julie",
+        "birth": "901219",
+        "sex": 2,
+        "main_bank": "농협은행주식회사",
+        "salary": 118000000,
+        "asset": 341900000,
+        "desired_asset": 930000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 47,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$HLGBreXcH4q8HusBzVI8NW$7iXsFGjByfJS7qX5QfTD73Uh2rps5OB9kaLdJWzETFs=",
+        "last_login": null,
+        "id_name": "owensjeremy",
+        "email": "davidpowell@example.net",
+        "nickname": "Kevin",
+        "birth": "930404",
+        "sex": 2,
+        "main_bank": "중소기업은행",
+        "salary": 29000000,
+        "asset": 364600000,
+        "desired_asset": 8060000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 48,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$Tt1qJQkPtTxMWEtr3ZeZz8$iEUmcb/KA6sF0DX7DEJ9C2MkWSVHNJlg//IRegeh9n0=",
+        "last_login": null,
+        "id_name": "melissamckenzie",
+        "email": "swalls@example.org",
+        "nickname": "Victoria",
+        "birth": "800603",
+        "sex": 2,
+        "main_bank": "신한은행",
+        "salary": 103000000,
+        "asset": 270800000,
+        "desired_asset": 170000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 49,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$Dvq5nvd8mNIrje3u86iaTM$noOLbVYQyzjsVwlU/8fTXPxSk1So8D1Sp4I4ZwWyj7Q=",
+        "last_login": null,
+        "id_name": "russelllarsen",
+        "email": "rpatel@example.net",
+        "nickname": "Thomas",
+        "birth": "610225",
+        "sex": 1,
+        "main_bank": "경남은행",
+        "salary": 147000000,
+        "asset": 541600000,
+        "desired_asset": 6620000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 50,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$iV6soYuQvBBodyCyMqUe7Q$IjSBs0VSNjTsjmsSaX9pjUuF7ODe7XiFze9o/2VqyE8=",
+        "last_login": null,
+        "id_name": "darren84",
+        "email": "robinmartin@example.net",
+        "nickname": "Stacy",
+        "birth": "560106",
+        "sex": 2,
+        "main_bank": "수협은행",
+        "salary": 75000000,
+        "asset": 88900000,
+        "desired_asset": 870000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 51,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$aHjSgGVIflqdGrIwbF3Ujs$XRVuQe+qITBsZFaEr/q0qlCdR760iU5rN+wEYVr5jqQ=",
+        "last_login": null,
+        "id_name": "clarktammy",
+        "email": "lisacooper@example.org",
+        "nickname": "Kathleen",
+        "birth": "870122",
+        "sex": 2,
+        "main_bank": "우리은행",
+        "salary": 155000000,
+        "asset": 808800000,
+        "desired_asset": 3430000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 52,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$mKYyU4iWrbGnA9H4pVIand$C/apvXlYiW6aaArKAxHur5Px1jdXBdRZU00ESz2/0cQ=",
+        "last_login": null,
+        "id_name": "qcollins",
+        "email": "nmoore@example.org",
+        "nickname": "Devin",
+        "birth": "541023",
+        "sex": 2,
+        "main_bank": "농협은행주식회사",
+        "salary": 108000000,
+        "asset": 581300000,
+        "desired_asset": 9240000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 53,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$QcM6LIPCJEmmRqsJOhvziE$GRtKG2bpRwo1fmtn0A4ZGcoqKXdz6foge/mb3+YNiYU=",
+        "last_login": null,
+        "id_name": "gmurray",
+        "email": "agarcia@example.net",
+        "nickname": "Alicia",
+        "birth": "740823",
+        "sex": 1,
+        "main_bank": "전북은행",
+        "salary": 34000000,
+        "asset": 498300000,
+        "desired_asset": 180000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 54,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$nKKIbDkZbIdyysOA3mK3cJ$1NgNH6fys6pPtM9BXkpKl9h6Zf+q8eSfgPauMc72qb4=",
+        "last_login": null,
+        "id_name": "alexball",
+        "email": "marciaray@example.com",
+        "nickname": "Paul",
+        "birth": "860605",
+        "sex": 1,
+        "main_bank": "대구은행",
+        "salary": 155000000,
+        "asset": 248100000,
+        "desired_asset": 6280000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 55,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$17PnKSbSNKdreTBrtIzRLM$LFrrpgbX1zZ7mcxee1+h/5M1EbLZ9YLSRpCvOGFgYqk=",
+        "last_login": null,
+        "id_name": "archerstacey",
+        "email": "ggomez@example.org",
+        "nickname": "Donna",
+        "birth": "940718",
+        "sex": 1,
+        "main_bank": "수협은행",
+        "salary": 76000000,
+        "asset": 170400000,
+        "desired_asset": 1340000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 56,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$5BfPn3GGFQY4tpLeaxCi5j$b9yRgJZljlPROT31D+K1xrxDIv69WSs5Lvvv2UqNoEk=",
+        "last_login": null,
+        "id_name": "carlosle",
+        "email": "dcervantes@example.net",
+        "nickname": "Angela",
+        "birth": "640427",
+        "sex": 1,
+        "main_bank": "주식회사 카카오뱅크",
+        "salary": 85000000,
+        "asset": 108400000,
+        "desired_asset": 9210000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 57,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$glr5j7C6iS83eABWBciF8O$4CsR8k05af+riwNZaaozVt5x2gFqdUFAtQBHKFcZd40=",
+        "last_login": null,
+        "id_name": "michaeljohnson",
+        "email": "tinaramos@example.org",
+        "nickname": "Beth",
+        "birth": "550707",
+        "sex": 2,
+        "main_bank": "부산은행",
+        "salary": 116000000,
+        "asset": 578600000,
+        "desired_asset": 8370000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 58,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$jo1Efgedkcm0UebGhiheOD$UdT7KwJNB5F3peCLLK6A2grggSD/gfAmzsR1V/4WDoY=",
+        "last_login": null,
+        "id_name": "dylan42",
+        "email": "steven89@example.com",
+        "nickname": "Rachel",
+        "birth": "951113",
+        "sex": 1,
+        "main_bank": "경남은행",
+        "salary": 121000000,
+        "asset": 586900000,
+        "desired_asset": 3390000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 59,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$8oINXgriOas52kH39233md$N2OZwx3OVrx+81XsVi8Mi5VZmkne6dQ4RDJviSAlkpw=",
+        "last_login": null,
+        "id_name": "david67",
+        "email": "walterwood@example.com",
+        "nickname": "Jeremiah",
+        "birth": "630210",
+        "sex": 1,
+        "main_bank": "국민은행",
+        "salary": 90000000,
+        "asset": 775700000,
+        "desired_asset": 7660000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 60,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$6ymGccScSuEpQTuXeMbGwb$rL+gU0fZsD8p6HE7etuqdYmZnDxzHGe77vCmdcuNckw=",
+        "last_login": null,
+        "id_name": "njohnson",
+        "email": "richard26@example.net",
+        "nickname": "April",
+        "birth": "040606",
+        "sex": 2,
+        "main_bank": "토스뱅크 주식회사",
+        "salary": 160000000,
+        "asset": 796200000,
+        "desired_asset": 3350000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 61,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$0jgCwn3V8ise2FGAaiOzc4$djPWfVBhwHHztfAFdyFDkdmCjGZejLauRr9Maw5yBcc=",
+        "last_login": null,
+        "id_name": "james19",
+        "email": "elizabeth87@example.org",
+        "nickname": "Megan",
+        "birth": "961014",
+        "sex": 1,
+        "main_bank": "전북은행",
+        "salary": 99000000,
+        "asset": 457700000,
+        "desired_asset": 1480000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 62,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$2sG3yrTXHztjzHDW0k9gNT$zqNTtLrlcKuttjMWs1YKNXXClRCa64KF7S6wkxL8qcQ=",
+        "last_login": null,
+        "id_name": "garciaalec",
+        "email": "hparker@example.net",
+        "nickname": "Jennifer",
+        "birth": "471031",
+        "sex": 1,
+        "main_bank": "대구은행",
+        "salary": 59000000,
+        "asset": 629900000,
+        "desired_asset": 160000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 63,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$OytqQRCYiI9XorW9KSzklQ$Sp1tOuKa9RCB5k/Dm+ej2QhrIR6qvNlXeWtauR16mo0=",
+        "last_login": null,
+        "id_name": "jsaunders",
+        "email": "flee@example.net",
+        "nickname": "Alice",
+        "birth": "631229",
+        "sex": 2,
+        "main_bank": "한국산업은행",
+        "salary": 126000000,
+        "asset": 12200000,
+        "desired_asset": 6120000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 64,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$r4MoRJDLiNaszJlToFlKlp$zhYSjB1rwuOVY6sHRT6pLeFzpY3ZcdvjVWKxKmbkzJw=",
+        "last_login": null,
+        "id_name": "avaldez",
+        "email": "hernandezcaleb@example.org",
+        "nickname": "Arthur",
+        "birth": "440324",
+        "sex": 1,
+        "main_bank": "제주은행",
+        "salary": 141000000,
+        "asset": 5600000,
+        "desired_asset": 9540000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 65,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$9wiLZBb0t9eEGHrEnumImF$nEW9Qr1FBCVIlBxIWrbN7qeK6PprtD4TPDXEr/DdGfY=",
+        "last_login": null,
+        "id_name": "bradfordjohn",
+        "email": "stevenmcconnell@example.net",
+        "nickname": "Patrick",
+        "birth": "050707",
+        "sex": 1,
+        "main_bank": "한국산업은행",
+        "salary": 34000000,
+        "asset": 373600000,
+        "desired_asset": 7970000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 66,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$dx7Vmo5XkgNJIXSoxbBKAb$v4XmsRdSwnpIHUEw6taLwcpcQDEJURzHzmG/Bkxgchc=",
+        "last_login": null,
+        "id_name": "mariacarney",
+        "email": "brittanymurphy@example.net",
+        "nickname": "Christina",
+        "birth": "611205",
+        "sex": 1,
+        "main_bank": "광주은행",
+        "salary": 136000000,
+        "asset": 245500000,
+        "desired_asset": 5740000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 67,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$us5AjvuDwwOgjpluGMNMiO$pKSa4yBMoA4LLUGUOBqCX8y6jBQ/v8gxzdSWk/UorIg=",
+        "last_login": null,
+        "id_name": "patrick11",
+        "email": "thorntonkathryn@example.com",
+        "nickname": "Andrea",
+        "birth": "680104",
+        "sex": 1,
+        "main_bank": "제주은행",
+        "salary": 27000000,
+        "asset": 351400000,
+        "desired_asset": 590000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 68,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$k8FqqObOqri48Hs7vsuRdl$530CLGvJMnEcW+STzj1Y2V6Jvh+ImL3+CB9KKGo4nAo=",
+        "last_login": null,
+        "id_name": "jonathan55",
+        "email": "donnaramos@example.net",
+        "nickname": "Yesenia",
+        "birth": "500511",
+        "sex": 2,
+        "main_bank": "제주은행",
+        "salary": 3000000,
+        "asset": 667500000,
+        "desired_asset": 9240000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 69,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$BGukS5MGkusipttm9fugJr$lvrWw7ZGvL71kLfLvjbKYlW0u0N+5XedTNi53BYDL9Y=",
+        "last_login": null,
+        "id_name": "phillip62",
+        "email": "emilyford@example.com",
+        "nickname": "Cameron",
+        "birth": "790525",
+        "sex": 1,
+        "main_bank": "한국스탠다드차타드은행",
+        "salary": 71000000,
+        "asset": 110200000,
+        "desired_asset": 6770000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 70,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$lxFOfRaS8TbyosfVOgaH0N$UjXbI2c/Ky++To9M+xidTd0f3KUUAcQgL3EBB+dZmeM=",
+        "last_login": null,
+        "id_name": "hlarson",
+        "email": "wjoseph@example.org",
+        "nickname": "Linda",
+        "birth": "760313",
+        "sex": 1,
+        "main_bank": "우리은행",
+        "salary": 135000000,
+        "asset": 167600000,
+        "desired_asset": 4370000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 71,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$y6OlL4cftYfUuX9Gq2UmtO$hp9uiks8nuNqlwacWt2BN5yP0srwskSjBD2Ys76ZN28=",
+        "last_login": null,
+        "id_name": "larsenjohn",
+        "email": "anthonyshepherd@example.org",
+        "nickname": "Veronica",
+        "birth": "600622",
+        "sex": 2,
+        "main_bank": "우리은행",
+        "salary": 13000000,
+        "asset": 433800000,
+        "desired_asset": 9220000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 72,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$MseIVp3h7DJur9VWxUJqsT$WoE+h4yZ3V9ur1rMUQPoKjneK+Oj9QiYgl/ZiWzAUcI=",
+        "last_login": null,
+        "id_name": "rgonzales",
+        "email": "wendysparks@example.com",
+        "nickname": "Kathy",
+        "birth": "040626",
+        "sex": 1,
+        "main_bank": "한국산업은행",
+        "salary": 112000000,
+        "asset": 665200000,
+        "desired_asset": 460000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 73,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$xEpSCz8wRpdyVEEo6Sab6B$F/rG0aB9QMwZK1YrbrBxLD0hQmhw/6hjWNm0GiZ/ASk=",
+        "last_login": null,
+        "id_name": "larsongary",
+        "email": "jfletcher@example.net",
+        "nickname": "Alex",
+        "birth": "051201",
+        "sex": 1,
+        "main_bank": "광주은행",
+        "salary": 51000000,
+        "asset": 236500000,
+        "desired_asset": 650000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 74,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$L77YovAp42S5YwWIEUTalC$giTwWPdjbcCkGlqFU+6+lkWMzdw7XdLrqQNhXLhxaMo=",
+        "last_login": null,
+        "id_name": "alexander06",
+        "email": "joseph64@example.org",
+        "nickname": "Jacqueline",
+        "birth": "991014",
+        "sex": 2,
+        "main_bank": "전북은행",
+        "salary": 93000000,
+        "asset": 928000000,
+        "desired_asset": 630000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 75,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$RDQ0yH0UKzkgGiAsIxNXxY$K7SZsVLj78hbqQ8h/K1n9R7WFDbrIdcn7ECk6CIjksw=",
+        "last_login": null,
+        "id_name": "kylecox",
+        "email": "lauriewalter@example.org",
+        "nickname": "Katie",
+        "birth": "930322",
+        "sex": 2,
+        "main_bank": "한국스탠다드차타드은행",
+        "salary": 172000000,
+        "asset": 631400000,
+        "desired_asset": 7450000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 76,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$pU7BzpjUitjOigDt43FMU9$jwPyPViEKrJ52+Qd2JH5+L6F1V4ee54C7nUjRdQ3GKg=",
+        "last_login": null,
+        "id_name": "garytorres",
+        "email": "dtaylor@example.net",
+        "nickname": "Ellen",
+        "birth": "901116",
+        "sex": 2,
+        "main_bank": "하나은행",
+        "salary": 131000000,
+        "asset": 733900000,
+        "desired_asset": 980000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 77,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$B0ibIx07hUSkQb7G1aw6Y1$FZEu8BogTl+8kRNUukEMoVinTtkMfwVegj78PWzqevQ=",
+        "last_login": null,
+        "id_name": "huntamy",
+        "email": "stephanie01@example.net",
+        "nickname": "Danielle",
+        "birth": "660521",
+        "sex": 1,
+        "main_bank": "하나은행",
+        "salary": 124000000,
+        "asset": 568000000,
+        "desired_asset": 4430000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 78,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$QbesUXlerZnA0qcJW5kKZh$sMekAaHNxithzKudnONRBSvBEBtAZ5Y/5a79NB2Fyjk=",
+        "last_login": null,
+        "id_name": "ehodges",
+        "email": "qrobinson@example.org",
+        "nickname": "Alan",
+        "birth": "600530",
+        "sex": 2,
+        "main_bank": "한국산업은행",
+        "salary": 29000000,
+        "asset": 28500000,
+        "desired_asset": 3270000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 79,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$wNo81q3T4ChyB9fmOLMpwn$IByITHtWrAxDqitvN4H0SYnbrKloJixkm4th6DOkOJw=",
+        "last_login": null,
+        "id_name": "hsalinas",
+        "email": "snyderaustin@example.org",
+        "nickname": "Christopher",
+        "birth": "811013",
+        "sex": 2,
+        "main_bank": "대구은행",
+        "salary": 141000000,
+        "asset": 31400000,
+        "desired_asset": 6980000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 80,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$HrnCwHqVFTkEROOaaO9IaM$wS85kcQq80PlgWy2HyTQhHBA5oiH2m9cMjtpgattzsw=",
+        "last_login": null,
+        "id_name": "robin54",
+        "email": "stephaniegreen@example.net",
+        "nickname": "Jeffrey",
+        "birth": "460514",
+        "sex": 2,
+        "main_bank": "하나은행",
+        "salary": 68000000,
+        "asset": 811100000,
+        "desired_asset": 4350000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 81,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$Fc9NZ0V5TDQ3855bvoJle8$KKSi24l3DlGgajs5Uitr7lFN4BzNkaZtL329fCIgaSQ=",
+        "last_login": null,
+        "id_name": "alexandriasosa",
+        "email": "murrayamber@example.org",
+        "nickname": "Sara",
+        "birth": "630127",
+        "sex": 2,
+        "main_bank": "국민은행",
+        "salary": 30000000,
+        "asset": 32000000,
+        "desired_asset": 1880000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 82,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$3bdRnvI0zTLhPXrLG920vH$zqVgkFIxl5LDnTB1FwlBhiQk9dN/v6Umx8Mf8HOcrtI=",
+        "last_login": null,
+        "id_name": "porterjeffrey",
+        "email": "vvega@example.com",
+        "nickname": "Regina",
+        "birth": "771229",
+        "sex": 1,
+        "main_bank": "제주은행",
+        "salary": 187000000,
+        "asset": 521400000,
+        "desired_asset": 260000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 83,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$lIkWtdCO0MwD2EpM2RHHOn$bXC6tH8hR8eBQCFmxhPmVy3ucbQjHdPclIIJGx9vM/U=",
+        "last_login": null,
+        "id_name": "molly89",
+        "email": "jason07@example.org",
+        "nickname": "Pamela",
+        "birth": "830110",
+        "sex": 1,
+        "main_bank": "제주은행",
+        "salary": 128000000,
+        "asset": 988700000,
+        "desired_asset": 7760000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 84,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$V72L10F9RkQCng7OzUDq7G$vk5ehf9t+yeXSCtPuGYTG0Dq63OfD86p3hyU9wuB+r8=",
+        "last_login": null,
+        "id_name": "davisjenna",
+        "email": "pughangela@example.com",
+        "nickname": "Tammy",
+        "birth": "780715",
+        "sex": 2,
+        "main_bank": "농협은행주식회사",
+        "salary": 13000000,
+        "asset": 247100000,
+        "desired_asset": 9400000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 85,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$hcTzso9GBR1oQCVT3Zd8ZK$d4Y8uPYBAr5u/WomV+gMTVn7NNSp65PNtIQUCfQ+P3Y=",
+        "last_login": null,
+        "id_name": "cgarcia",
+        "email": "joshuawilkerson@example.org",
+        "nickname": "Jim",
+        "birth": "450305",
+        "sex": 2,
+        "main_bank": "한국산업은행",
+        "salary": 192000000,
+        "asset": 585600000,
+        "desired_asset": 820000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 86,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$sAV5kk8q7XWp3vNMmqNt25$pIDI5fDIJczZEinYC+xpzZ6zB8a6sMAURGSXPwpOmK8=",
+        "last_login": null,
+        "id_name": "webstertimothy",
+        "email": "mschroeder@example.org",
+        "nickname": "Charlene",
+        "birth": "930105",
+        "sex": 1,
+        "main_bank": "부산은행",
+        "salary": 175000000,
+        "asset": 973600000,
+        "desired_asset": 2880000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 87,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$ESA7rhRZx7ozkwgtnJ44a7$gfivrShb3undErnkPQarYSMhdNecp/3sXYX+sfinBkQ=",
+        "last_login": null,
+        "id_name": "michael01",
+        "email": "jill04@example.org",
+        "nickname": "Vincent",
+        "birth": "760406",
+        "sex": 2,
+        "main_bank": "전북은행",
+        "salary": 175000000,
+        "asset": 835700000,
+        "desired_asset": 4620000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 88,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$y00Xhg7JTI9W7yZerxW4vR$MvatnsBY8KqvrFMZrvu+nRY8Yxq11pwkHdAP80TtE1I=",
+        "last_login": null,
+        "id_name": "patriciagarcia",
+        "email": "marisa67@example.com",
+        "nickname": "Deborah",
+        "birth": "460925",
+        "sex": 1,
+        "main_bank": "중소기업은행",
+        "salary": 198000000,
+        "asset": 830000000,
+        "desired_asset": 3920000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 89,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$wsJXreVQbAtElOZRToVKsA$0shbuYHga7NDg23vGhCiMh1hgdjYiSDo2ENE3MfDptY=",
+        "last_login": null,
+        "id_name": "ingrammark",
+        "email": "usnyder@example.com",
+        "nickname": "Denise",
+        "birth": "990106",
+        "sex": 1,
+        "main_bank": "중소기업은행",
+        "salary": 111000000,
+        "asset": 988100000,
+        "desired_asset": 1980000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 90,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$t47DkKrmWz5doYfT6vOaD6$PQzB39YSjVLfRoudv60zvTunFNb43zeA7+B6XlhUr7g=",
+        "last_login": null,
+        "id_name": "clarkpeter",
+        "email": "hgonzales@example.net",
+        "nickname": "Heather",
+        "birth": "560904",
+        "sex": 1,
+        "main_bank": "수협은행",
+        "salary": 0,
+        "asset": 866700000,
+        "desired_asset": 8270000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 91,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$V5OxYl7vq3cm44wMcFGpXU$uFaCHsWe/kWh/F267tNp6k20PIDeAtfUHceeaY3xPNk=",
+        "last_login": null,
+        "id_name": "masonamanda",
+        "email": "alexanderryan@example.net",
+        "nickname": "Paige",
+        "birth": "750807",
+        "sex": 1,
+        "main_bank": "수협은행",
+        "salary": 132000000,
+        "asset": 35600000,
+        "desired_asset": 6860000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 92,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$gRclbYM2qc7OGvhAAsJWQr$5/RHcM7AzpheqrlsJ4kSHjJ6XcSdplXw+fjDe0nsCyc=",
+        "last_login": null,
+        "id_name": "randall01",
+        "email": "ghudson@example.org",
+        "nickname": "Jeanette",
+        "birth": "531029",
+        "sex": 2,
+        "main_bank": "주식회사 케이뱅크",
+        "salary": 141000000,
+        "asset": 498400000,
+        "desired_asset": 1300000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 93,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$IUpElpe2q2ULIWC8bjfldy$pgYSdUYXSNNtl9SaaaJ1S4v8M30T3CJnOUyzG8t8urQ=",
+        "last_login": null,
+        "id_name": "lisaknox",
+        "email": "cwilliams@example.com",
+        "nickname": "Jason",
+        "birth": "040512",
+        "sex": 1,
+        "main_bank": "주식회사 케이뱅크",
+        "salary": 180000000,
+        "asset": 729000000,
+        "desired_asset": 8630000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 94,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$TnsCZ5YeVpWgbwgihMKr6B$mrBGRJiFVmwLy2c38O27jJCWCkCBQbjWWj5SWt8u4rM=",
+        "last_login": null,
+        "id_name": "angela30",
+        "email": "ddunn@example.org",
+        "nickname": "Catherine",
+        "birth": "560131",
+        "sex": 1,
+        "main_bank": "전북은행",
+        "salary": 125000000,
+        "asset": 372500000,
+        "desired_asset": 5990000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 95,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$sLuIxeop7a0KufWGSQVcFh$eohtLgjfDLutxwkg5TR1SzpF7kkPCjHGGQ5NkHNCB2s=",
+        "last_login": null,
+        "id_name": "jacquelineburns",
+        "email": "kball@example.com",
+        "nickname": "Haley",
+        "birth": "660421",
+        "sex": 2,
+        "main_bank": "수협은행",
+        "salary": 194000000,
+        "asset": 445500000,
+        "desired_asset": 1090000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 96,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$FtmRk4KiVcXqnc3vg9sOUi$IE0Ss9M1TBYjKtM+3TWidVKNqrv3I5Ae86e+dzn/53E=",
+        "last_login": null,
+        "id_name": "john91",
+        "email": "curtismichael@example.com",
+        "nickname": "Greg",
+        "birth": "800126",
+        "sex": 2,
+        "main_bank": "부산은행",
+        "salary": 5000000,
+        "asset": 12200000,
+        "desired_asset": 7920000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 97,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$5f6bIGcTIoCUlssk0WPHnX$LicF6Zg3vuXLDR/aXovP20BogVjAi8Fi1ibK0DAjBEw=",
+        "last_login": null,
+        "id_name": "ericpatton",
+        "email": "philipolson@example.net",
+        "nickname": "Carmen",
+        "birth": "460107",
+        "sex": 2,
+        "main_bank": "경남은행",
+        "salary": 1000000,
+        "asset": 654300000,
+        "desired_asset": 7530000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 98,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$XARBS2i8xfEJNWG7n6Kqe2$ShiSQEU9FV3StN2AsLXbt6WC8w1xi3/xBJMqgcaYdIw=",
+        "last_login": null,
+        "id_name": "stacy22",
+        "email": "btyler@example.net",
+        "nickname": "Allison",
+        "birth": "791022",
+        "sex": 1,
+        "main_bank": "부산은행",
+        "salary": 129000000,
+        "asset": 538700000,
+        "desired_asset": 1980000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 99,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$14NMbei9veoDLn31xcRzq7$tYhuCp9fZF1y4Gg6zGZcOuRk0DqPs6qTtGCwn1vOCzY=",
+        "last_login": null,
+        "id_name": "vsantos",
+        "email": "jenna04@example.org",
+        "nickname": "Joseph",
+        "birth": "870707",
+        "sex": 1,
+        "main_bank": "하나은행",
+        "salary": 153000000,
+        "asset": 523000000,
+        "desired_asset": 6750000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 100,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$a92vtcF8jvJuGCFiA08S0S$Q2bMDXY3wIc9C/+MrOQt+7HklvexY+Mlqw4TqbNLZt8=",
+        "last_login": null,
+        "id_name": "jamesballard",
+        "email": "jeremygoodwin@example.org",
+        "nickname": "Nathaniel",
+        "birth": "531103",
+        "sex": 1,
+        "main_bank": "부산은행",
+        "salary": 185000000,
+        "asset": 898000000,
+        "desired_asset": 3630000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 101,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$c4Ggq5XQesNevLK0bunYE8$k0a7CJVsIwweGMH0/Pj5ZIiM/M3yYOTQ+hSaOOCEW+Y=",
+        "last_login": null,
+        "id_name": "michaeldaugherty",
+        "email": "kara92@example.org",
+        "nickname": "Willie",
+        "birth": "000624",
+        "sex": 1,
+        "main_bank": "대구은행",
+        "salary": 108000000,
+        "asset": 500600000,
+        "desired_asset": 590000000,
+        "is_active": true,
+        "is_admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 102,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$P08Xo018lRTjIvCTIsww99$DWBV6knevxEFBiVnqVUuNEwH6BNMbvvZMsbIHQo4BVA=",
+        "last_login": null,
+        "id_name": "brownfrank",
+        "email": "henrymichael@example.net",
+        "nickname": "Brian",
+        "birth": "960604",
+        "sex": 2,
+        "main_bank": "국민은행",
+        "salary": 80000000,
+        "asset": 256200000,
+        "desired_asset": 3080000000,
         "is_active": true,
         "is_admin": false
     }

@@ -8,10 +8,12 @@
         <p class="card-text"><strong class="text-primary">가입대상:</strong> {{ productDetail.product?.join_member }}</p>
         <p class="card-text"><strong class="text-primary">우대조건:</strong></p>
         <p v-for="phase in productDetail.product?.spcl_cnd.split('\n')" :key="phase" class="card-text">{{ phase }}</p>
-        <p class="card-text"><strong class="text-primary">만기 후 이율:</strong> {{ productDetail.product?.mtrt_int || "-" }}</p>
+        <p class="card-text"><strong class="text-primary">만기 후 이율:</strong></p>
+        <p v-for="phase in productDetail.product?.mtrt_int.split('\n')" :key="phase" class="card-text">{{ phase }}</p>
         <p class="card-text"><strong class="text-primary">최고한도:</strong> {{ productDetail.product?.max_limit ? (productDetail.product?.max_limit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원" : "-" }}</p>
         <p class="card-text"><strong class="text-primary">가입방식:</strong> {{ productDetail.product?.join_way }}</p>
-        <p class="card-text"><strong class="text-primary">기타 사항:</strong> {{ productDetail.product?.etc_note }}</p>
+        <p class="card-text"><strong class="text-primary">기타 사항:</strong></p>
+        <p v-for="phase in productDetail.product?.etc_note.split('\n')" :key="phase" class="card-text">{{ phase }}</p>
 
         <div class="table-responsive">
           <table class="table table-striped mt-4">

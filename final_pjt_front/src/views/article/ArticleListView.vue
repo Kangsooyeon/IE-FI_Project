@@ -35,7 +35,9 @@
           <tr v-for="article in store.boardListT[store.pagenumL]" :key="article.id">
             <td @click="goArticle(article)" class="articleTitle">{{ article.title }}</td>
             <td>{{ article.nickname }}</td>
-            <td>{{ article.created_at?.substr(0,10) }}</td>
+            <td>{{ formatDate(article.created_at) }}
+              <span v-if="isNew(article.created_at)" class="text-danger ms-2">New</span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -70,6 +72,7 @@ const router = useRouter();
 const store = useProjectStore();
 const searchKeyword = ref('');
 const searchType = ref('');
+const today = new Date();
 
 const pageDown = () => {
   if (store.pagenumL > 0) {
@@ -118,7 +121,18 @@ const createArticle = () => {
 
 const goArticle = (article) => {
   console.log(article);
-  router.push({name:'articledetail' , params: {id:article.id},data:article});
+  router.push({ name: 'articledetail', params: { id: article.id }, data: article });
+};
+
+const isNew = (created_at) => {
+  const createdDate = new Date(created_at);
+  const diffTime = Math.abs(today - createdDate);
+  const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
+  return diffHours <= 24;
+};
+
+const formatDate = (dateString) => {
+  return dateString ? dateString.substr(0, 10) : '';
 };
 
 onMounted(() => {
@@ -129,7 +143,7 @@ onMounted(() => {
 
 <style scoped>
 .container {
-  width: 1100px;
+  width: 950px;
 }
 .page-link {
   cursor: pointer;
@@ -153,7 +167,7 @@ onMounted(() => {
 .prtable {
   height: 648px;
 }
-.btn{
+.btn {
   width: 120px;
 }
 .articleTitle {

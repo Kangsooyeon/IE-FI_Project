@@ -70,6 +70,7 @@ const filteredNews = computed(() => {
   padding: 20px;
   margin: auto;
   font-family: 'Arial', sans-serif;
+  min-width: 516px;
 }
 
 .title {

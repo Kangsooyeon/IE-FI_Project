@@ -314,3 +314,18 @@ Profile
 
 ### 🎀 Notion
 [Notion 바로가기](https://www.notion.so/1-19ab026c923543e2bdebb73e841cfe8b?p=a05e3ab960bc49fca014638c53f166dc&pm=s)
+
+
+### ⚙️ Env 파일
+
+front env
+VITE_ENV_KAKAO_MAP_API_KEY=b1ff86fb67ad26971d65aaa9a29e6eca
+
+
+back env
+API_KEY_PRODUCT='b485257240fd200014c237dd7e0b6479'
+API_KEY_ER='kHJV65CK0uTFRVoV0cdQ5xNGhnHZ742f'
+API_KEY_FLAG='mEDZDWv9cIkUuWAzQXwe11BJwhJxttQmMROqSTiNnwzYC4IniWopFsqj/q87lS+8mc42kkMfvLlGLqmEhb2pMQ=='
+API_KEY_ER_GRAPH='HSYHTREWFIJQ9TKHK8ES'
+API_KEY_NAVER_ID='oZp0myvPwtjsxvZxfemw'
+API_KEY_NAVER_SECRET='0dJKbcrtfz'

@@ -41,27 +41,28 @@
 
     <div class="text-center d-flex flex-row justify-content-end">
       <button @click="searchBtnClicked" class="btn btn-primary">검색</button>
+      <button @click="resetLocation" class="btn btn-secondary ml-2">초기 위치로 이동</button>
     </div>
 
     <div class="row mt-4">
       <div class="mb-3">
         <div id="map" style="width: 100%; height: 400px"></div>
       </div>
-      <div class="list-container" :class="{'visivle-list':isNotList}">
+      <div class="list-container" :class="{'visible-list': isNotList}">
         <ul id="placesList" class="list-group list-scroll"></ul>
       </div>
     </div>
   </div>
 </template>
 
+
 <script setup>
-import SelectRegion from '@/components/utils/SelectRegion.vue';
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import { useProjectStore } from '@/stores/project';
+import SelectRegion from '@/components/utils/SelectRegion.vue';
 
 const store = useProjectStore();
-
 const KAKAO_MAP_API_KEY = import.meta.env.VITE_ENV_KAKAO_MAP_API_KEY;
 
 const cityList = ref([]);
@@ -69,6 +70,7 @@ const regionList = ref([]);
 const specificRegion = ref({});
 const markers = ref([]);
 const isNotList = ref(true);
+const map = ref(null); // map 객체를 저장할 ref 추가
 
 const provinceChanged = function (event) {
   regionList.value = [];
@@ -88,8 +90,8 @@ const regionChanged = function (event) {
   specificRegion.value.region = event.target.value;
 };
 
-const bankValue = ref(''); // 1.은행선택을 위한 변수 선언
-const bnakSeleted = function(event) { // 2.은행선택을 위한 함수 선언
+const bankValue = ref(''); // 은행 선택을 위한 변수 선언
+const bnakSeleted = function (event) { // 은행 선택을 위한 함수 선언
   bankValue.value = event.target.value;
 }
 
@@ -107,44 +109,50 @@ const searchBtnClicked = function () {
         return el;
       }
     });
-    const map = setLocation(resultLocation.latitude, resultLocation.longitude);
+    map.value.setCenter(new kakao.maps.LatLng(resultLocation.latitude, resultLocation.longitude));
 
     infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
     var ps = new kakao.maps.services.Places();
 
     // 키워드로 장소를 검색합니다
     ps.keywordSearch(`${specificRegion.value.province} ${specificRegion.value.city} ${specificRegion.value.region} ${bankValue.value}`, (data, status, pagination) => {
-      placesSearchCB(data, status, pagination, map);
+      placesSearchCB(data, status, pagination);
     });
   }
 };
 
-function placesSearchCB(data, status, pagination, map) {
+let defaultLocation = { latitude: 37.566826, longitude: 126.9786567 }; // 기본 위치: 서울
+
+const resetLocation = function () {
+  map.value.setCenter(new kakao.maps.LatLng(defaultLocation.latitude, defaultLocation.longitude));
+};
+
+function placesSearchCB(data, status, pagination) {
   if (status === kakao.maps.services.Status.OK) {
     var bounds = new kakao.maps.LatLngBounds();
     markers.value = [];
 
     for (var i = 0; i < data.length; i++) {
-      const marker = displayMarker(data[i], map, i);
+      const marker = displayMarker(data[i], i);
       markers.value.push(marker);
       bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
     }
 
-    map.setBounds(bounds);
+    map.value.setBounds(bounds);
 
     displayPlaces(data); // 검색 결과 목록을 업데이트합니다
   }
 }
 
-function displayMarker(place, map, index) {
+function displayMarker(place, index) {
   var marker = new kakao.maps.Marker({
-    map: map,
+    map: map.value,
     position: new kakao.maps.LatLng(place.y, place.x),
   });
 
   kakao.maps.event.addListener(marker, 'click', function () {
     infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-    infowindow.open(map, marker);
+    infowindow.open(map.value, marker);
     highlightList(index);
   });
 
@@ -187,6 +195,7 @@ function getListItem(index, place) {
   el.innerHTML = itemStr;
   el.className = 'list-group-item small'; // list-group-item 및 작은 글자 크기 적용
   el.onclick = function() {
+    map.value.setCenter(new kakao.maps.LatLng(place.y, place.x)); // 마커 위치로 지도 중심 이동
     kakao.maps.event.trigger(markers.value[index], 'click');
   };
 
@@ -217,8 +226,7 @@ const setLocation = function (latitude, longitude) {
     center: new kakao.maps.LatLng(latitude, longitude),
     level: 3,
   };
-  const map = new kakao.maps.Map(container, options);
-  return map;
+  map.value = new kakao.maps.Map(container, options);
 };
 
 const getCurrentLocation = () => {
@@ -243,10 +251,11 @@ onMounted(async () => {
     kakao.maps.load(async () => {
       try {
         const coords = await getCurrentLocation();
+        defaultLocation = { latitude: coords.latitude, longitude: coords.longitude };
         setLocation(coords.latitude, coords.longitude);
       } catch (error) {
         console.error(error);
-        setLocation(37.566826, 126.9786567); // 기본 위치: 서울
+        setLocation(defaultLocation.latitude, defaultLocation.longitude); // 기본 위치: 서울
       }
     });
   });
@@ -258,6 +267,7 @@ function loadKakaoMaps(apiKey, callback) {
   script.src = `//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=${apiKey}&libraries=services,clusterer,drawing`;
   document.head.appendChild(script);
 }
+
 </script>
 
 <style scoped>
@@ -273,7 +283,6 @@ function loadKakaoMaps(apiKey, callback) {
   border: 1px solid #e9ecef;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-
 }
 .list-container {
   height: 380px; /* 지도와 동일한 높이로 설정 */
@@ -282,7 +291,8 @@ function loadKakaoMaps(apiKey, callback) {
 .small {
   font-size: 0.875rem; /* 글자 크기 작게 설정 */
 }
-.visivle-list{
+.visible-list {
   display: none;
 }
 </style>
+

@@ -5,12 +5,13 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
+from django.conf import settings
 import requests
 from .serializer import *
 from .models import *
 # Create your views here.
 
-API_KEY='b485257240fd200014c237dd7e0b6479'
+API_KEY=settings.API_KEY_PRODUCT
 BASE_URL = 'http://finlife.fss.or.kr/finlifeapi/'
 
 @api_view(['GET'])

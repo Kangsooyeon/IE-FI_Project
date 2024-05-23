@@ -25,6 +25,21 @@ SECRET_KEY = 'django-insecure-u3_#6ti1geub3#=ypiq8prf@km1gb7z%u1^h7!w0rn4dmdgw^c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+import os
+import environ
+
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+API_KEY_PRODUCT = env('API_KEY_PRODUCT')
+API_KEY_ER = env('API_KEY_ER')
+API_KEY_FLAG = env('API_KEY_FLAG')
+API_KEY_ER_GRAPH = env('API_KEY_ER_GRAPH')
+API_KEY_NAVER_ID = env('API_KEY_NAVER_ID')
+API_KEY_NAVER_SECRET = env('API_KEY_NAVER_SECRET')
 
 ALLOWED_HOSTS = []
 
@@ -165,3 +180,5 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.User'
+
+

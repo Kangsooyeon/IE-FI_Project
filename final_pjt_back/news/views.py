@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from django.conf import settings
 import urllib.request
 import json
 
@@ -9,8 +10,8 @@ import numpy as np
 
 
 # 추후 네이버 뉴스 API 키 숨김 필요
-client_id = "oZp0myvPwtjsxvZxfemw"
-client_secret = "0dJKbcrtfz"
+client_id = settings.API_KEY_NAVER_ID
+client_secret = settings.API_KEY_NAVER_SECRET
 # Create your views here.
 
 @api_view(['GET'])

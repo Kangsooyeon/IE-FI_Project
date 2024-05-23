@@ -23,7 +23,7 @@ plt.rc('font', family=font_name)
 
 # Create your views here.
 
-API_KEY='kHJV65CK0uTFRVoV0cdQ5xNGhnHZ742f'
+API_KEY=settings.API_KEY_ER
 BASE_URL='https://www.koreaexim.go.kr/site/program/financial/exchangeJSON'
 
 @api_view(['GET'])
@@ -96,7 +96,7 @@ def ER_graph(request):
     countries = ['미국 USD', '일본 JPY', '유럽 EUR', '중국 CNY' ]
     names = ['USD', 'JPY', 'EUR', 'CNY']
  
-    API_KEY='HSYHTREWFIJQ9TKHK8ES'
+    API_KEY=settings.API_KEY_ER_GRAPH
 
     urls = []
     for c in range(len(codes)):
@@ -170,7 +170,7 @@ def ER_graph_predict(request):
     countries = ['미국 USD', '일본 JPY', '유럽 EUR', '중국 CNY' ]
     names = ['USD', 'JPY', 'EUR', 'CNY']
 
-    API_KEY='HSYHTREWFIJQ9TKHK8ES'
+    API_KEY=settings.API_KEY_ER_GRAPH
 
     urls = []
     for c in range(len(codes)):
@@ -246,7 +246,7 @@ def ER_graph_predict(request):
 
 @api_view(['GET'])
 def save_flag(request):
-    IMAGE_API_KEY='mEDZDWv9cIkUuWAzQXwe11BJwhJxttQmMROqSTiNnwzYC4IniWopFsqj/q87lS+8mc42kkMfvLlGLqmEhb2pMQ=='
+    IMAGE_API_KEY=settings.API_KEY_FLAG
     url = 'http://apis.data.go.kr/1262000/CountryFlagService2/getCountryFlagList2'
 
     for pageNo in range(1, 23):

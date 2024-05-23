@@ -19,18 +19,19 @@
   
   <script setup>
   import { ref, computed, onMounted } from 'vue';
-  
-  const images = [
+  import axios from 'axios';
+
+  const images = ref([
   new URL('@/assets/erg/USD.png', import.meta.url).href,
   new URL('@/assets/erg/JPY.png', import.meta.url).href,
   new URL('@/assets/erg/EUR.png', import.meta.url).href,
   new URL('@/assets/erg/CNY.png', import.meta.url).href,
-];
+]);
   
   const currentIndex = ref(0);
   
   const currentImage = computed(() => {
-    return images[currentIndex.value];
+    return images.value[currentIndex.value];
   });
   
   const showImage = (index) => {
@@ -38,10 +39,11 @@
   };
   
   const nextImage = () => {
-    currentIndex.value = (currentIndex.value + 1) % images.length;
+    currentIndex.value = (currentIndex.value + 1) % images.value.length;
   };
   
   onMounted(() => {
+
     setInterval(nextImage, 3000);
   });
   </script>

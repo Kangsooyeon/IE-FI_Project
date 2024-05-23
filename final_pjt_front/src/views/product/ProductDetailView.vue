@@ -114,6 +114,7 @@ onMounted(() => {
   }).then((res) => {
     productAll.value = res.data;
     let dors = 'deposit_product';
+    console.log(productId.value);
     const productDetailTMP = productAll.value.find((el) => {
       if (
         el['deposit_product'] !== undefined &&
@@ -132,6 +133,7 @@ onMounted(() => {
       product: productDetailTMP[dors],
       options: productDetailTMP.options,
     };
+    console.log(productDetailTMP);
   });
   if(store.isLogin){
     store.getSubPrdtDep();

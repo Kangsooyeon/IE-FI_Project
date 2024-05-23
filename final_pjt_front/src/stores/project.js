@@ -68,7 +68,7 @@ export const useProjectStore = defineStore('project', () => {
           };
           product.options.forEach((el) => {
             if (el.save_trm % 6 == 0) {
-              result[el.save_trm] = el.intr_rate;
+              result[el.save_trm] = el.intr_rate2;
             }
           });
           return result;
@@ -102,7 +102,8 @@ export const useProjectStore = defineStore('project', () => {
           };
           product.options.forEach((el) => {
             if (el.save_trm % 6 == 0) {
-              result[el.save_trm] = el.intr_rate;
+              result[el.save_trm] = el.intr_rate2;
+              console.log(el);
             }
           });
           return result;

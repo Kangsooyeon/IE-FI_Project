@@ -123,7 +123,6 @@
                                     asset: null,
                                     desired_asset: null,}
                                     store.recommendProduct = {};
-                console.log('로그아웃 성공!');
                 router.push('/');
             }).catch((err) => {
             });

@@ -55,7 +55,6 @@
         },
       })
         .then((res) => {
-          console.log(res.data);
           store.token = res.data.token;
           store.userInfo={
             nickname: res.data.nickname,

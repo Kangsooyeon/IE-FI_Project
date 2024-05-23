@@ -2,7 +2,7 @@
   <div class="container mt-5 d-flex flex-column justify-content-center align-items-center">
     <div class="card shadow-sm">
       <div class="card-body">
-        <h1 class="card-title mb-4">{{ productDetail.product?.fin_prdt_nm }}</h1>
+        <h1 class="card-title mb-4">{{ productDetail.product?.fin_prdt_nm }} <img :src="imgUrl" class="prdtimg" alt=""></h1>
         <p v-if="isSub" class="text-success"><strong>이 상품에 이미 가입하셨습니다.</strong></p>
         <p class="card-text"><strong class="text-primary">금융회사명:</strong> {{ productDetail.product?.kor_co_nm }}</p>
         <p class="card-text"><strong class="text-primary">가입대상:</strong> {{ productDetail.product?.join_member }}</p>
@@ -109,6 +109,8 @@ const subscribtionId = ref(0);
 
 const isSub = ref(false);
 
+const imgUrl= ref('');
+
 onMounted(() => {
   axios({
     method: 'get',
@@ -134,6 +136,7 @@ onMounted(() => {
       product: productDetailTMP[dors],
       options: productDetailTMP.options,
     };
+    imgUrl.value = `/assets/bankimg/${productDetail.value.product.kor_co_nm}.png`
   });
   if(store.isLogin){
     store.getSubPrdtDep();
@@ -269,5 +272,9 @@ const subscribe = () => {
   max-width: 400px;
   margin: auto;
 }
-
+.prdtimg{
+  border-radius: 5px;
+  width: 80px;
+  height: 80px;
+}
 </style>

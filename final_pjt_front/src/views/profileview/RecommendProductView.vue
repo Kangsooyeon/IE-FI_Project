@@ -6,7 +6,7 @@
             <div class="thefront d-flex flex-column justify-content-center align-items-center">
               <h1 >{{ selectedProduct?.product?.fin_prdt_nm || store.userInfo.nickname+"님을 위한" }}<br><h1 v-if="!selectedProduct?.product?.fin_prdt_nm">추천상품 리스트</h1></h1>
               <img v-if="!selectedProduct?.product?.fin_prdt_nm" src="@/assets/recprdt/1.png" width="250" alt="">
-              <img v-else :src="imgUrl" width="100" height="100" alt="">
+              <img v-else :src="imgUrl" width="100" height="100" alt="" class="prdtimg">
             </div>
             <div class="theback d-flex flex-column justify-content-center align-items-center">
               <h1 v-if="selectedProduct?.product?.fin_prdt_nm">{{ selectedProduct?.product?.fin_prdt_nm }}</h1>
@@ -54,7 +54,6 @@ import { useRouter } from 'vue-router';
 const store = useProjectStore();
 const router = useRouter();
 const isSub = ref(false);
-
 
 if(store.userInfo.salary!==null && store.userInfo.asset!==null && store.userInfo.birth!==null && store.userInfo.main_bank!==null &&(store.userInfo.salary!==0 && store.userInfo.asset!==0)){
   isSub.value = true;
@@ -176,5 +175,10 @@ onMounted(() => {
 }
 .rec-item:hover{
   color: #007bff;
+}
+.prdtimg{
+  border-radius: 10px;
+  width: 120px;
+  height: 120px;
 }
 </style>

@@ -94,7 +94,17 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const store = useProjectStore()
-
+  // console.log(to.name);
+  if (store.isLogin && (to.name==='signup' || to.name==='login')){
+    alert('이미 로그인 되어 있습니다.')
+    next({name: 'mainpage'})
+    return
+  }
+  if (!store.isLogin && (to.name==='profile' || to.name==='subscriptionproduct' || to.name==='recommendproduct' || to.name==='articlecreate')){
+    alert('로그인이 필요한 서비스입니다.')
+    next({name: 'login'})
+    return
+  }
   next()
 })
 

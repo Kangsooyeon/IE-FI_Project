@@ -49,6 +49,8 @@
             <button type="button" class="btn-close" @click="closeModal"></button>
           </div>
           <div class="modal-body">
+            <p>최고한도 : {{ productDetail.product?.max_limit ? (productDetail.product?.max_limit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원" : "-"  }}</p>
+            <p>최저한도 : 10,000원</p>
             <p>가입할 금액을 입력하세요:</p>
             <input type="number" v-model="modalInputValue" class="form-control">
           </div>
@@ -69,7 +71,7 @@
             <button type="button" class="btn-close" @click="closeConfirmModal"></button>
           </div>
           <div class="modal-body">
-            <p>만기 후 예상 금액: {{ expectedAmount }}</p>
+            <p>만기 후 예상 금액: {{ expectedAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원" }}</p>
             <p>가입하시겠습니까?</p>
           </div>
           <div class="modal-footer">
@@ -164,7 +166,10 @@ const confirmInput = () => {
   const maxLimit = productDetail.value.product?.max_limit || Infinity;
   if (modalInputValue.value > maxLimit) {
     alert('입력한 금액이 최고 한도를 초과합니다. 다시 입력해주세요.');
-  } else {
+  } else if(modalInputValue.value<10000){
+    alert('입력한 금액이 최저 한도보다 작습니다. 다시 입력해주세요.');
+  }
+   else {
     signMoney.value = modalInputValue.value;
     calculateExpectedAmount();
     isModalOpen.value = false;

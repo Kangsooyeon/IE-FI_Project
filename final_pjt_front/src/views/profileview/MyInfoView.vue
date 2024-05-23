@@ -46,7 +46,7 @@
         <tr>
           <th scope="row">연봉</th>
           <td>
-            <span v-if="!isEditing">{{ store.userInfo.salary }}</span>
+            <span v-if="!isEditing">{{ store.userInfo.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원" }}</span>
             <input v-else v-model="editedUserInfo.salary" type="text" class="form-control" />
             <span v-if="errors.salary" class="text-danger">{{ errors.salary }}</span>
           </td>
@@ -54,7 +54,7 @@
         <tr>
           <th scope="row">자산</th>
           <td>
-            <span v-if="!isEditing">{{ store.userInfo.asset }}</span>
+            <span v-if="!isEditing">{{ store.userInfo.asset.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원"}}</span>
             <input v-else v-model="editedUserInfo.asset" type="text" class="form-control" />
             <span v-if="errors.asset" class="text-danger">{{ errors.asset }}</span>
           </td>
@@ -62,7 +62,7 @@
         <tr>
           <th scope="row">희망자산</th>
           <td>
-            <span v-if="!isEditing">{{ store.userInfo.desired_asset }}</span>
+            <span v-if="!isEditing">{{ store.userInfo.desired_asset.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원" }}</span>
             <input v-else v-model="editedUserInfo.desired_asset" type="text" class="form-control" />
             <span v-if="errors.desired_asset" class="text-danger">{{ errors.desired_asset }}</span>
           </td>

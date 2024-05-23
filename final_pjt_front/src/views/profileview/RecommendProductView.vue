@@ -28,8 +28,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in store.recommendProduct.product_list" :key="item.id" @click="selectProduct(item)" :class="{ active: selectedProduct?.id === item.id }">
-                <td>{{ item.product.fin_prdt_nm }}</td>
+              <tr class="rec-item" v-for="item in store.recommendProduct.product_list" :key="item.id" @click="selectProduct(item)" :class="{ active: selectedProduct?.id === item.id }">
+                <td class="rec-item">{{ item.product.fin_prdt_nm }}</td>
                 <td>{{ item.product.kor_co_nm }}</td>
                 <td>{{ item.intr_rate2 }}%</td>
                 <td>{{ item.save_trm }}개월</td>
@@ -170,5 +170,11 @@ onMounted(() => {
   font-weight: normal;
   font-size: 12px;
   text-align: center;
+}
+.rec-item{
+  cursor: pointer;
+}
+.rec-item:hover{
+  color: #007bff;
 }
 </style>

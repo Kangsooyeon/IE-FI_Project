@@ -16,7 +16,7 @@
         <ul class="list-group">
           <li v-for="item in currentList" :key="item.id" class="list-group-item">
             <input type="checkbox" :value="item" v-model="selectedItems" :disabled="isDisabled(item)">
-            {{ item.id }} - <span class="prdt-link" @click="goDetail(item)">{{ item.deposit_product?.fin_prdt_nm }}{{ item?.saving_product?.fin_prdt_nm }}</span>: {{ item.sign_money }}원 
+            {{ item.id }} - <span class="prdt-link" @click="goDetail(item)">{{ item.deposit_product?.fin_prdt_nm }}{{ item?.saving_product?.fin_prdt_nm }}</span>: {{ item.sign_money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원" }}원 
           </li>
         </ul>
       </div>

@@ -128,7 +128,6 @@ const createArticle = () => {
 };
 
 const goArticle = (article) => {
-  console.log(article);
   router.push({ name: 'articledetail', params: { id: article.id }, data: article });
 };
 

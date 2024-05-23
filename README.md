@@ -14,7 +14,9 @@
 
 
 ### 📺서비스 화면
-**이미지 첨부하기!!**
+![MainPage_1](https://github.com/Kangsooyeon/final-pjt/assets/64363148/96f93c47-c33e-41f5-bd3e-48eca2d595d4)
+![MainPage_2](https://github.com/Kangsooyeon/final-pjt/assets/64363148/5a2abe60-f5ba-42c1-87d7-46fdc056c20e)
+
 
 
 
@@ -35,8 +37,7 @@
 
 
 ### 📚데이터베이스 모델링(ERD)
-**이미지 첨부하기!!**
-
+![ssafy_ERD](https://github.com/Kangsooyeon/final-pjt/assets/64363148/71517db1-361f-478b-b1ee-6521087bb61b)
 
 
 

@@ -80,7 +80,8 @@
 
 
 ### 🗓️ 프로젝트 진행 일정(ERD)
-![project schedule](https://github.com/Kangsooyeon/final-pjt/assets/64363148/0e633687-5a5b-4844-ba2d-b9e6bd5c6124)
+![project schedule](https://github.com/Kangsooyeon/final-pjt/assets/64363148/fd6190a7-5110-4486-8098-bfa226eb1baa)
+
 <br>
 <br>
 
@@ -318,11 +319,11 @@ Profile
 
 ### ⚙️ Env 파일
 
-front env
+**front env** <br>
 VITE_ENV_KAKAO_MAP_API_KEY=b1ff86fb67ad26971d65aaa9a29e6eca
 
 
-back env
+**back env** <br>
 API_KEY_PRODUCT='b485257240fd200014c237dd7e0b6479'
 API_KEY_ER='kHJV65CK0uTFRVoV0cdQ5xNGhnHZ742f'
 API_KEY_FLAG='mEDZDWv9cIkUuWAzQXwe11BJwhJxttQmMROqSTiNnwzYC4IniWopFsqj/q87lS+8mc42kkMfvLlGLqmEhb2pMQ=='

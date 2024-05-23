@@ -82,7 +82,7 @@
 ### 📚 데이터베이스 모델링(ERD)
 ![ssafy_ERD](https://github.com/Kangsooyeon/final-pjt/assets/64363148/71517db1-361f-478b-b1ee-6521087bb61b)
 
-ERD 자세히보기(https://drive.google.com/file/d/1N95VM-OvSkWVJ4va5LuDluMedzobXN0n/view?usp=sharing 
+[ERD 자세히보기](https://drive.google.com/file/d/1N95VM-OvSkWVJ4va5LuDluMedzobXN0n/view?usp=sharing 
 )
 <br>
 <br>
@@ -94,7 +94,7 @@ ERD 자세히보기(https://drive.google.com/file/d/1N95VM-OvSkWVJ4va5LuDluMedzo
 <br>
 
 ### 🎨 Figma
-피그마(Figma) 바로가기(https://www.figma.com/design/Uy31BZyMWYI5IgdI6UUQeb/Finla_PJT_FirstSemester?node-id=0:1&t=wQzCsVWLCIowAyXC-1)
+[피그마(Figma) 바로가기](https://www.figma.com/design/Uy31BZyMWYI5IgdI6UUQeb/Finla_PJT_FirstSemester?node-id=0:1&t=wQzCsVWLCIowAyXC-1)
 <br>
 <br>
 
@@ -223,9 +223,9 @@ ERD 자세히보기(https://drive.google.com/file/d/1N95VM-OvSkWVJ4va5LuDluMedzo
 
 
 ### 📂API 명세서
-Postman Documentation 바로가기(https://documenter.getpostman.com/view/34202855/2sA3JRYecY)
+[Postman Documentation 바로가기](https://documenter.getpostman.com/view/34202855/2sA3JRYecY)
 <br>
 <br>
 
 ### 🎀 Notion
-Notion 바로가기 (https://www.notion.so/1-19ab026c923543e2bdebb73e841cfe8b?p=a05e3ab960bc49fca014638c53f166dc&pm=s)
+[Notion 바로가기](https://www.notion.so/1-19ab026c923543e2bdebb73e841cfe8b?p=a05e3ab960bc49fca014638c53f166dc&pm=s)

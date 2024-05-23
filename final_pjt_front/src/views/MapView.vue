@@ -41,7 +41,7 @@
 
     <div class="text-center d-flex flex-row justify-content-end">
       <button @click="searchBtnClicked" class="btn btn-primary">검색</button>
-      <button @click="resetLocation" class="btn btn-secondary ml-2">초기 위치로 이동</button>
+      <button @click="resetLocation" class="btn btn-secondary ml-2">내 위치로 이동</button>
     </div>
 
     <div class="row mt-4">

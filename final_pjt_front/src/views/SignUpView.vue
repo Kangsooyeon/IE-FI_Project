@@ -132,20 +132,6 @@
         }).catch((error) => {
             alert('회원정보를 올바르게 입력해주세요.');
         });
-
-
-      console.log('Form submitted', {
-        id_name: id_name.value,
-        password: password.value,
-        nickname: nickname.value,
-        email: email.value,
-        birth: birth.value,
-        sex: parseInt(sex.value),
-        main_bank: main_bank.value,
-        salary: parseInt(salary.value),
-        asset: parseInt(asset.value),
-        desired_asset: parseInt(desired_asset.value)
-      });
       // Add your form submission logic here
     } else {
       alert('회원정보를 올바르게 입력해주세요.')

@@ -79,6 +79,13 @@
 <br>
 
 
+### 🗓️ 프로젝트 진행 일정(ERD)
+![project schedule](https://github.com/Kangsooyeon/final-pjt/assets/64363148/0e633687-5a5b-4844-ba2d-b9e6bd5c6124)
+<br>
+<br>
+
+
+
 ### 📚 데이터베이스 모델링(ERD)
 ![ssafy_ERD](https://github.com/Kangsooyeon/final-pjt/assets/64363148/71517db1-361f-478b-b1ee-6521087bb61b)
 
@@ -159,47 +166,57 @@
 ### 😊 팀원 소개 및 역할 분담
 
 - **🦸‍♀️강수연(팀장 - BackEnd)**
+설계
 >- ERD 작성
 >- 피그마 작성
     
-
+User
 >- 커스텀 유저 모델 생성
 >- 회원가입, 로그인, 로그아웃, 회원정보수정 URL 생성
     
-
+Article & Comment
 >- 게시글 및 댓글 모델 생성
 >- 게시글 CRUD, 댓글 CRUD URL 생성
 
+Products
 >- 예금 및 적금의 상품&옵션 모델 생성
 >- 금융감독원 API를 활용하여 예금 및 적금의 상품&옵션 DB 저장
 >- 예금 및 적금 리스트 URL 생성
 >- 예금 및 적금의 상품&옵션 Detail URL 생성
 >- 예금 및 적금 최고 이율 Top5 상품 URL 생성
 
+SubcribedProducts
 >- 사용자가 가입한 예금 및 적금 모델 생성
 >- 예금 및 적금 가입 URL 생성
 >- 사용자가 가입한 예금 및 적금 리스트 URL 생성
 
+RecommentProduct
 >- 사용자 정보에 따른 금융 상품 추천 알고리즘 설계
 >- 상품 추천 URL 생성
 
+ExchangeRate
 >- 환율 모델 생성
 >- 한국수출입은행 API를 활용하여 환율 DB저장
 >- 국기 모델 생성
 >- 외교부 API를 활용하여 국기 DB 저장
 
+ExchangeRate-Graph & Predict
 >- 한국은행 API를 활용하여 환율 그래프 생성
 >- ARIMA 모델을 통해 5일 후 환율 예측하여 그래프 생성
 
+Location
 >- 읍면동별 위도 및 경도 데이터 DB 저장
 
+News & Keyword Extraction
 >- 네이버 뉴스 API를 활용하여 특정 키워드별 실시간 검색한 뉴스 리스트 URL 생성
 >- OKT 형태소 분석기 및 TF-IDF를 활용하여 실시간 수집한 뉴스 본문의 주요 키워드 추출
 
+Create Dummy Data
 >- 사용자 dummy_data 생성
 >- 사용자별 가입한 상품 dummy_data 생성
 >- 사용자별 작성한 게시글 및 댓글 dummy_data 생성
 
+Create Image & Presentation
 >- IE-FI 로고 제작
 >- Carousel 이미지 제작
 >- PPT 제작
@@ -269,12 +286,23 @@ Profile
 ### 💙 느낀 점
 
 - 🧚‍♀️강수연
-    - 느낀점 샬라샬라
+    - ERD 설계 및 테스트 케이스 설계의 중요성  
+    - 실시간 진행 상황 보고 필요성
+    - 긍정적인 마인드 함양 필요
 
 - 🧚‍♂️김동건
     - 알고리즘과 자료구조의 중요성을 체감했다. 하지만 API명세서와 DB를 팀원과의 협업으로 잘 설계 한다면 알고리즘을 짤 필요가 없겠다고 생각했다.
     - 자세한 구조를 알지 못하는 프레임 워크는 내가 마음대로 쓰기 힘들었다.
     - 협업에서는 뭐든지 상의를 해야 할 것 같다. 
+<br>
+<br>
+
+
+### ⏳ 기능 테스트
+![function test_1](https://github.com/Kangsooyeon/final-pjt/assets/64363148/75eaea6b-40e5-4d85-a12e-bbd5446e3212)
+![function test_2](https://github.com/Kangsooyeon/final-pjt/assets/64363148/10c303a4-f3e2-4faf-9f31-f9e32aea0139)
+
+
 <br>
 <br>
 

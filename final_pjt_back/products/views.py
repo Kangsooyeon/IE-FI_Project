@@ -67,6 +67,8 @@ def save_deposit_products(request):
 
     for li in optionList:
         product_instance = get_object_or_404(DepositProducts, fin_prdt_cd=li.get('fin_prdt_cd'))
+        if li.get('intr_rate') == None or li.get('intr_rate2') == None:
+            continue
 
         save_data = {
             'product': product_instance,
@@ -121,6 +123,8 @@ def save_saving_products(reqeust):
     
     for li in optionList:
         product_instance = get_object_or_404(SavingProducts, fin_prdt_cd=li.get('fin_prdt_cd'))
+        if li.get('intr_rate') == None or li.get('intr_rate2') == None:
+            continue
 
         save_data = {
             'product': product_instance,

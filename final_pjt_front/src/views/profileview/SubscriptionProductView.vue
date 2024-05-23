@@ -16,7 +16,7 @@
         <ul class="list-group">
           <li v-for="item in currentList" :key="item.id" class="list-group-item">
             <input type="checkbox" :value="item" v-model="selectedItems" :disabled="isDisabled(item)">
-            {{ item.id }} - {{ item.deposit_product?.fin_prdt_nm }}{{ item?.saving_product?.fin_prdt_nm }}: {{ item.sign_money }}원 
+            {{ item.id }} - <span class="prdt-link" @click="goDetail(item)">{{ item.deposit_product?.fin_prdt_nm }}{{ item?.saving_product?.fin_prdt_nm }}</span>: {{ item.sign_money }}원 
           </li>
         </ul>
       </div>
@@ -28,6 +28,7 @@
 import { ref, watch, onMounted,computed } from 'vue';
 import { useProjectStore } from '@/stores/project';
 import { Chart, registerables } from 'chart.js';
+import { useRouter } from 'vue-router';
 
 Chart.register(...registerables);
 
@@ -35,6 +36,11 @@ const store = useProjectStore();
 const selectedItems = ref([]);
 const isDeposit = ref(true);
 let chartInstance = null;
+
+const router = useRouter();
+const goDetail = (item) => {
+  router.push({name: 'productdetail', params: {fin_prdt_cd: item["deposit_product"]?.fin_prdt_cd || item["saving_product"]?.fin_prdt_cd}}); 
+};
 
 const isDisabled = (item) => {
   return selectedItems.value.length >= 5 && !selectedItems.value.includes(item);
@@ -258,7 +264,7 @@ const currentList = computed(() => {
 }
 
 .list-group-item {
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   display: flex;
   align-items: center;
 }
@@ -277,5 +283,14 @@ h3 {
 canvas {
   width: 100%;
   height: 100%;
+}
+.prdt-link{
+  cursor: pointer;
+}
+.prdt-link:hover{
+ color:#007bff
+}
+h3{
+  font-weight: 700;
 }
 </style>

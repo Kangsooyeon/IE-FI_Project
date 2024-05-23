@@ -34,7 +34,7 @@
       </div>
       <div>
         <div class="d-flex flex-row justify-content-center align-items-center">
-          <p v-if="!isprdt" class="m-0 text-primary fw-semibold">머신런닝을 사용한 5일 후 환율 예측 그래프 보기</p>
+          <p v-if="!isprdt" class="m-0 text-primary fw-semibold">Machine Learning을 사용한 5일 후 환율 예측 그래프 보기</p>
           <p v-else class="m-0 text-danger fw-semibold">예측한 환율에 대한 어떤 법적 책임도 지지 않습니다.</p>
           <label class="toggle_switch ms-5 mb-3">
               <input type="checkbox" @click="console.log(isprdt)" v-model="isprdt">

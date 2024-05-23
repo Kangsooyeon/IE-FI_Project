@@ -51,11 +51,11 @@
   <style scoped>
   .ERG-container {
     border: 1px solid #e9ecef;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     width: 400px;
     height: 400px;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     position: relative;
     padding: 10px;

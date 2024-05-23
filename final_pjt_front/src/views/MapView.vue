@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-4">
+  <div class="container mt-0">
     <h1 class="my-4 title">가까운 은행 찾기</h1>
     <div class="row mb-3">
       <div class="col-md-3">
@@ -268,12 +268,15 @@ function loadKakaoMaps(apiKey, callback) {
 }
 .container {
   width: 960px;
-  height: 900px;
+  height: 1100px;
   text-align: left;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 
 }
 .list-container {
-  height: 400px; /* 지도와 동일한 높이로 설정 */
+  height: 380px; /* 지도와 동일한 높이로 설정 */
   overflow-y: scroll; /* 스크롤 가능하게 설정 */
 }
 .small {

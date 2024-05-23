@@ -3,14 +3,15 @@
     <div class="row align-items-center">
       <div class="col-12 d-flex flex-column my-3">
         <h2 class="title">게시글 목록</h2>
-        <button @click="createArticle" class="btn btn-outline-primary ms-auto me-2 mb-3">게시글 생성</button>
+        
 
         <div class="filter d-flex ml-auto">
           <div class="my-2 mx-2">
             <select v-model="searchType" class="form-control form-control-sm">
-              <option value="" selected>검색기준▼</option>
+              <option value="" selected>전체게시글▼</option>
               <option value="nickname">닉네임</option>
               <option value="title">제목</option>
+              <option v-if="store.isLogin" value="my">내가 쓴글</option>
             </select>
           </div>
           <div class="my-2 mx-2">
@@ -42,19 +43,22 @@
         </tbody>
       </table>
       
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item" :class="{ 'disabled': store.pagenumL === 0 }">
-            <span class="page-link" @click="pageDown">Previous</span>
-          </li>
-          <li class="page-item" v-for="(arr, idx) in store.boardListT" :key="idx" :class="{ 'active': store.pagenumL === idx }">
-            <span class="page-link" @click="pageSelector(idx)">{{ idx + 1 }}</span>
-          </li>
-          <li class="page-item" :class="{ 'disabled': store.pagenumL === store.boardListT.length - 1 }">
-            <span class="page-link" @click="pageUp">Next</span>
-          </li>
-        </ul>
-      </nav>
+      <div class="d-flex flex-column btns">
+        <button @click="createArticle" class="btn btn-outline-primary ms-auto me-2 mb-3">게시글 생성</button>
+        <nav aria-label="Page navigation example" class="d-flex flex-row justify-content-center align-items-center">
+          <ul class="pagination ms-auto me-auto">
+            <li class="page-item" :class="{ 'disabled': store.pagenumL === 0 }">
+              <span class="page-link" @click="pageDown">Previous</span>
+            </li>
+            <li class="page-item" v-for="(arr, idx) in store.boardListT" :key="idx" :class="{ 'active': store.pagenumL === idx }">
+              <span class="page-link" @click="pageSelector(idx)">{{ idx + 1 }}</span>
+            </li>
+            <li class="page-item" :class="{ 'disabled': store.pagenumL === store.boardListT.length - 1 }">
+              <span class="page-link" @click="pageUp">Next</span>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
     <div v-else>
       <p>검색 결과가 없습니다.</p>
@@ -89,12 +93,16 @@ const pageSelector = (idx) => {
 };
 
 const search = () => {
-  if (searchType.value.length > 0) {
+  if (searchType.value.length > 0 || searchKeyword.value.length==0) {
     store.boardListC = store.boardList.filter(article => {
       if (searchType.value === 'nickname') {
         return article.nickname.includes(searchKeyword.value);
       } else if (searchType.value === 'title') {
         return article.title.includes(searchKeyword.value);
+      } else if(searchType.value === 'my'){
+        return article.nickname.includes(store.userInfo.nickname);
+      }else{
+        return true
       }
     });
     store.boardListC.reverse();
@@ -128,7 +136,7 @@ const isNew = (created_at) => {
   const createdDate = new Date(created_at);
   const diffTime = Math.abs(today - createdDate);
   const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
-  return diffHours <= 24;
+  return diffHours <= 3;
 };
 
 const formatDate = (dateString) => {
@@ -165,7 +173,7 @@ onMounted(() => {
   width: 210px;
 }
 .prtable {
-  height: 648px;
+  height: 600px;
 }
 .btn {
   width: 120px;
@@ -175,5 +183,8 @@ onMounted(() => {
 }
 .articleTitle:hover {
   text-decoration: underline;
+}
+.btns{
+  width: 100%;
 }
 </style>

@@ -167,11 +167,11 @@
   
   <style scoped>
   .exchange-container {
-    max-width: 980px;
+    max-width: 960px;
     margin: auto;
     padding: 20px;
     text-align: center;
-    height: 1200px;
+    height: 1300px;
     border-radius: 5px;
     border:1px solid #e9ecef;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

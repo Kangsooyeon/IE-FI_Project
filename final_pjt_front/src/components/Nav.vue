@@ -9,7 +9,7 @@
                 </div>
                 <div v-else class="collapse navbar-collapse" id="navbarNav">
                     <p @click="goPofile" class="navbar-brand mr-3 profile">프로필</p>
-                    <p @click="Logout" class="navbar-brand btn custom-btn register-btn">로그아웃</p>
+                    <p @click="confirmLogout" class="navbar-brand btn custom-btn register-btn">로그아웃</p>
                 </div>
 
                 <!-- Nav링크 -->
@@ -48,7 +48,7 @@
                         </div>
                         <div v-else>
                             <p @click="goPofile" class="navbar-brand profile mr-3 mb-1" href="#">프로필</p>
-                            <p @click="Logout" class="navbar-brand btn custom-btn register-btn mb-3" href="#">로그아웃</p>
+                            <p @click="confirmLogout" class="navbar-brand btn custom-btn register-btn mb-3" href="#">로그아웃</p>
                         </div>
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li @click="goProduct" class="nav-item">
@@ -126,6 +126,12 @@
                 router.push('/');
             }).catch((err) => {
             });
+    }
+
+    const confirmLogout = () => {
+        if (confirm("로그아웃하시겠습니까?")) {
+            Logout();
+        }
     }
 
     const goPofile=()=>{

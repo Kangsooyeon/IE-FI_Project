@@ -13,7 +13,7 @@
       <p class="text-muted">작성일: {{ new Date(store.articleDetail.created_at).toLocaleDateString() }}</p>
       <div class="d-flex flex">
         <button v-if="store.articleDetail.nickname === store.userInfo.nickname && !editArticleMode" @click="editArticle" class="btn update btn-secondary mt-3">수정하기</button>
-        <button v-if="store.articleDetail.nickname === store.userInfo.nickname && !editArticleMode" @click="goDelete" class="btn delete btn-danger mt-3">삭제하기</button>
+        <button v-if="store.articleDetail.nickname === store.userInfo.nickname && !editArticleMode" @click="confirmDeleteArticle" class="btn delete btn-danger mt-3">삭제하기</button>
         <button v-if="editArticleMode" @click="saveArticle" class="btn btn-primary mt-3">저장</button>
         <button v-if="editArticleMode" @click="cancelEditArticle" class="btn btn-secondary mt-3">취소</button>
       </div>
@@ -31,7 +31,7 @@
         <div v-if="comment.nickname === store.userInfo.nickname" class="d-flex justify-content-end">
           <button v-if="!editMode[comment.id]" @click="editComment(comment)" class="btn btn-sm btn-secondary comment-btn mr-2">수정</button>
           <button v-else @click="saveComment(comment)" class="btn btn-sm btn-primary comment-btn mr-2">저장</button>
-          <button @click="deleteComment(comment.id)" class="btn btn-sm btn-danger comment-btn">삭제</button>
+          <button @click="confirmDeleteComment(comment.id)" class="btn btn-sm btn-danger comment-btn">삭제</button>
         </div>
       </div>
 
@@ -179,6 +179,18 @@ const goDelete = () => {
     });
 };
 
+const confirmDeleteArticle = () => {
+  if (confirm("게시글을 삭제하시겠습니까?")) {
+    goDelete();
+  }
+};
+
+const confirmDeleteComment = (commentId) => {
+  if (confirm("댓글을 삭제하시겠습니까?")) {
+    deleteComment(commentId);
+  }
+};
+
 onMounted(() => {
   store.getArticle(article_id);
 });
@@ -242,4 +254,3 @@ onMounted(() => {
   width: 100%;
 }
 </style>
-

@@ -10,6 +10,7 @@ from django.forms.models import model_to_dict
 from itertools import groupby
 
 
+
 # Create your views here.
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

@@ -148,7 +148,7 @@ def ER_graph(request):
         diff = abs(final_1 - final_2)
 
         plt.text(70, 400, countries[c], fontsize=20, transform=None)
-        plt.text(70, 360, final_1, fontweight='bold', fontsize=18, transform=None)
+        plt.text(70, 360, "{:,}".format(final_1), fontweight='bold', fontsize=18, transform=None)
 
         if final_1 > final_2:
                 plt.text(70, 320, '▲ '+ str(round(diff,2))+ ' ('+ str(round(diff/final_1*100,2))+'%)', fontsize=12, transform=None, color='red')
@@ -225,11 +225,11 @@ def ER_graph_predict(request):
 
 
         final_1 = round(forecast.iloc[-1],2)
-        final_2 = round(forecast.iloc[-2],2)
+        final_2 = round(dfwon['DATA_VALUE'].iloc[-1],2)
         diff = abs(final_1 - final_2)
 
         plt.text(70, 400, countries[c], fontsize=20, transform=None)
-        plt.text(70, 360, final_1, fontweight='bold', fontsize=18, transform=None)
+        plt.text(70, 360, "{:,}".format(final_1), fontweight='bold', fontsize=18, transform=None)
 
         if final_1 > final_2:
                 plt.text(70, 320, '▲ '+ str(round(diff,2))+ ' ('+ str(round(diff/final_1*100,2))+'%)', fontsize=12, transform=None, color='red')

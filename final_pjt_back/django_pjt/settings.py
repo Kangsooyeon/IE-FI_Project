@@ -99,8 +99,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173'
+    'http://ec2-54-180-133-25.ap-northeast-2.compute.amazonaws.com:5173/',
+    'https://ec2-54-180-133-25.ap-northeast-2.compute.amazonaws.com:5173/'
 ]
 
 ROOT_URLCONF = 'django_pjt.urls'

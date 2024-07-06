@@ -41,7 +41,10 @@ API_KEY_ER_GRAPH = env('API_KEY_ER_GRAPH')
 API_KEY_NAVER_ID = env('API_KEY_NAVER_ID')
 API_KEY_NAVER_SECRET = env('API_KEY_NAVER_SECRET')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'http://ec2-54-180-133-25.ap-northeast-2.compute.amazonaws.com:5173/',
+    'https://ec2-54-180-133-25.ap-northeast-2.compute.amazonaws.com:5173/'
+]
 
 
 # Application definition

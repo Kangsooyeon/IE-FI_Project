@@ -17,7 +17,7 @@ from datetime import datetime
 from statsmodels.tsa.arima.model import ARIMA
 import statsmodels.api as sm
 
-font_path = 'C:/Windows/Fonts/malgunbd.ttf'
+font_path = 'exchangerate/GEORGIA.TTF'
 font_name = fm.FontProperties(fname=font_path).get_name()
 plt.rc('font', family=font_name)
 

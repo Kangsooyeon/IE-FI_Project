@@ -6,14 +6,28 @@
         <form>
           <div class="mb-3">
             <label for="title" class="form-label">제목</label>
-            <input type="text" v-model="newArticle.title" id="title" class="form-control" required>
+            <input
+              type="text"
+              v-model="newArticle.title"
+              id="title"
+              class="form-control"
+              required
+            />
           </div>
           <div class="mb-3">
             <label for="content" class="form-label">내용</label>
-            <textarea v-model="newArticle.content" id="content" class="form-control" rows="15" required></textarea>
+            <textarea
+              v-model="newArticle.content"
+              id="content"
+              class="form-control"
+              rows="15"
+              required
+            ></textarea>
           </div>
         </form>
-        <button @click="submitArticle" type="submit" class="btn btn-primary">제출</button>
+        <button @click="submitArticle" type="submit" class="btn btn-primary">
+          제출
+        </button>
         <button @click="cancel" class="btn btn-secondary ml-2">취소</button>
       </div>
     </div>
@@ -21,24 +35,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import axios from 'axios';
-import { useProjectStore } from '@/stores/project';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import axios from "axios";
+import { useProjectStore } from "@/stores/project";
 
 const router = useRouter();
 const store = useProjectStore();
 const newArticle = ref({
-  title: '',
-  content: '',
+  title: "",
+  content: "",
 });
 
 const submitArticle = () => {
   // 여기에 게시글 생성 로직을 추가합니다.
   // 예: 서버로 데이터 전송 또는 상태 업데이트
   axios({
-    method: 'post',
-    url: 'http://127.0.0.1:8000/articles/create/',
+    method: "post",
+    url: `http://${
+      import.meta.env.VITE_ENV_BACK_END_URL
+    }:8000/articles/create/`,
     data: {
       title: newArticle.value.title,
       content: newArticle.value.content,
@@ -46,18 +62,19 @@ const submitArticle = () => {
     },
     headers: {
       Authorization: `Token ${store.token}`,
-      },
-    }
-  ).then((res)=>{
-    store.getBoardList();
-  }).then((res) => {
-    router.push('/article');
-  });   
+    },
+  })
+    .then((res) => {
+      store.getBoardList();
+    })
+    .then((res) => {
+      router.push("/article");
+    });
   // 게시글 목록 페이지로 리디렉션
 };
 
 const cancel = () => {
-  router.push('/article');
+  router.push("/article");
 };
 </script>
 
